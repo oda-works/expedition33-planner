@@ -1,0 +1,325 @@
+{
+  "journals": [
+    {
+      "id": "journal_expedition_34",
+      "name": "Journal - Expedition 34",
+      "location": "The Crows",
+      "area": "The Crows",
+      "coordinates": { "x": 45, "y": 60 },
+      "description": "A journal from Expedition 34, detailing their journey into darker territories.",
+      "lore": "Members of Expedition 34 ventured into crow-infested areas, documenting unusual behavior patterns.",
+      "reward": "20x Colour of Lumina (via Berrami)",
+      "missable": false,
+      "found": false
+    },
+    {
+      "id": "journal_expedition_40",
+      "name": "Journal - Expedition 40",
+      "location": "The Continent, near The Monolith",
+      "area": "The Continent",
+      "coordinates": { "x": 70, "y": 30 },
+      "description": "Records from Expedition 40's approach to the mysterious Monolith.",
+      "lore": "Expedition 40 made significant progress toward the Monolith before their mysterious disappearance.",
+      "reward": "20x Colour of Lumina (via Berrami)",
+      "missable": false,
+      "found": false
+    },
+    {
+      "id": "journal_expedition_58",
+      "name": "Journal - Expedition 58",
+      "location": "Old Lumiere (cutscene)",
+      "area": "Old Lumiere",
+      "coordinates": { "x": 25, "y": 75 },
+      "description": "A journal found during story events in Old Lumiere.",
+      "lore": "Expedition 58's final entries reveal disturbing changes in the city of Lumiere.",
+      "reward": "20x Colour of Lumina (via Berrami)",
+      "missable": true,
+      "found": false
+    },
+    {
+      "id": "journal_aline",
+      "name": "Journal - Aline",
+      "location": "The Manor (by central statue)",
+      "area": "The Manor",
+      "coordinates": { "x": 50, "y": 50 },
+      "description": "Aline's personal journal, revealing her thoughts and motivations.",
+      "lore": "Aline's journal provides crucial insight into her role as the Paintress.",
+      "reward": "20x Colour of Lumina (via Berrami)",
+      "missable": false,
+      "found": false
+    },
+    {
+      "id": "journal_julie",
+      "name": "Journal - Julie",
+      "location": "The Continent, west of Forgotten Battlefield",
+      "area": "The Continent",
+      "coordinates": { "x": 35, "y": 85 },
+      "description": "Julie's expedition records from near the Forgotten Battlefield.",
+      "lore": "Julie documented strange occurrences near the battlefield before vanishing.",
+      "reward": "20x Colour of Lumina (via Berrami)",
+      "missable": false,
+      "found": false
+    },
+    {
+      "id": "journal_renoir",
+      "name": "Journal - Renoir",
+      "location": "The Manor (nightstand)",
+      "area": "The Manor",
+      "coordinates": { "x": 65, "y": 40 },
+      "description": "Renoir's personal writings and artistic philosophy.",
+      "lore": "Reveals Renoir's descent into madness and obsession with the painted world.",
+      "reward": "20x Colour of Lumina (via Berrami)",
+      "missable": false,
+      "found": false
+    },
+    {
+      "id": "journal_simon",
+      "name": "Journal - Simon",
+      "location": "The Abyss (after defeating Simon)",
+      "area": "The Abyss",
+      "coordinates": { "x": 50, "y": 95 },
+      "description": "Simon's final thoughts before his ultimate challenge.",
+      "lore": "Simon's journal reveals his preparation for becoming the ultimate test.",
+      "reward": "20x Colour of Lumina (via Berrami)",
+      "missable": false,
+      "found": false,
+      "requirements": "Defeat Simon boss"
+    },
+    {
+      "id": "journal_survivor",
+      "name": "Journal - Survivor",
+      "location": "Old Lumiere (requires Old Key)",
+      "area": "Old Lumiere",
+      "coordinates": { "x": 30, "y": 65 },
+      "description": "Last journal of a mysterious survivor.",
+      "lore": "Final account of someone who witnessed Lumiere's transformation.",
+      "reward": "20x Colour of Lumina (via Berrami)",
+      "missable": false,
+      "found": false,
+      "requirements": "Old Key needed"
+    }
+  ],
+  "music_records": [
+    {
+      "id": "alicia",
+      "name": "Alicia",
+      "location": "The Manor (Alicia's Study)",
+      "area": "The Manor",
+      "coordinates": { "x": 40, "y": 30 },
+      "description": "A haunting melody associated with Alicia.",
+      "composer": "Unknown",
+      "genre": "Classical",
+      "duration": "3:42",
+      "found": false
+    },
+    {
+      "id": "alicias_birthday_party",
+      "name": "Alicia's Birthday Party",
+      "location": "Boat Graveyard",
+      "area": "Boat Graveyard",
+      "coordinates": { "x": 20, "y": 80 },
+      "description": "Joyful music from happier times.",
+      "composer": "Unknown",
+      "genre": "Celebration",
+      "duration": "2:18",
+      "found": false
+    },
+    {
+      "id": "aline",
+      "name": "Aline",
+      "location": "White Sands",
+      "area": "White Sands",
+      "coordinates": { "x": 75, "y": 25 },
+      "description": "Aline's personal theme, beautiful yet melancholic.",
+      "composer": "Unknown",
+      "genre": "Ambient",
+      "duration": "4:15",
+      "found": false
+    },
+    {
+      "id": "alines_glasshouse",
+      "name": "Aline's Glasshouse",
+      "location": "Lost Woods",
+      "area": "Lost Woods",
+      "coordinates": { "x": 15, "y": 40 },
+      "description": "Music from Aline's private sanctuary.",
+      "composer": "Unknown",
+      "genre": "Atmospheric",
+      "duration": "5:03",
+      "found": false
+    },
+    {
+      "id": "children_of_lumiere",
+      "name": "Children of Lumière",
+      "location": "The Continent (purchasable)",
+      "area": "The Continent",
+      "coordinates": { "x": 50, "y": 70 },
+      "description": "A song celebrating the children of the great city.",
+      "composer": "Street Musicians",
+      "genre": "Folk",
+      "duration": "3:28",
+      "found": false,
+      "purchasable": true
+    },
+    {
+      "id": "clea",
+      "name": "Clea",
+      "location": "Endless Tower (complete 11 stages)",
+      "area": "Endless Tower",
+      "coordinates": { "x": 60, "y": 20 },
+      "description": "Clea's theme, obtained after tower completion.",
+      "composer": "Unknown",
+      "genre": "Epic",
+      "duration": "4:45",
+      "found": false,
+      "requirements": "Complete 11 Endless Tower stages"
+    },
+    {
+      "id": "clea_dont_pull",
+      "name": "Clea! Don't Pull Your Sister's Hair!",
+      "location": "The Manor (Clea's Art Room)",
+      "area": "The Manor",
+      "coordinates": { "x": 35, "y": 45 },
+      "description": "A playful, childish tune from family memories.",
+      "composer": "Family Music Box",
+      "genre": "Music Box",
+      "duration": "1:52",
+      "found": false
+    },
+    {
+      "id": "endless_light",
+      "name": "Endless Light",
+      "location": "Renoir's Drafts",
+      "area": "Renoir's Drafts",
+      "coordinates": { "x": 80, "y": 90 },
+      "description": "A transcendent piece from the artistic realm.",
+      "composer": "Renoir",
+      "genre": "Ethereal",
+      "duration": "6:12",
+      "found": false
+    },
+    {
+      "id": "lumiere_missable",
+      "name": "Lumière",
+      "location": "Lumiere (from Mime or opera house)",
+      "area": "Lumiere",
+      "coordinates": { "x": 45, "y": 55 },
+      "description": "The city's anthem, must be collected early.",
+      "composer": "City Orchestra",
+      "genre": "Orchestral",
+      "duration": "4:33",
+      "found": false,
+      "missable": true,
+      "requirements": "Defeat Mime or visit opera house early"
+    },
+    {
+      "id": "lettre_a_maelle",
+      "name": "Lettre à Maelle",
+      "location": "Camp (missable relationship scene)",
+      "area": "Camp",
+      "coordinates": { "x": 50, "y": 50 },
+      "description": "A personal musical letter, obtained through character interaction.",
+      "composer": "Verso",
+      "genre": "Piano",
+      "duration": "3:17",
+      "found": false,
+      "missable": true,
+      "requirements": "View Verso piano scene before Act 2 ends"
+    },
+    {
+      "id": "gustave",
+      "name": "Gustave",
+      "location": "Stone Wave Cliffs",
+      "area": "Stone Wave Cliffs",
+      "coordinates": { "x": 25, "y": 15 },
+      "description": "Gustave's heroic theme music.",
+      "composer": "Unknown",
+      "genre": "Heroic",
+      "duration": "3:55",
+      "found": false
+    },
+    {
+      "id": "lune_relationship",
+      "name": "Lune",
+      "location": "Camp (relationship-based)",
+      "area": "Camp",
+      "coordinates": { "x": 50, "y": 50 },
+      "description": "Lune's personal theme, unlocked through friendship.",
+      "composer": "Unknown",
+      "genre": "Artistic",
+      "duration": "4:08",
+      "found": false,
+      "requirements": "High relationship level with Lune"
+    },
+    {
+      "id": "our_drafts_collide",
+      "name": "Our Drafts Collide",
+      "location": "Automatically unlocked after final boss",
+      "area": "Endgame",
+      "coordinates": { "x": 50, "y": 50 },
+      "description": "The climactic piece that plays during the final confrontation.",
+      "composer": "Renoir & Party",
+      "genre": "Finale",
+      "duration": "7:28",
+      "found": false,
+      "requirements": "Complete final boss"
+    }
+  ],
+  "special_items": [
+    {
+      "id": "old_key",
+      "name": "Old Key",
+      "location": "Various locations",
+      "description": "Opens locked areas containing valuable collectibles.",
+      "type": "key_item",
+      "found": false
+    },
+    {
+      "id": "colour_of_lumina",
+      "name": "Colour of Lumina",
+      "location": "Berrami (Gestral Village)",
+      "description": "Valuable currency obtained by trading journals to Berrami.",
+      "type": "currency",
+      "found": false,
+      "notes": "20x per journal traded"
+    }
+  ],
+  "areas": {
+    "the_manor": { "name": "The Manor", "collectibles": 6 },
+    "the_continent": { "name": "The Continent", "collectibles": 8 },
+    "old_lumiere": { "name": "Old Lumiere", "collectibles": 3 },
+    "lumiere": { "name": "Lumiere", "collectibles": 2 },
+    "camp": { "name": "Camp", "collectibles": 4 },
+    "boat_graveyard": { "name": "Boat Graveyard", "collectibles": 2 },
+    "white_sands": { "name": "White Sands", "collectibles": 2 },
+    "lost_woods": { "name": "Lost Woods", "collectibles": 2 },
+    "endless_tower": { "name": "Endless Tower", "collectibles": 1 },
+    "renoirs_drafts": { "name": "Renoir's Drafts", "collectibles": 2 },
+    "stone_wave_cliffs": { "name": "Stone Wave Cliffs", "collectibles": 2 },
+    "the_crows": { "name": "The Crows", "collectibles": 1 },
+    "the_abyss": { "name": "The Abyss", "collectibles": 1 }
+  },
+  "totals": {
+    "journals": 49,
+    "music_records": 33,
+    "nevron_quests": 10,
+    "gestral_games": 5,
+    "lost_gestrals": 9,
+    "monoco_skills": 44,
+    "relationship_interactions": 35,
+    "total_collectibles": 185
+  },
+  "achievements": {
+    "follow_the_trail": {
+      "name": "Follow The Trail",
+      "description": "Collect all Expedition Journals",
+      "requirement": "49 journals"
+    },
+    "connoisseur": {
+      "name": "Connoisseur",
+      "description": "Collect all Music Records",
+      "requirement": "33 music records"
+    }
+  },
+  "missable_warning": "Only 3 collectibles are missable: 1 Journal, 1 Record (Lumière), and 1 Relationship Interaction. Plan accordingly!"
+}

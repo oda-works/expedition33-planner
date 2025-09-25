@@ -1,0 +1,37 @@
+<svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="luneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2a4a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a4a7a;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="moonGrad" cx="50%" cy="30%" r="40%">
+      <stop offset="0%" style="stop-color:#E6E6FA;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#9370DB;stop-opacity:0.2" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="200" height="300" fill="url(#luneGrad)" rx="10"/>
+
+  <!-- Moon aura -->
+  <ellipse cx="100" cy="80" rx="70" ry="60" fill="url(#moonGrad)"/>
+
+  <!-- Stars -->
+  <circle cx="50" cy="50" r="2" fill="#E6E6FA" opacity="0.8"/>
+  <circle cx="150" cy="60" r="1.5" fill="#E6E6FA" opacity="0.6"/>
+  <circle cx="170" cy="90" r="1" fill="#E6E6FA" opacity="0.7"/>
+  <circle cx="30" cy="100" r="1.5" fill="#E6E6FA" opacity="0.5"/>
+
+  <!-- Character silhouette -->
+  <ellipse cx="100" cy="80" rx="35" ry="45" fill="#4B0082" opacity="0.9"/>
+  <rect x="75" y="125" width="50" height="125" rx="10" fill="#4B0082" opacity="0.9"/>
+
+  <!-- Researcher tools -->
+  <rect x="120" y="180" width="20" height="3" rx="1" fill="#D4AF37" opacity="0.8"/>
+  <circle cx="130" cy="175" r="4" fill="#E6E6FA" opacity="0.7"/>
+
+  <!-- Character name and title -->
+  <rect x="10" y="260" width="180" height="30" rx="5" fill="rgba(75,0,130,0.9)"/>
+  <text x="100" y="275" text-anchor="middle" fill="#E6E6FA" font-family="serif" font-size="14" font-weight="bold">LUNE</text>
+  <text x="100" y="285" text-anchor="middle" fill="#FFF" font-family="serif" font-size="10">Researcher • Knowledge</text>
+</svg>

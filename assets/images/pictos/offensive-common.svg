@@ -1,0 +1,22 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="offensiveCommonGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FCA5A5;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#EF4444;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#991B1B;stop-opacity:0.9" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#offensiveCommonGrad)" stroke="#9CA3AF" stroke-width="2"/>
+
+  <!-- Sword symbol -->
+  <path d="M32 12 L36 16 L36 40 L40 44 L40 48 L24 48 L24 44 L28 40 L28 16 Z" fill="#FFF" stroke="#EF4444" stroke-width="1"/>
+  <rect x="28" y="40" width="8" height="8" rx="2" fill="#EF4444"/>
+
+  <!-- Inner glow -->
+  <path d="M32 12 L36 16 L36 40 L40 44 L40 48 L24 48 L24 44 L28 40 L28 16 Z" fill="none" stroke="#FCA5A5" stroke-width="0.5" opacity="0.8"/>
+
+  <!-- Rarity border -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#9CA3AF" stroke-width="1" opacity="0.6"/>
+</svg>

@@ -1,0 +1,80 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lightBlade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFACD;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F0E68C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shadowBlade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4B0082;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2F1B69;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#191970;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="dualCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#FFD700;stop-opacity:0.8" />
+      <stop offset="70%" style="stop-color:#4B0082;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Light blade (left) -->
+  <path d="M18 8 L20 10 L20 35 L18 37 L16 35 L16 10 Z"
+        fill="url(#lightBlade)" stroke="#DAA520" stroke-width="1"/>
+
+  <!-- Shadow blade (right) -->
+  <path d="M46 8 L48 10 L48 35 L46 37 L44 35 L44 10 Z"
+        fill="url(#shadowBlade)" stroke="#191970" stroke-width="1"/>
+
+  <!-- Central connecting hilt -->
+  <rect x="26" y="35" width="12" height="8" rx="2"
+        fill="url(#dualCore)" stroke="#2F1B69" stroke-width="1"/>
+
+  <!-- Light blade handle -->
+  <rect x="17" y="37" width="4" height="12" rx="1"
+        fill="#F0E68C" stroke="#DAA520" stroke-width="1"/>
+
+  <!-- Shadow blade handle -->
+  <rect x="45" y="37" width="4" height="12" rx="1"
+        fill="#2F1B69" stroke="#191970" stroke-width="1"/>
+
+  <!-- Dual nature symbol in center -->
+  <circle cx="32" cy="39" r="3" fill="url(#dualCore)" stroke="#666" stroke-width="0.5"/>
+  <path d="M32 36 Q35 39 32 42 Q29 39 32 36" fill="#FFFFFF"/>
+  <path d="M32 42 Q29 39 32 36 Q35 39 32 42" fill="#000000"/>
+
+  <!-- Light energy wisps -->
+  <g opacity="0.8">
+    <circle cx="12" cy="15" r="1" fill="#FFD700"/>
+    <circle cx="14" cy="25" r="0.8" fill="#FFFACD"/>
+    <circle cx="10" cy="30" r="0.6" fill="#F0E68C"/>
+  </g>
+
+  <!-- Shadow energy wisps -->
+  <g opacity="0.8">
+    <circle cx="52" cy="15" r="1" fill="#4B0082"/>
+    <circle cx="50" cy="25" r="0.8" fill="#2F1B69"/>
+    <circle cx="54" cy="30" r="0.6" fill="#191970"/>
+  </g>
+
+  <!-- Blade glows -->
+  <line x1="18" y1="10" x2="18" y2="35" stroke="#FFFFFF" stroke-width="0.5" opacity="0.6"/>
+  <line x1="46" y1="10" x2="46" y2="35" stroke="#8B00FF" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- Perfection ranking symbols -->
+  <g transform="translate(32,52)" opacity="0.7">
+    <polygon points="-2,-2 0,-4 2,-2 2,2 0,4 -2,2"
+             fill="none" stroke="#FFD700" stroke-width="0.5"/>
+    <polygon points="-1,-1 0,-2 1,-1 1,1 0,2 -1,1"
+             fill="none" stroke="#4B0082" stroke-width="0.5"/>
+  </g>
+
+  <!-- Handle grip details -->
+  <line x1="17.5" y1="40" x2="19.5" y2="40" stroke="#DAA520" stroke-width="0.3"/>
+  <line x1="17.5" y1="43" x2="19.5" y2="43" stroke="#DAA520" stroke-width="0.3"/>
+  <line x1="17.5" y1="46" x2="19.5" y2="46" stroke="#DAA520" stroke-width="0.3"/>
+
+  <line x1="45.5" y1="40" x2="47.5" y2="40" stroke="#191970" stroke-width="0.3"/>
+  <line x1="45.5" y1="43" x2="47.5" y2="43" stroke="#191970" stroke-width="0.3"/>
+  <line x1="45.5" y1="46" x2="47.5" y2="46" stroke="#191970" stroke-width="0.3"/>
+</svg>

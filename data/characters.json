@@ -1,0 +1,325 @@
+{
+  "characters": {
+    "gustave": {
+      "id": "gustave",
+      "name": "Gustave",
+      "image": "https://www.creativeuncut.com/gallery-48/art/coe33-gustave-art_s.jpg",
+      "description": "Engineer and leader of the 33rd Expedition. A resourceful fighter with a mechanical arm who wields sword and pistol.",
+      "role": "Leader/Engineer",
+      "element": "Lightning",
+      "quote": "For those who come after.",
+      "weapon_name": "Noahram",
+      "baseStats": {
+        "level1": {
+          "hp": 1000,
+          "attack": 150,
+          "defense": 120,
+          "speed": 100,
+          "critRate": 5,
+          "critDamage": 150
+        },
+        "level50": {
+          "hp": 2500,
+          "attack": 400,
+          "defense": 350,
+          "speed": 180,
+          "critRate": 15,
+          "critDamage": 200
+        }
+      },
+      "attributeScaling": {
+        "vitality": {
+          "hp": 50,
+          "defense": 5
+        },
+        "agility": {
+          "speed": 10,
+          "critRate": 0.5
+        },
+        "defense": {
+          "defense": 15,
+          "hp": 20
+        },
+        "luck": {
+          "critRate": 1,
+          "critDamage": 5
+        }
+      },
+      "uniqueMechanic": {
+        "name": "Overcharge",
+        "description": "Builds lightning damage charges through attacks. Accumulated charges can be unleashed for devastating damage."
+      },
+      "weapons": ["abysseram", "steampunk_rifle", "guardian_shield"],
+      "defaultWeapon": "abysseram"
+    },
+    "lune": {
+      "id": "lune",
+      "name": "Lune",
+      "image": "https://www.creativeuncut.com/gallery-48/art/coe33-lune-art_s.jpg",
+      "description": "Brilliant scholar and mage who manipulates elemental magic. Generates and consumes 5 types of Elemental Stains.",
+      "role": "Scholar/Mage",
+      "element": "Elemental",
+      "quote": "When one falls, we continue.",
+      "weapon_name": "Lunerim",
+      "baseStats": {
+        "level1": {
+          "hp": 800,
+          "attack": 180,
+          "defense": 80,
+          "speed": 130,
+          "critRate": 10,
+          "critDamage": 160
+        },
+        "level50": {
+          "hp": 2000,
+          "attack": 450,
+          "defense": 200,
+          "speed": 220,
+          "critRate": 25,
+          "critDamage": 230
+        }
+      },
+      "attributeScaling": {
+        "vitality": {
+          "hp": 40,
+          "defense": 3
+        },
+        "agility": {
+          "speed": 12,
+          "critRate": 0.7
+        },
+        "defense": {
+          "defense": 10,
+          "hp": 15
+        },
+        "luck": {
+          "critRate": 1.2,
+          "critDamage": 6
+        }
+      },
+      "uniqueMechanic": {
+        "name": "Elemental Stains",
+        "description": "Generates and consumes 5 types of Elemental Stains for powerful magical effects and combinations."
+      },
+      "weapons": ["artistic_brush", "palette_staff", "color_tome"],
+      "defaultWeapon": "artistic_brush"
+    },
+    "maelle": {
+      "id": "maelle",
+      "name": "Maelle",
+      "image": "https://www.creativeuncut.com/gallery-48/art/coe33-maelle-art_s.jpg",
+      "description": "Protagonist and Gustave's foster daughter. A skilled rapier fighter with multiple combat stances.",
+      "role": "Protagonist/Duelist",
+      "element": "Neutral",
+      "quote": "I've had enough condolences.",
+      "weapon_name": "Maellum",
+      "baseStats": {
+        "level1": {
+          "hp": 750,
+          "attack": 200,
+          "defense": 70,
+          "speed": 150,
+          "critRate": 20,
+          "critDamage": 180
+        },
+        "level50": {
+          "hp": 1800,
+          "attack": 520,
+          "defense": 180,
+          "speed": 280,
+          "critRate": 40,
+          "critDamage": 280
+        }
+      },
+      "attributeScaling": {
+        "vitality": {
+          "hp": 35,
+          "defense": 2
+        },
+        "agility": {
+          "speed": 15,
+          "critRate": 1
+        },
+        "defense": {
+          "defense": 8,
+          "hp": 12
+        },
+        "luck": {
+          "critRate": 1.5,
+          "critDamage": 8
+        }
+      },
+      "uniqueMechanic": {
+        "name": "Stance System",
+        "description": "Can switch between Stanceless, Defensive, Offensive, and Virtuose stances for different combat styles."
+      },
+      "weapons": ["sniper_rifle", "wind_bow", "precision_crossbow"],
+      "defaultWeapon": "sniper_rifle"
+    },
+    "sciel": {
+      "id": "sciel",
+      "name": "Sciel",
+      "image": "https://www.creativeuncut.com/gallery-48/art/coe33-sciel-art_s.jpg",
+      "description": "Calm and cheerful warrior who wields a scythe. Uses a mystical Foretell system with Sun and Moon charges.",
+      "role": "Warrior/Mystic",
+      "element": "Celestial",
+      "quote": "Death is a friend who will welcome me home.",
+      "weapon_name": "Scieleson",
+      "baseStats": {
+        "level1": {
+          "hp": 900,
+          "attack": 170,
+          "defense": 100,
+          "speed": 120,
+          "critRate": 12,
+          "critDamage": 165
+        },
+        "level50": {
+          "hp": 2200,
+          "attack": 430,
+          "defense": 280,
+          "speed": 210,
+          "critRate": 28,
+          "critDamage": 240
+        }
+      },
+      "attributeScaling": {
+        "vitality": {
+          "hp": 45,
+          "defense": 4
+        },
+        "agility": {
+          "speed": 11,
+          "critRate": 0.8
+        },
+        "defense": {
+          "defense": 12,
+          "hp": 18
+        },
+        "luck": {
+          "critRate": 1.1,
+          "critDamage": 6
+        }
+      },
+      "uniqueMechanic": {
+        "name": "Foretell System",
+        "description": "Uses Sun and Moon charges to predict and influence battle outcomes with mystical powers."
+      },
+      "weapons": ["noble_rapier", "light_saber", "ceremonial_blade"],
+      "defaultWeapon": "noble_rapier"
+    },
+    "verso": {
+      "id": "verso",
+      "name": "Verso",
+      "description": "Enigmatic member of Expedition Zero. Uses a Perfection Ranking system and dual-wielded weapons.",
+      "role": "Expedition Zero/Perfectionist",
+      "element": "Dual",
+      "quote": "Our Whole World Carries The Burden Of Your Family's Grief.",
+      "weapon_name": "Verleso",
+      "baseStats": {
+        "level1": {
+          "hp": 850,
+          "attack": 160,
+          "defense": 90,
+          "speed": 140,
+          "critRate": 8,
+          "critDamage": 155
+        },
+        "level50": {
+          "hp": 2100,
+          "attack": 410,
+          "defense": 240,
+          "speed": 250,
+          "critRate": 22,
+          "critDamage": 220
+        }
+      },
+      "attributeScaling": {
+        "vitality": {
+          "hp": 42,
+          "defense": 3
+        },
+        "agility": {
+          "speed": 13,
+          "critRate": 0.6
+        },
+        "defense": {
+          "defense": 11,
+          "hp": 16
+        },
+        "luck": {
+          "critRate": 0.9,
+          "critDamage": 7
+        }
+      },
+      "uniqueMechanic": {
+        "name": "Perfection Ranking",
+        "description": "Gains power through achieving perfect performance ratings in various combat scenarios."
+      },
+      "weapons": ["dual_daggers", "shadow_blade", "light_staff"],
+      "defaultWeapon": "dual_daggers"
+    },
+    "monoco": {
+      "id": "monoco",
+      "name": "Monoco",
+      "description": "Gestral fighter who wields a staff and can transform using different masks. Master of skill capturing.",
+      "role": "Gestral Fighter/Shapeshifter",
+      "element": "Bestial",
+      "quote": "My what lovely feet.",
+      "weapon_name": "Monocaro",
+      "baseStats": {
+        "level1": {
+          "hp": 700,
+          "attack": 140,
+          "defense": 85,
+          "speed": 110,
+          "critRate": 6,
+          "critDamage": 145
+        },
+        "level50": {
+          "hp": 1700,
+          "attack": 350,
+          "defense": 220,
+          "speed": 190,
+          "critRate": 18,
+          "critDamage": 195
+        }
+      },
+      "attributeScaling": {
+        "vitality": {
+          "hp": 38,
+          "defense": 3
+        },
+        "agility": {
+          "speed": 9,
+          "critRate": 0.4
+        },
+        "defense": {
+          "defense": 9,
+          "hp": 14
+        },
+        "luck": {
+          "critRate": 0.8,
+          "critDamage": 4
+        }
+      },
+      "uniqueMechanic": {
+        "name": "Bestial Wheel",
+        "description": "Uses different mask abilities and can capture skills from enemies for versatile combat options."
+      },
+      "weapons": ["tech_rifle", "gadget_launcher", "electric_staff"],
+      "defaultWeapon": "tech_rifle"
+    }
+  },
+  "attributeMaxPoints": {
+    "level10": 20,
+    "level20": 50,
+    "level30": 90,
+    "level40": 140,
+    "level50": 200
+  },
+  "levelCaps": {
+    "base_game": 50,
+    "new_game_plus": 99
+  }
+}

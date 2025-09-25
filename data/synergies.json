@@ -1,0 +1,363 @@
+{
+  "character_synergies": {
+    "burn_stack_combo": {
+      "name": "Burn Stack Mastery",
+      "description": "Multiple characters with burn abilities create exponential damage scaling",
+      "requirements": {
+        "characters": ["gustave", "lune"],
+        "weapons": ["medalum_variant", "flame_brush"],
+        "pictos": ["burn_master", "flame_specialist"]
+      },
+      "effects": [
+        "Burn damage stacks multiplicatively instead of additively",
+        "Burn spreads to adjacent enemies automatically",
+        "Each burn stack increases party's fire damage by 15%"
+      ],
+      "power_rating": 9
+    },
+    "critical_cascade": {
+      "name": "Critical Hit Cascade",
+      "description": "Chain critical hits between Maelle and Sciel for massive damage",
+      "requirements": {
+        "characters": ["maelle", "sciel"],
+        "pictos": ["precision_expert", "critical_surge", "blade_dancer"],
+        "luminas": ["yellow_lumina", "crystal_lumina"]
+      },
+      "effects": [
+        "Critical hits grant adjacent allies +25% crit chance for next attack",
+        "Chain critical hits increase damage by 50% per link",
+        "Perfect chain (4+ crits) grants party-wide damage boost"
+      ],
+      "power_rating": 8
+    },
+    "support_network": {
+      "name": "Healing Support Network",
+      "description": "Lune and Verso create powerful healing and buff synergies",
+      "requirements": {
+        "characters": ["lune", "verso"],
+        "pictos": ["healing_aura", "paint_splash", "dual_nature"],
+        "luminas": ["pink_lumina", "white_lumina"]
+      },
+      "effects": [
+        "Paint healing effects trigger Verso's light form abilities",
+        "Light form abilities enhance paint technique effectiveness",
+        "Party regenerates 3% HP and 1 AP per turn when both characters active"
+      ],
+      "power_rating": 7
+    },
+    "tech_overload": {
+      "name": "Technological Overcharge",
+      "description": "Gustave and Monoco combine tech and overcharge for devastating effects",
+      "requirements": {
+        "characters": ["gustave", "monoco"],
+        "pictos": ["tech_savvy", "overcharge_amplifier", "gadget_expert"],
+        "weapons": ["abysseram", "quantum_rifle"]
+      },
+      "effects": [
+        "Gadgets generate charge for Gustave's Overcharge ability",
+        "Overcharge triggers enhanced gadget effects in large area",
+        "Tech weapons gain +100% damage when Overcharge is ready"
+      ],
+      "power_rating": 9
+    },
+    "balanced_formation": {
+      "name": "Perfect Balance Formation",
+      "description": "Optimal party setup with complementary roles and abilities",
+      "requirements": {
+        "active_party": ["gustave", "lune", "maelle"],
+        "reserve_party": ["sciel", "verso", "monoco"],
+        "formation": "tank_dps_support"
+      },
+      "effects": [
+        "Each character gains bonuses based on their role fulfillment",
+        "Switch-in bonuses when reserve characters replace actives",
+        "Formation bonus: +20% to all stats when roles are perfectly filled"
+      ],
+      "power_rating": 8
+    },
+    "elemental_coverage": {
+      "name": "Complete Elemental Coverage",
+      "description": "Party setup covering all elemental weaknesses",
+      "requirements": {
+        "elements": ["fire", "water", "earth", "air", "light", "shadow"],
+        "pictos": ["elemental_harmony"],
+        "party_size": 6
+      },
+      "effects": [
+        "No enemy is resistant to party's elemental attacks",
+        "Elemental chain attacks deal +200% damage",
+        "Party immune to elemental debuffs"
+      ],
+      "power_rating": 7
+    }
+  },
+  "weapon_synergies": {
+    "medalum_simoso": {
+      "name": "Burn Weapon Mastery",
+      "description": "Specific weapon combination for maximum burn effectiveness",
+      "requirements": {
+        "weapons": ["medalum_gustav", "simoso_variant"],
+        "characters": ["gustave", "any_support"]
+      },
+      "effects": [
+        "Burn damage from these weapons stacks uniquely",
+        "Each weapon's burn triggers the other's special effect",
+        "Combined burn creates 'Inferno' status: spreads and intensifies"
+      ],
+      "power_rating": 8
+    },
+    "signature_mastery": {
+      "name": "Signature Weapon Mastery",
+      "description": "Using each character's signature weapon unlocks ultimate potential",
+      "requirements": {
+        "weapons": ["abysseram", "artistic_brush", "precision_rifle", "noble_rapier", "twin_shadows", "gadget_rifle"],
+        "evolution_stage": "stage3"
+      },
+      "effects": [
+        "All signature weapons gain unique party-wide buffs",
+        "Cross-character weapon techniques become available",
+        "Ultimate combo attacks unlock with 2+ signature weapons"
+      ],
+      "power_rating": 9
+    }
+  },
+  "pictos_synergies": {
+    "speed_precision": {
+      "name": "Swift Precision Combo",
+      "description": "Combining speed and accuracy for perfect combat flow",
+      "requirements": {
+        "pictos": ["speed_demon", "precision_expert", "augmented_aim"],
+        "character_type": "ranged"
+      },
+      "effects": [
+        "High speed enables multiple precision shots per turn",
+        "Perfect accuracy shots reduce cooldowns by 50%",
+        "Movement doesn't reduce accuracy penalties"
+      ],
+      "combo_bonus": "Bullet Time: Slow motion targeting mode",
+      "power_rating": 7
+    },
+    "defensive_wall": {
+      "name": "Impenetrable Defense",
+      "description": "Ultimate defensive combination for tank builds",
+      "requirements": {
+        "pictos": ["fortress_stance", "healing_aura", "recovery_boost"],
+        "character_role": "tank"
+      },
+      "effects": [
+        "Damage reduction stacks multiplicatively",
+        "Healing effects trigger damage reflection",
+        "Cannot be reduced below 1 HP while stance is active"
+      ],
+      "combo_bonus": "Guardian Mode: Protect all allies from single-target attacks",
+      "power_rating": 8
+    },
+    "berserker_surge": {
+      "name": "Unstoppable Rage",
+      "description": "Maximum offensive power through controlled fury",
+      "requirements": {
+        "pictos": ["berserker_rage", "battle_fervor", "critical_surge"],
+        "health_requirement": "below_50_percent"
+      },
+      "effects": [
+        "Damage bonuses stack without limit for duration of battle",
+        "Critical hits restore health and extend berserker duration",
+        "Attack speed increases with each enemy defeated"
+      ],
+      "combo_bonus": "Rampage Mode: Area attacks hit all enemies on field",
+      "power_rating": 9
+    },
+    "shadow_assassin": {
+      "name": "Perfect Stealth Strike",
+      "description": "Ultimate stealth and assassination combination",
+      "requirements": {
+        "pictos": ["shadow_step", "precision_expert", "critical_surge"],
+        "character": "verso_shadow_form"
+      },
+      "effects": [
+        "Stealth attacks have 100% critical chance",
+        "Critical stealth attacks instantly defeat enemies below 30% health",
+        "Each stealth kill extends stealth duration by 1 turn"
+      ],
+      "combo_bonus": "Phantom Mode: Become untargetable for 3 turns",
+      "power_rating": 8
+    },
+    "paint_mastery": {
+      "name": "Artistic Perfection",
+      "description": "Lune's ultimate paint technique combination",
+      "requirements": {
+        "pictos": ["paint_splash", "elemental_harmony", "healing_aura"],
+        "character": "lune",
+        "gestrals_collected": 5
+      },
+      "effects": [
+        "Paint techniques affect entire battlefield",
+        "Can apply multiple paint effects simultaneously",
+        "Paint effects persist between battles"
+      ],
+      "combo_bonus": "Master Artist: Paint abilities cost no resources",
+      "power_rating": 9
+    }
+  },
+  "lumina_synergies": {
+    "monochrome_mastery": {
+      "red_focus": {
+        "name": "Crimson Destroyer",
+        "description": "All red Luminas for pure offensive power",
+        "requirements": {"all_luminas": "red_variants"},
+        "bonus": "+50% attack damage, +25% critical damage"
+      },
+      "blue_focus": {
+        "name": "Azure Guardian",
+        "description": "All blue Luminas for ultimate defense",
+        "requirements": {"all_luminas": "blue_variants"},
+        "bonus": "+75% defense, +40% health, damage reduction"
+      },
+      "green_focus": {
+        "name": "Emerald Wind",
+        "description": "All green Luminas for maximum speed",
+        "requirements": {"all_luminas": "green_variants"},
+        "bonus": "+100% speed, +50% dodge, extra actions"
+      }
+    },
+    "rainbow_combinations": {
+      "primary_spectrum": {
+        "name": "Primary Color Mastery",
+        "requirements": {"luminas": ["red_lumina", "blue_lumina", "yellow_lumina"]},
+        "bonus": "Balanced +30% to attack, defense, and critical rate"
+      },
+      "secondary_spectrum": {
+        "name": "Secondary Harmony",
+        "requirements": {"luminas": ["green_lumina", "orange_lumina", "purple_lumina"]},
+        "bonus": "Advanced combination effects and unique abilities"
+      },
+      "tertiary_spectrum": {
+        "name": "Tertiary Perfection",
+        "requirements": {"luminas": ["cyan_lumina", "pink_lumina", "white_lumina"]},
+        "bonus": "Master-tier bonuses and exclusive combination attacks"
+      }
+    },
+    "legendary_combinations": {
+      "divine_trinity": {
+        "name": "Divine Trinity",
+        "requirements": {"luminas": ["rainbow_lumina", "void_lumina", "crystal_lumina"]},
+        "bonus": "Transcendent power - all abilities enhanced to maximum potential",
+        "power_rating": 10
+      }
+    }
+  },
+  "formation_synergies": {
+    "front_line_rush": {
+      "name": "Aggressive Front Line",
+      "description": "All melee fighters in active party for maximum pressure",
+      "formation": ["gustave", "sciel", "verso"],
+      "effects": [
+        "Melee attacks gain area damage",
+        "Movement abilities enhanced",
+        "Chain attack opportunities increased"
+      ],
+      "weakness": "Vulnerable to area attacks"
+    },
+    "ranged_support": {
+      "name": "Tactical Overwatch",
+      "description": "Ranged fighters with support for battlefield control",
+      "formation": ["maelle", "lune", "monoco"],
+      "effects": [
+        "Enhanced range and accuracy for all attacks",
+        "Support abilities affect entire battlefield",
+        "Superior positioning and movement options"
+      ],
+      "weakness": "Vulnerable in close combat"
+    },
+    "balanced_trinity": {
+      "name": "Perfect Balance",
+      "description": "Tank, DPS, Support for optimal team composition",
+      "formation": ["gustave", "maelle", "lune"],
+      "effects": [
+        "Each role provides bonuses to others",
+        "Optimal AP distribution and action economy",
+        "Maximum tactical flexibility"
+      ],
+      "power_rating": 8
+    }
+  },
+  "enemy_counters": {
+    "burn_immune_strategy": {
+      "name": "Anti-Burn Enemy Counter",
+      "description": "Alternative strategies when burn effects are ineffective",
+      "recommended_setup": {
+        "characters": ["maelle", "sciel", "verso"],
+        "pictos": ["critical_surge", "precision_expert", "shadow_step"],
+        "focus": "critical_damage"
+      }
+    },
+    "high_defense_breaker": {
+      "name": "Armor Piercing Strategy",
+      "description": "Breaking through heavily armored opponents",
+      "recommended_setup": {
+        "characters": ["gustave", "monoco", "lune"],
+        "abilities": ["overcharge", "gadget_deployment", "paint_debuffs"],
+        "focus": "defense_ignore"
+      }
+    },
+    "speed_demon_counter": {
+      "name": "Fast Enemy Counter",
+      "description": "Dealing with extremely fast enemies",
+      "recommended_setup": {
+        "pictos": ["speed_demon", "shadow_step", "precision_expert"],
+        "strategy": "out_speed_and_predict",
+        "focus": "accuracy_and_speed"
+      }
+    }
+  },
+  "meta_builds": {
+    "speedrun_build": {
+      "name": "Speedrun Optimizer",
+      "description": "Optimized for fastest completion times",
+      "priority_stats": ["speed", "damage", "AP_efficiency"],
+      "characters": ["maelle", "verso", "monoco"],
+      "core_pictos": ["speed_demon", "critical_surge", "tech_savvy"]
+    },
+    "boss_killer": {
+      "name": "Boss Destroyer",
+      "description": "Maximum single-target damage for boss fights",
+      "priority_stats": ["attack", "critical_damage", "penetration"],
+      "characters": ["gustave", "maelle", "sciel"],
+      "core_pictos": ["berserker_rage", "critical_surge", "overcharge_amplifier"]
+    },
+    "survival_build": {
+      "name": "Endurance Master",
+      "description": "Maximum survivability for difficult encounters",
+      "priority_stats": ["hp", "defense", "healing"],
+      "characters": ["gustave", "lune", "verso"],
+      "core_pictos": ["fortress_stance", "healing_aura", "recovery_boost"]
+    },
+    "hundred_percent": {
+      "name": "Completionist Build",
+      "description": "Optimized for collecting all items and achievements",
+      "priority_stats": ["exploration", "utility", "versatility"],
+      "characters": ["all_rotated"],
+      "strategy": "character_switching_mastery"
+    }
+  },
+  "new_game_plus_synergies": {
+    "enhanced_combinations": {
+      "description": "NG+ unlocks enhanced versions of existing synergies",
+      "power_multiplier": 1.5,
+      "new_effects": [
+        "Synergies can stack with themselves",
+        "Cross-playthrough bonuses available",
+        "Ultimate combinations unlock"
+      ]
+    },
+    "legacy_bonuses": {
+      "description": "Bonuses based on previous playthrough achievements",
+      "requirements": "completion_data",
+      "effects": [
+        "Retained mastery levels provide permanent bonuses",
+        "Previous build data influences new synergy discoveries",
+        "Cross-character technique sharing unlocked"
+      ]
+    }
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "luminas": {
+    "red_lumina": {
+      "id": "red_lumina",
+      "name": "Lumina of Strength",
+      "color": "Red",
+      "rarity": "common",
+      "cost": 1,
+      "stats": {
+        "attack": 15,
+        "critDamage": 8
+      },
+      "effect": "Increases physical attack power and critical damage.",
+      "location": "Common drop from combat encounters",
+      "synergies": ["burn_master", "berserker_rage", "battle_fervor"]
+    },
+    "blue_lumina": {
+      "id": "blue_lumina",
+      "name": "Lumina of Resilience",
+      "color": "Blue",
+      "rarity": "common",
+      "cost": 1,
+      "stats": {
+        "defense": 20,
+        "hp": 80
+      },
+      "effect": "Enhances defensive capabilities and health.",
+      "location": "Common drop from defensive encounters",
+      "synergies": ["fortress_stance", "healing_aura", "recovery_boost"]
+    },
+    "green_lumina": {
+      "id": "green_lumina",
+      "name": "Lumina of Swiftness",
+      "color": "Green",
+      "rarity": "common",
+      "cost": 1,
+      "stats": {
+        "speed": 12,
+        "dodge": 8
+      },
+      "effect": "Increases movement speed and evasion.",
+      "location": "Common drop from speed-based encounters",
+      "synergies": ["speed_demon", "shadow_step", "dodger"]
+    },
+    "yellow_lumina": {
+      "id": "yellow_lumina",
+      "name": "Lumina of Precision",
+      "color": "Yellow",
+      "rarity": "common",
+      "cost": 1,
+      "stats": {
+        "critRate": 8,
+        "accuracy": 12
+      },
+      "effect": "Improves critical hit chance and accuracy.",
+      "location": "Common drop from precision encounters",
+      "synergies": ["precision_expert", "augmented_aim", "steady_aim"]
+    },
+    "purple_lumina": {
+      "id": "purple_lumina",
+      "name": "Lumina of Harmony",
+      "color": "Purple",
+      "rarity": "uncommon",
+      "cost": 2,
+      "stats": {
+        "attack": 10,
+        "defense": 12,
+        "speed": 8,
+        "critRate": 5
+      },
+      "effect": "Provides balanced bonuses to all combat attributes.",
+      "location": "Reward for balanced combat performance",
+      "synergies": ["elemental_harmony", "dual_nature", "blade_dancer"]
+    },
+    "orange_lumina": {
+      "id": "orange_lumina",
+      "name": "Lumina of Fury",
+      "color": "Orange",
+      "rarity": "uncommon",
+      "cost": 2,
+      "stats": {
+        "attack": 25,
+        "critRate": 12,
+        "berserker_bonus": 20
+      },
+      "effect": "Greatly increases attack power. Additional bonuses when health is low.",
+      "location": "Defeat berserker-type enemies",
+      "synergies": ["berserker_rage", "battle_fervor", "critical_surge"]
+    },
+    "cyan_lumina": {
+      "id": "cyan_lumina",
+      "name": "Lumina of Clarity",
+      "color": "Cyan",
+      "rarity": "uncommon",
+      "cost": 2,
+      "stats": {
+        "critRate": 15,
+        "accuracy": 20,
+        "mental_resistance": 25
+      },
+      "effect": "Enhances precision and provides immunity to mental debuffs.",
+      "location": "Complete mind-based puzzles",
+      "synergies": ["precision_expert", "steady_aim", "tech_savvy"]
+    },
+    "pink_lumina": {
+      "id": "pink_lumina",
+      "name": "Lumina of Compassion",
+      "color": "Pink",
+      "rarity": "uncommon",
+      "cost": 2,
+      "stats": {
+        "hp": 120,
+        "healing_power": 30,
+        "support_bonus": 25
+      },
+      "effect": "Increases healing effectiveness and provides support ability bonuses.",
+      "location": "Help NPCs and complete compassion quests",
+      "synergies": ["healing_aura", "recovery_boost", "paint_splash"]
+    },
+    "white_lumina": {
+      "id": "white_lumina",
+      "name": "Lumina of Purity",
+      "color": "White",
+      "rarity": "rare",
+      "cost": 3,
+      "stats": {
+        "all_stats": 18,
+        "status_immunity": 50,
+        "elemental_resistance": 25
+      },
+      "effect": "Moderate bonus to all stats. High resistance to debuffs and elemental damage.",
+      "location": "Purify corrupted areas",
+      "synergies": ["elemental_harmony", "fortress_stance", "dual_nature"]
+    },
+    "black_lumina": {
+      "id": "black_lumina",
+      "name": "Lumina of Shadow",
+      "color": "Black",
+      "rarity": "rare",
+      "cost": 3,
+      "stats": {
+        "attack": 35,
+        "critDamage": 40,
+        "shadow_bonus": 30,
+        "stealth": 20
+      },
+      "effect": "High offensive bonuses with shadow-based special effects.",
+      "location": "Defeat shadow creatures and explore dark areas",
+      "synergies": ["shadow_step", "dual_nature", "berserker_rage"]
+    },
+    "gold_lumina": {
+      "id": "gold_lumina",
+      "name": "Lumina of Mastery",
+      "color": "Gold",
+      "rarity": "epic",
+      "cost": 4,
+      "stats": {
+        "attack": 30,
+        "defense": 25,
+        "speed": 20,
+        "critRate": 15,
+        "mastery_bonus": 40
+      },
+      "effect": "Significant bonuses to all primary stats. Enhances character-specific abilities.",
+      "location": "Master character-specific challenges",
+      "synergies": ["character_mastery_pictos", "blade_dancer", "overcharge_amplifier"]
+    },
+    "silver_lumina": {
+      "id": "silver_lumina",
+      "name": "Lumina of Reflection",
+      "color": "Silver",
+      "rarity": "epic",
+      "cost": 4,
+      "stats": {
+        "defense": 40,
+        "reflection_damage": 25,
+        "counter_chance": 20,
+        "mental_resistance": 35
+      },
+      "effect": "Reflects portion of received damage back to attackers. Chance to counter attack.",
+      "location": "Complete reflection-based trials",
+      "synergies": ["fortress_stance", "shadow_step", "precision_expert"]
+    },
+    "rainbow_lumina": {
+      "id": "rainbow_lumina",
+      "name": "Lumina of Infinity",
+      "color": "Rainbow",
+      "rarity": "legendary",
+      "cost": 6,
+      "stats": {
+        "all_stats": 40,
+        "special_abilities": 60,
+        "combo_bonus": 50,
+        "ultimate_enhancement": 100
+      },
+      "effect": "Massive bonuses to all stats. Unlocks unique combination effects with any Pictos.",
+      "location": "Complete the ultimate trial in final expedition",
+      "synergies": ["all_pictos"],
+      "unique": true
+    },
+    "void_lumina": {
+      "id": "void_lumina",
+      "name": "Lumina of the Void",
+      "color": "Void",
+      "rarity": "legendary",
+      "cost": 5,
+      "stats": {
+        "attack": 50,
+        "void_damage": 75,
+        "ignore_defense": 40,
+        "chaos_factor": 30
+      },
+      "effect": "Attacks ignore enemy defenses. Chance for chaotic effects that alter battle conditions.",
+      "location": "Defeat the Void Entity (New Game+ Boss)",
+      "synergies": ["berserker_rage", "critical_surge", "elemental_harmony"],
+      "new_game_plus_only": true
+    },
+    "crystal_lumina": {
+      "id": "crystal_lumina",
+      "name": "Lumina of Perfection",
+      "color": "Crystal",
+      "rarity": "legendary",
+      "cost": 5,
+      "stats": {
+        "critRate": 35,
+        "critDamage": 80,
+        "perfect_hit_chance": 25,
+        "flawless_bonus": 50
+      },
+      "effect": "High chance for perfect hits that deal maximum damage. Critical hits restore AP.",
+      "location": "Achieve perfect scores in all combat trials",
+      "synergies": ["precision_expert", "critical_surge", "blade_dancer"],
+      "perfect_run_reward": true
+    }
+  },
+  "lumina_points_by_level": {
+    "1": 2,
+    "5": 4,
+    "10": 6,
+    "15": 8,
+    "20": 10,
+    "25": 12,
+    "30": 14,
+    "35": 16,
+    "40": 18,
+    "45": 20,
+    "50": 22
+  },
+  "color_bonuses": {
+    "monochrome_bonus": {
+      "name": "Monochrome Mastery",
+      "description": "Using only one color of Lumina grants 25% bonus to that color's primary stat",
+      "requirement": "All equipped Luminas must be the same color"
+    },
+    "rainbow_set": {
+      "name": "Spectrum Synergy",
+      "description": "Using 3+ different colored Luminas grants 15% bonus to all stats",
+      "requirement": "Equip 3 or more different colored Luminas"
+    },
+    "complementary_pairs": {
+      "name": "Complementary Colors",
+      "description": "Specific color combinations provide unique bonuses",
+      "combinations": {
+        "red_blue": "Balanced Fighter: +20% to attack and defense",
+        "yellow_purple": "Tactical Genius: +25% critical rate and accuracy",
+        "green_orange": "Berserker Speedster: +30% speed when health below 50%",
+        "cyan_pink": "Support Master: +40% to all support abilities",
+        "white_black": "Yin Yang: Switch between two different stat profiles",
+        "gold_silver": "Precious Metals: All abilities cost -1 AP (minimum 1)"
+      }
+    }
+  },
+  "new_game_plus_bonuses": {
+    "lumina_cap_increase": {
+      "base_game": 22,
+      "new_game_plus": 35,
+      "new_game_plus_2": 50
+    },
+    "special_luminas": {
+      "void_lumina": "Unlocked after defeating Void Entity",
+      "time_lumina": "Unlocked after completing Time Trial mode",
+      "chaos_lumina": "Unlocked with perfect chaos run"
+    }
+  },
+  "mastery_system": {
+    "lumina_resonance": {
+      "description": "Using the same Lumina type repeatedly increases its effectiveness",
+      "levels": {
+        "1": "Base effectiveness",
+        "25": "10% bonus to Lumina effects",
+        "50": "20% bonus + unlock resonance effect",
+        "100": "35% bonus + enhanced resonance",
+        "200": "50% bonus + master resonance"
+      }
+    }
+  }
+}

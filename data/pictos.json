@@ -1,0 +1,435 @@
+{
+  "pictos": [
+    {
+      "id": "dodger",
+      "name": "Dodger",
+      "type": "Support",
+      "lumina_cost": 3,
+      "rarity": "common",
+      "stats": {
+        "level1": {"speed": 5, "defense": 3},
+        "level2": {"speed": 8, "defense": 5},
+        "level3": {"speed": 12, "defense": 7},
+        "level4": {"speed": 15, "defense": 10}
+      },
+      "effect": "+1 AP on perfect dodge. Once per turn.",
+      "location": "Defeat Portier in Spring Meadows",
+      "expedition": 5,
+      "mastery_requirement": 4,
+      "synergies": ["energising_start", "augmented_aim"],
+      "description": "A defensive pictos that rewards skillful dodging with extra action points."
+    },
+    {
+      "id": "energising_start",
+      "name": "Energising Start",
+      "type": "Support",
+      "lumina_cost": 2,
+      "rarity": "common",
+      "stats": {
+        "level1": {"speed": 8},
+        "level2": {"speed": 12},
+        "level3": {"speed": 16},
+        "level4": {"speed": 20}
+      },
+      "effect": "Start battle with +2 AP for first turn.",
+      "location": "Chest in Abandoned Factory",
+      "expedition": 3,
+      "mastery_requirement": 3,
+      "synergies": ["dodger", "quick_strike"],
+      "description": "Provides a strong opening in combat with bonus action points."
+    },
+    {
+      "id": "augmented_aim",
+      "name": "Augmented Aim",
+      "type": "Offensive",
+      "lumina_cost": 4,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"critRate": 10, "accuracy": 15},
+        "level2": {"critRate": 15, "accuracy": 20},
+        "level3": {"critRate": 20, "accuracy": 25},
+        "level4": {"critRate": 25, "accuracy": 30}
+      },
+      "effect": "Critical hits reduce enemy accuracy by 20% for 2 turns.",
+      "location": "Reward for defeating Sniper Elite",
+      "expedition": 8,
+      "mastery_requirement": 5,
+      "synergies": ["dodger", "precision_expert"],
+      "description": "Enhances precision and punishes enemies with debuffs on critical strikes."
+    },
+    {
+      "id": "burn_master",
+      "name": "Burn Master",
+      "type": "Offensive",
+      "lumina_cost": 5,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"attack": 25, "burn_damage": 50},
+        "level2": {"attack": 35, "burn_damage": 75},
+        "level3": {"attack": 45, "burn_damage": 100},
+        "level4": {"attack": 60, "burn_damage": 135}
+      },
+      "effect": "Burn damage spreads to adjacent enemies. Burn duration +1 turn.",
+      "location": "Hidden in Volcanic Caves",
+      "expedition": 18,
+      "mastery_requirement": 6,
+      "synergies": ["medalum_synergy", "flame_specialist"],
+      "description": "Spreads burning effects across the battlefield for devastating area control."
+    },
+    {
+      "id": "healing_aura",
+      "name": "Healing Aura",
+      "type": "Support",
+      "lumina_cost": 4,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"hp": 100, "healing_power": 25},
+        "level2": {"hp": 150, "healing_power": 40},
+        "level3": {"hp": 200, "healing_power": 55},
+        "level4": {"hp": 250, "healing_power": 75}
+      },
+      "effect": "Party members within 2 tiles heal 5% HP per turn.",
+      "location": "Complete Temple of Restoration",
+      "expedition": 12,
+      "mastery_requirement": 4,
+      "synergies": ["party_support", "regeneration"],
+      "description": "Provides passive healing to nearby allies during combat."
+    },
+    {
+      "id": "critical_surge",
+      "name": "Critical Surge",
+      "type": "Offensive",
+      "lumina_cost": 6,
+      "rarity": "epic",
+      "stats": {
+        "level1": {"critRate": 15, "critDamage": 30},
+        "level2": {"critRate": 22, "critDamage": 45},
+        "level3": {"critRate": 30, "critDamage": 60},
+        "level4": {"critRate": 40, "critDamage": 80}
+      },
+      "effect": "Each critical hit increases next critical damage by 25%. Stacks up to 3 times.",
+      "location": "Defeat the Shadow General",
+      "expedition": 25,
+      "mastery_requirement": 7,
+      "synergies": ["precision_expert", "combo_master"],
+      "description": "Builds momentum through consecutive critical hits for massive damage."
+    },
+    {
+      "id": "fortress_stance",
+      "name": "Fortress Stance",
+      "type": "Defensive",
+      "lumina_cost": 5,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"defense": 50, "hp": 150},
+        "level2": {"defense": 75, "hp": 225},
+        "level3": {"defense": 100, "hp": 300},
+        "level4": {"defense": 130, "hp": 400}
+      },
+      "effect": "Cannot be moved or knocked down. Take 25% less damage from area attacks.",
+      "location": "Fortress Ruins treasure room",
+      "expedition": 15,
+      "mastery_requirement": 5,
+      "synergies": ["defensive_mastery", "immovable_object"],
+      "description": "Transforms the user into an unmovable defensive wall."
+    },
+    {
+      "id": "speed_demon",
+      "name": "Speed Demon",
+      "type": "Support",
+      "lumina_cost": 4,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"speed": 25, "dodge": 10},
+        "level2": {"speed": 35, "dodge": 15},
+        "level3": {"speed": 45, "dodge": 20},
+        "level4": {"speed": 60, "dodge": 28}
+      },
+      "effect": "Moving 3+ tiles grants +1 AP for next turn.",
+      "location": "Racing challenge reward",
+      "expedition": 9,
+      "mastery_requirement": 4,
+      "synergies": ["mobility_master", "hit_and_run"],
+      "description": "Rewards high mobility with bonus action points."
+    },
+    {
+      "id": "elemental_harmony",
+      "name": "Elemental Harmony",
+      "type": "Offensive",
+      "lumina_cost": 7,
+      "rarity": "epic",
+      "stats": {
+        "level1": {"attack": 30, "elemental_damage": 40},
+        "level2": {"attack": 45, "elemental_damage": 60},
+        "level3": {"attack": 60, "elemental_damage": 80},
+        "level4": {"attack": 80, "elemental_damage": 105}
+      },
+      "effect": "Attacks cycle through elements: Fire → Water → Earth → Air. Each element applies unique debuffs.",
+      "location": "Complete Elemental Trials",
+      "expedition": 22,
+      "mastery_requirement": 8,
+      "synergies": ["elemental_specialist", "cycle_master"],
+      "description": "Harnesses all elemental forces in a continuous cycle of destruction."
+    },
+    {
+      "id": "battle_fervor",
+      "name": "Battle Fervor",
+      "type": "Offensive",
+      "lumina_cost": 3,
+      "rarity": "common",
+      "stats": {
+        "level1": {"attack": 15, "critRate": 5},
+        "level2": {"attack": 22, "critRate": 8},
+        "level3": {"attack": 30, "critRate": 12},
+        "level4": {"attack": 40, "critRate": 16}
+      },
+      "effect": "Each enemy defeated increases attack by 10% for remainder of battle. Max 50%.",
+      "location": "Arena victory reward",
+      "expedition": 6,
+      "mastery_requirement": 3,
+      "synergies": ["berserker_rage", "momentum_builder"],
+      "description": "Grows stronger with each fallen enemy, perfect for prolonged battles."
+    },
+    {
+      "id": "precision_expert",
+      "name": "Precision Expert",
+      "type": "Offensive",
+      "lumina_cost": 4,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"critRate": 20, "accuracy": 25},
+        "level2": {"critRate": 28, "accuracy": 35},
+        "level3": {"critRate": 36, "accuracy": 45},
+        "level4": {"critRate": 45, "accuracy": 60}
+      },
+      "effect": "Perfect accuracy attacks deal 50% more damage and ignore enemy evasion.",
+      "location": "Marksman Guild final test",
+      "expedition": 14,
+      "mastery_requirement": 6,
+      "synergies": ["augmented_aim", "critical_surge", "sniper_focus"],
+      "description": "Master of precise strikes that never miss their mark."
+    },
+    {
+      "id": "paint_splash",
+      "name": "Paint Splash",
+      "type": "Support",
+      "lumina_cost": 3,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"attack": 20, "paint_efficiency": 25},
+        "level2": {"attack": 30, "paint_efficiency": 35},
+        "level3": {"attack": 40, "paint_efficiency": 45},
+        "level4": {"attack": 52, "paint_efficiency": 60}
+      },
+      "effect": "Paint techniques affect a 2x2 area instead of single target. 20% less paint consumption.",
+      "location": "Artist's Studio secret room",
+      "expedition": 10,
+      "mastery_requirement": 4,
+      "synergies": ["artistic_mastery", "color_burst"],
+      "description": "Enhances Lune's paint abilities with area effects and efficiency."
+    },
+    {
+      "id": "overcharge_amplifier",
+      "name": "Overcharge Amplifier",
+      "type": "Offensive",
+      "lumina_cost": 5,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"attack": 40, "charge_gain": 30},
+        "level2": {"attack": 55, "charge_gain": 45},
+        "level3": {"attack": 70, "charge_gain": 60},
+        "level4": {"attack": 90, "charge_gain": 80}
+      },
+      "effect": "Overcharge deals 100% more damage and affects 3x3 area. Charge builds 50% faster.",
+      "location": "Defeat the Overcharged Golem",
+      "expedition": 20,
+      "mastery_requirement": 6,
+      "synergies": ["gustave_mastery", "explosive_expert"],
+      "description": "Maximizes Gustave's Overcharge potential for devastating area attacks."
+    },
+    {
+      "id": "shadow_step",
+      "name": "Shadow Step",
+      "type": "Support",
+      "lumina_cost": 4,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"speed": 20, "stealth": 25},
+        "level2": {"speed": 30, "stealth": 35},
+        "level3": {"speed": 40, "stealth": 45},
+        "level4": {"speed": 52, "stealth": 60}
+      },
+      "effect": "Can teleport to any tile within movement range. Next attack from stealth deals +100% damage.",
+      "location": "Shadow Temple completion",
+      "expedition": 16,
+      "mastery_requirement": 5,
+      "synergies": ["stealth_master", "assassin_techniques"],
+      "description": "Grants supernatural mobility and stealth attack bonuses."
+    },
+    {
+      "id": "tech_savvy",
+      "name": "Tech Savvy",
+      "type": "Support",
+      "lumina_cost": 3,
+      "rarity": "common",
+      "stats": {
+        "level1": {"attack": 18, "gadget_efficiency": 20},
+        "level2": {"attack": 26, "gadget_efficiency": 30},
+        "level3": {"attack": 35, "gadget_efficiency": 40},
+        "level4": {"attack": 46, "gadget_efficiency": 52}
+      },
+      "effect": "Gadgets last 50% longer. Can deploy one additional gadget per battle.",
+      "location": "Tech Lab research completion",
+      "expedition": 11,
+      "mastery_requirement": 4,
+      "synergies": ["monoco_mastery", "gadget_overlord"],
+      "description": "Enhances technological abilities and gadget deployment."
+    },
+    {
+      "id": "dual_nature",
+      "name": "Dual Nature",
+      "type": "Support",
+      "lumina_cost": 6,
+      "rarity": "epic",
+      "stats": {
+        "level1": {"versatility": 40, "form_efficiency": 25},
+        "level2": {"versatility": 55, "form_efficiency": 35},
+        "level3": {"versatility": 70, "form_efficiency": 45},
+        "level4": {"versatility": 90, "form_efficiency": 60}
+      },
+      "effect": "Can use both Light and Shadow abilities simultaneously for 3 turns. No form switch cooldown.",
+      "location": "Balance the Eternal Scales",
+      "expedition": 28,
+      "mastery_requirement": 8,
+      "synergies": ["verso_mastery", "perfect_balance"],
+      "description": "Allows Verso to transcend their dual limitations for ultimate versatility."
+    },
+    {
+      "id": "blade_dancer",
+      "name": "Blade Dancer",
+      "type": "Offensive",
+      "lumina_cost": 5,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"attack": 35, "speed": 20, "critRate": 12},
+        "level2": {"attack": 50, "speed": 30, "critRate": 18},
+        "level3": {"attack": 65, "speed": 40, "critRate": 24},
+        "level4": {"attack": 85, "speed": 55, "critRate": 32}
+      },
+      "effect": "Each successful hit increases movement speed by 20% and critical chance by 5%. Stacks up to 5 times.",
+      "location": "Dancing Blade Academy graduation",
+      "expedition": 19,
+      "mastery_requirement": 7,
+      "synergies": ["sciel_mastery", "elegant_combat"],
+      "description": "Transforms combat into an elegant dance of increasing lethality."
+    },
+    {
+      "id": "steady_aim",
+      "name": "Steady Aim",
+      "type": "Offensive",
+      "lumina_cost": 3,
+      "rarity": "common",
+      "stats": {
+        "level1": {"critRate": 12, "accuracy": 20},
+        "level2": {"critRate": 18, "accuracy": 28},
+        "level3": {"critRate": 24, "accuracy": 36},
+        "level4": {"critRate": 32, "accuracy": 48}
+      },
+      "effect": "Standing still for a turn increases next attack's critical chance by 25%.",
+      "location": "Sniper's Perch discovery",
+      "expedition": 7,
+      "mastery_requirement": 3,
+      "synergies": ["maelle_mastery", "patient_hunter"],
+      "description": "Rewards tactical positioning with enhanced accuracy and critical strikes."
+    },
+    {
+      "id": "recovery_boost",
+      "name": "Recovery Boost",
+      "type": "Support",
+      "lumina_cost": 2,
+      "rarity": "common",
+      "stats": {
+        "level1": {"hp": 100, "healing_received": 25},
+        "level2": {"hp": 150, "healing_received": 35},
+        "level3": {"hp": 200, "healing_received": 45},
+        "level4": {"hp": 260, "healing_received": 60}
+      },
+      "effect": "All healing effects are 50% more effective. Regenerate 2% HP per turn.",
+      "location": "Healing Springs blessing",
+      "expedition": 4,
+      "mastery_requirement": 2,
+      "synergies": ["healing_aura", "restoration_master"],
+      "description": "Maximizes the effectiveness of all recovery methods."
+    },
+    {
+      "id": "berserker_rage",
+      "name": "Berserker Rage",
+      "type": "Offensive",
+      "lumina_cost": 4,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"attack": 45, "critDamage": 25},
+        "level2": {"attack": 65, "critDamage": 35},
+        "level3": {"attack": 85, "critDamage": 45},
+        "level4": {"attack": 110, "critDamage": 60}
+      },
+      "effect": "Taking damage increases attack by 15% for 3 turns. Effect stacks up to 100%.",
+      "location": "Berserker Clan trial completion",
+      "expedition": 13,
+      "mastery_requirement": 5,
+      "synergies": ["battle_fervor", "pain_tolerance"],
+      "description": "Channels pain and anger into overwhelming offensive power."
+    }
+  ],
+  "categories": {
+    "offensive": {
+      "name": "Offensive",
+      "color": "#EF4444",
+      "description": "Increases damage output and offensive capabilities"
+    },
+    "defensive": {
+      "name": "Defensive",
+      "color": "#3B82F6",
+      "description": "Enhances survivability and damage mitigation"
+    },
+    "support": {
+      "name": "Support",
+      "color": "#10B981",
+      "description": "Provides utility, healing, and tactical advantages"
+    }
+  },
+  "rarities": {
+    "common": {
+      "color": "#9CA3AF",
+      "name": "Common",
+      "mastery_base": 2
+    },
+    "uncommon": {
+      "color": "#22C55E",
+      "name": "Uncommon",
+      "mastery_base": 4
+    },
+    "rare": {
+      "color": "#3B82F6",
+      "name": "Rare",
+      "mastery_base": 6
+    },
+    "epic": {
+      "color": "#A855F7",
+      "name": "Epic",
+      "mastery_base": 8
+    },
+    "legendary": {
+      "color": "#F59E0B",
+      "name": "Legendary",
+      "mastery_base": 10
+    }
+  },
+  "mastery_rewards": {
+    "2": "Unlock Level II variant",
+    "4": "Unlock Level III variant",
+    "6": "Unlock Level IV variant + Synergy bonus",
+    "8": "Enhanced effect + Reduced Lumina cost",
+    "10": "Master tier bonuses + Exclusive combinations"
+  }
+}

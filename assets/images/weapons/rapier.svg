@@ -1,0 +1,53 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FAFC;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E2E8F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CBD5E1;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="guardGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Rapier blade -->
+  <path d="M32 5 L33 8 L33 38 L32 39 L31 39 L31 8 Z"
+        fill="url(#bladeGrad)" stroke="#94A3B8" stroke-width="1"/>
+
+  <!-- Fuller (blood groove) -->
+  <line x1="32" y1="8" x2="32" y2="35" stroke="#CBD5E1" stroke-width="0.5" opacity="0.7"/>
+
+  <!-- Ornate cross-guard -->
+  <ellipse cx="32" cy="40" rx="12" ry="3"
+           fill="url(#guardGrad)" stroke="#FF8C00" stroke-width="1"/>
+
+  <!-- Belle Époque decorative guard elements -->
+  <path d="M20 40 Q24 37 28 40 Q24 43 20 40"
+        fill="url(#guardGrad)" stroke="#FF8C00" stroke-width="0.5"/>
+  <path d="M44 40 Q40 37 36 40 Q40 43 44 40"
+        fill="url(#guardGrad)" stroke="#FF8C00" stroke-width="0.5"/>
+
+  <!-- Handle grip -->
+  <rect x="30" y="43" width="4" height="12" rx="2"
+        fill="#8B4513" stroke="#654321" stroke-width="1"/>
+
+  <!-- Grip wire wrap -->
+  <line x1="30" y1="45" x2="34" y2="45" stroke="#FFD700" stroke-width="0.5"/>
+  <line x1="30" y1="47" x2="34" y2="47" stroke="#FFD700" stroke-width="0.5"/>
+  <line x1="30" y1="49" x2="34" y2="49" stroke="#FFD700" stroke-width="0.5"/>
+  <line x1="30" y1="51" x2="34" y2="51" stroke="#FFD700" stroke-width="0.5"/>
+  <line x1="30" y1="53" x2="34" y2="53" stroke="#FFD700" stroke-width="0.5"/>
+
+  <!-- Pommel -->
+  <circle cx="32" cy="58" r="4"
+          fill="url(#guardGrad)" stroke="#FF8C00" stroke-width="1"/>
+
+  <!-- Pommel decoration -->
+  <circle cx="32" cy="58" r="2" fill="#FFD700" opacity="0.8"/>
+  <path d="M30 58 L32 56 L34 58 L32 60 Z" fill="#FF8C00"/>
+
+  <!-- Blade shine -->
+  <line x1="31.5" y1="8" x2="31.5" y2="35" stroke="#FFFFFF" stroke-width="0.3" opacity="0.8"/>
+</svg>

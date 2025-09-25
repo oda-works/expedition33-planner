@@ -1,0 +1,729 @@
+{
+  "expedition_journals": [
+    {
+      "id": 1,
+      "name": "Engineer's Log #1",
+      "expedition": 0,
+      "location": "Starting Area - Gustave's Workshop",
+      "description": "First entry detailing the expedition preparations",
+      "hint": "On the workbench next to the main entrance",
+      "missable": false
+    },
+    {
+      "id": 2,
+      "name": "Scout Report #1",
+      "expedition": 1,
+      "location": "Forest Outpost",
+      "description": "Initial reconnaissance of the expedition route",
+      "hint": "Hidden behind supply crates in the guard tower",
+      "missable": false
+    },
+    {
+      "id": 3,
+      "name": "Artist's Diary",
+      "expedition": 2,
+      "location": "Abandoned Gallery",
+      "description": "Lune's observations on paint magic manifestations",
+      "hint": "Inside the paint-splattered easel room",
+      "missable": false
+    },
+    {
+      "id": 4,
+      "name": "Marksman's Notes",
+      "expedition": 3,
+      "location": "Sniper's Nest",
+      "description": "Maelle's tactical analysis of enemy positions",
+      "hint": "Telescope case on the highest platform",
+      "missable": false
+    },
+    {
+      "id": 5,
+      "name": "Noble's Testament",
+      "expedition": 4,
+      "location": "Ruined Manor",
+      "description": "Sciel's reflection on duty and honor",
+      "hint": "Inside the family portrait frame",
+      "missable": false
+    },
+    {
+      "id": 6,
+      "name": "Dual Memories",
+      "expedition": 5,
+      "location": "Mirror Maze",
+      "description": "Verso's struggle with their dual nature",
+      "hint": "In the broken mirror that shows two reflections",
+      "missable": true,
+      "missable_reason": "Area becomes inaccessible after boss fight"
+    },
+    {
+      "id": 7,
+      "name": "Inventor's Blueprint",
+      "expedition": 6,
+      "location": "Tech Laboratory",
+      "description": "Monoco's gadget designs and theories",
+      "hint": "Hidden compartment in the main workstation",
+      "missable": false
+    },
+    {
+      "id": 8,
+      "name": "Battle Formation Alpha",
+      "expedition": 7,
+      "location": "Training Grounds",
+      "description": "Tactical formation notes from group training",
+      "hint": "Buried under the sand in the sparring ring",
+      "missable": false
+    },
+    {
+      "id": 9,
+      "name": "Expedition Medical Log",
+      "expedition": 8,
+      "location": "Field Hospital",
+      "description": "Medical officer's notes on party health",
+      "hint": "Inside the medical bag by the tent entrance",
+      "missable": false
+    },
+    {
+      "id": 10,
+      "name": "Quartermaster's Inventory",
+      "expedition": 9,
+      "location": "Supply Depot",
+      "description": "Detailed list of expedition supplies and usage",
+      "hint": "Clipboard hanging on the supply rack",
+      "missable": false
+    },
+    {
+      "id": 11,
+      "name": "Weather Observer's Log",
+      "expedition": 10,
+      "location": "Mountain Observatory",
+      "description": "Meteorological observations affecting the journey",
+      "hint": "Telescope viewing chamber, check the logbook",
+      "missable": false
+    },
+    {
+      "id": 12,
+      "name": "Geological Survey",
+      "expedition": 11,
+      "location": "Crystal Caves",
+      "description": "Analysis of unusual mineral formations",
+      "hint": "Next to the largest crystal formation",
+      "missable": false
+    },
+    {
+      "id": 13,
+      "name": "Botanical Research",
+      "expedition": 12,
+      "location": "Enchanted Garden",
+      "description": "Study of magical plant species encountered",
+      "hint": "Inside the hollow of the ancient tree",
+      "missable": false
+    },
+    {
+      "id": 14,
+      "name": "Archaeological Notes",
+      "expedition": 13,
+      "location": "Ancient Ruins",
+      "description": "Documentation of historical discoveries",
+      "hint": "Carved into the stone tablet near the entrance",
+      "missable": false
+    },
+    {
+      "id": 15,
+      "name": "Tactical Assessment #2",
+      "expedition": 14,
+      "location": "Fortress Approach",
+      "description": "Strategic analysis of enemy fortifications",
+      "hint": "Inside the abandoned siege weapon",
+      "missable": true,
+      "missable_reason": "Siege weapon destroyed if you choose assault approach"
+    },
+    {
+      "id": 16,
+      "name": "Diplomatic Correspondence",
+      "expedition": 15,
+      "location": "Neutral Territory",
+      "description": "Letters between expedition and local factions",
+      "hint": "Mailbox at the crossroads trading post",
+      "missable": false
+    },
+    {
+      "id": 17,
+      "name": "Engineer's Technical Manual",
+      "expedition": 16,
+      "location": "Industrial Complex",
+      "description": "Advanced machinery operation procedures",
+      "hint": "Inside the control panel housing",
+      "missable": false
+    },
+    {
+      "id": 18,
+      "name": "Mystical Research",
+      "expedition": 17,
+      "location": "Wizard's Tower",
+      "description": "Study of magical phenomena and paint magic",
+      "hint": "Floating book in the library's upper level",
+      "missable": false
+    },
+    {
+      "id": 19,
+      "name": "Combat Evolution Log",
+      "expedition": 18,
+      "location": "Training Dojo",
+      "description": "Notes on party members' skill development",
+      "hint": "Under the meditation mat in the corner",
+      "missable": false
+    },
+    {
+      "id": 20,
+      "name": "Resource Management",
+      "expedition": 19,
+      "location": "Mining Station",
+      "description": "Efficiency reports on resource gathering",
+      "hint": "Foreman's office desk drawer",
+      "missable": false
+    },
+    {
+      "id": 21,
+      "name": "Environmental Impact",
+      "expedition": 20,
+      "location": "Polluted Wasteland",
+      "description": "Observations on expedition's environmental effects",
+      "hint": "Protected container near the cleanup station",
+      "missable": false
+    },
+    {
+      "id": 22,
+      "name": "Cultural Exchange",
+      "expedition": 21,
+      "location": "Village Festival",
+      "description": "Notes on interactions with local populations",
+      "hint": "Inside the festival prize booth",
+      "missable": true,
+      "missable_reason": "Only available during specific festival choices"
+    },
+    {
+      "id": 23,
+      "name": "Leadership Challenges",
+      "expedition": 22,
+      "location": "Command Tent",
+      "description": "Gustave's reflections on leadership decisions",
+      "hint": "Hidden compartment in the map table",
+      "missable": false
+    },
+    {
+      "id": 24,
+      "name": "Psychological Profile",
+      "expedition": 23,
+      "location": "Mind Palace",
+      "description": "Analysis of party members' mental states",
+      "hint": "Inside the memory vault in the center",
+      "missable": false
+    },
+    {
+      "id": 25,
+      "name": "Strategic Alliance",
+      "expedition": 24,
+      "location": "Alliance Headquarters",
+      "description": "Documentation of allied faction agreements",
+      "hint": "Treaty room's sealed document case",
+      "missable": false
+    },
+    {
+      "id": 26,
+      "name": "Technology Integration",
+      "expedition": 25,
+      "location": "Hybrid Laboratory",
+      "description": "Notes on combining magic and technology",
+      "hint": "Fusion chamber observation deck",
+      "missable": false
+    },
+    {
+      "id": 27,
+      "name": "Final Preparations",
+      "expedition": 26,
+      "location": "Staging Area",
+      "description": "Last-minute expedition preparations and concerns",
+      "hint": "Command vehicle's glove compartment",
+      "missable": false
+    },
+    {
+      "id": 28,
+      "name": "Point of No Return",
+      "expedition": 27,
+      "location": "Threshold Gate",
+      "description": "Final thoughts before entering the unknown",
+      "hint": "Pedestal before the final gate activation",
+      "missable": false
+    },
+    {
+      "id": 29,
+      "name": "Into the Abyss",
+      "expedition": 28,
+      "location": "Abyssal Entry",
+      "description": "First impressions of the expedition's true destination",
+      "hint": "Cairn of stones at the entry platform",
+      "missable": false
+    },
+    {
+      "id": 30,
+      "name": "Revelation",
+      "expedition": 29,
+      "location": "Truth Chamber",
+      "description": "Discovery of the expedition's true purpose",
+      "hint": "Center of the revelation circle",
+      "missable": false
+    },
+    {
+      "id": 31,
+      "name": "Sacrifice and Honor",
+      "expedition": 30,
+      "location": "Memorial Hall",
+      "description": "Tribute to those lost during the journey",
+      "hint": "Memorial wall's central plaque",
+      "missable": false
+    },
+    {
+      "id": 32,
+      "name": "New Beginnings",
+      "expedition": 31,
+      "location": "Restored Garden",
+      "description": "Hope for the future after expedition's completion",
+      "hint": "New growth sprouting from the center",
+      "missable": false
+    },
+    {
+      "id": 33,
+      "name": "Legacy",
+      "expedition": 32,
+      "location": "Monument Plaza",
+      "description": "Final testament to Expedition 33's achievements",
+      "hint": "Base of the expedition monument",
+      "missable": false
+    }
+  ],
+  "music_records": [
+    {
+      "id": 1,
+      "name": "Expedition Theme",
+      "location": "Starting Workshop - Gustave's desk",
+      "description": "Main theme of the expedition",
+      "composer": "Sarah Chen",
+      "missable": false
+    },
+    {
+      "id": 2,
+      "name": "Forest Serenity",
+      "location": "First forest clearing - tree stump",
+      "description": "Peaceful woodland melody",
+      "composer": "Marcus Torres",
+      "missable": false
+    },
+    {
+      "id": 3,
+      "name": "Paint Magic",
+      "location": "Artist's Gallery - behind the main canvas",
+      "description": "Lune's theme with painterly flourishes",
+      "composer": "Elena Volkov",
+      "missable": false
+    },
+    {
+      "id": 4,
+      "name": "Sniper's Focus",
+      "location": "Watchtower - telescope case",
+      "description": "Maelle's concentrated theme",
+      "composer": "Jin Watanabe",
+      "missable": false
+    },
+    {
+      "id": 5,
+      "name": "Noble Waltz",
+      "location": "Manor ballroom - piano bench",
+      "description": "Sciel's elegant dancing theme",
+      "composer": "Franz Heidelberg",
+      "missable": false
+    },
+    {
+      "id": 6,
+      "name": "Dual Harmony",
+      "location": "Mirror Maze - center platform",
+      "description": "Verso's theme showcasing their duality",
+      "composer": "Aria & Shadow",
+      "missable": true,
+      "missable_reason": "Mirror Maze becomes inaccessible"
+    },
+    {
+      "id": 7,
+      "name": "Gadget Workshop",
+      "location": "Tech Lab - main workbench drawer",
+      "description": "Monoco's inventive theme",
+      "composer": "Dr. Synthia Bot",
+      "missable": false
+    },
+    {
+      "id": 8,
+      "name": "Battle Formation",
+      "location": "Training Grounds - equipment locker",
+      "description": "Combat training theme",
+      "composer": "Military Ensemble",
+      "missable": false
+    },
+    {
+      "id": 9,
+      "name": "Field Hospital",
+      "location": "Medical tent - supply cabinet",
+      "description": "Healing and recovery theme",
+      "composer": "Dr. Harmony White",
+      "missable": false
+    },
+    {
+      "id": 10,
+      "name": "Mountain Winds",
+      "location": "Observatory - weather station",
+      "description": "High altitude atmospheric theme",
+      "composer": "Nature's Symphony",
+      "missable": false
+    },
+    {
+      "id": 11,
+      "name": "Crystal Resonance",
+      "location": "Crystal Caves - largest formation",
+      "description": "Mineral harmonics and cave echoes",
+      "composer": "Geo Acoustic",
+      "missable": false
+    },
+    {
+      "id": 12,
+      "name": "Enchanted Growth",
+      "location": "Magical Garden - ancient tree hollow",
+      "description": "Living plant symphony",
+      "composer": "Flora Melodia",
+      "missable": false
+    },
+    {
+      "id": 13,
+      "name": "Ancient Echoes",
+      "location": "Ruins - central altar",
+      "description": "Voices from the distant past",
+      "composer": "Temporal Chorus",
+      "missable": false
+    },
+    {
+      "id": 14,
+      "name": "Siege Preparations",
+      "location": "Fortress Gate - commander's tent",
+      "description": "Tense pre-battle atmosphere",
+      "composer": "War Council",
+      "missable": false
+    },
+    {
+      "id": 15,
+      "name": "Diplomatic Negotiations",
+      "location": "Neutral Territory - treaty table",
+      "description": "Careful political maneuvering",
+      "composer": "Ambassador's Quartet",
+      "missable": false
+    },
+    {
+      "id": 16,
+      "name": "Industrial Progress",
+      "location": "Factory Floor - control room",
+      "description": "Mechanical rhythms and steam",
+      "composer": "Steam & Steel",
+      "missable": false
+    },
+    {
+      "id": 17,
+      "name": "Mystical Studies",
+      "location": "Wizard Tower - library",
+      "description": "Arcane knowledge and discovery",
+      "composer": "Arcanum Academy",
+      "missable": false
+    },
+    {
+      "id": 18,
+      "name": "Skill Mastery",
+      "location": "Dojo - meditation area",
+      "description": "Personal growth and training",
+      "composer": "Master Sensei",
+      "missable": false
+    },
+    {
+      "id": 19,
+      "name": "Resource Extraction",
+      "location": "Mining Station - overseer's office",
+      "description": "Industrial mining operations",
+      "composer": "Heavy Machinery",
+      "missable": false
+    },
+    {
+      "id": 20,
+      "name": "Environmental Restoration",
+      "location": "Cleanup Station - monitoring booth",
+      "description": "Hope amidst desolation",
+      "composer": "Green Recovery",
+      "missable": false
+    },
+    {
+      "id": 21,
+      "name": "Festival Celebration",
+      "location": "Village Square - festival stage",
+      "description": "Joyful community gathering",
+      "composer": "Village Folk Band",
+      "missable": true,
+      "missable_reason": "Only during specific festival route"
+    },
+    {
+      "id": 22,
+      "name": "Leadership Burden",
+      "location": "Command Tent - strategy table",
+      "description": "Weight of command decisions",
+      "composer": "Solo Commander",
+      "missable": false
+    },
+    {
+      "id": 23,
+      "name": "Mind Palace",
+      "location": "Psychological Center - main chamber",
+      "description": "Journey through consciousness",
+      "composer": "Dr. Psyche",
+      "missable": false
+    },
+    {
+      "id": 24,
+      "name": "Alliance Anthem",
+      "location": "Alliance HQ - main hall",
+      "description": "Unity of diverse factions",
+      "composer": "United Voices",
+      "missable": false
+    },
+    {
+      "id": 25,
+      "name": "Magitech Fusion",
+      "location": "Hybrid Lab - fusion chamber",
+      "description": "Blending magic and technology",
+      "composer": "Binary Wizards",
+      "missable": false
+    },
+    {
+      "id": 26,
+      "name": "Final March",
+      "location": "Staging Area - main platform",
+      "description": "Preparation for the ultimate challenge",
+      "composer": "Last Regiment",
+      "missable": false
+    },
+    {
+      "id": 27,
+      "name": "Threshold Crossing",
+      "location": "Gate Chamber - activation console",
+      "description": "Crossing into the unknown",
+      "composer": "Portal Resonance",
+      "missable": false
+    },
+    {
+      "id": 28,
+      "name": "Abyssal Descent",
+      "location": "Abyss Entry - observation deck",
+      "description": "Entering the expedition's destination",
+      "composer": "Void Echoes",
+      "missable": false
+    },
+    {
+      "id": 29,
+      "name": "Truth Revealed",
+      "location": "Revelation Chamber - central dias",
+      "description": "Understanding the expedition's purpose",
+      "composer": "Enlightenment",
+      "missable": false
+    },
+    {
+      "id": 30,
+      "name": "Memorial Tribute",
+      "location": "Memorial Hall - honor wall",
+      "description": "Remembering the fallen",
+      "composer": "Eternal Remembrance",
+      "missable": false
+    },
+    {
+      "id": 31,
+      "name": "New Dawn",
+      "location": "Restored Garden - sunrise viewpoint",
+      "description": "Hope for the future",
+      "composer": "Rising Sun",
+      "missable": false
+    },
+    {
+      "id": 32,
+      "name": "Legacy Monument",
+      "location": "Monument Plaza - base inscription",
+      "description": "Lasting memory of Expedition 33",
+      "composer": "Eternal Legacy",
+      "missable": false
+    },
+    {
+      "id": 33,
+      "name": "Lumière Record (Duplicate)",
+      "location": "Festival Token Shop - 500 tokens",
+      "description": "Special duplicate of a previous record",
+      "composer": "Festival Remix",
+      "missable": false,
+      "special": true,
+      "note": "This is the only duplicate record in the collection"
+    }
+  ],
+  "other_collectibles": {
+    "gestrals": {
+      "total": 5,
+      "description": "Magical creatures that unlock Paint Spike ability for Lune",
+      "locations": [
+        {
+          "id": 1,
+          "name": "Forest Gestral",
+          "location": "Deep Forest Grove",
+          "hint": "Follow the trail of glowing paint drops",
+          "ability_unlock": "Paint Spike Level 1"
+        },
+        {
+          "id": 2,
+          "name": "Cave Gestral",
+          "location": "Crystal Cave Hidden Chamber",
+          "hint": "Behind the largest crystal formation",
+          "ability_unlock": "Paint Spike Level 2"
+        },
+        {
+          "id": 3,
+          "name": "Sky Gestral",
+          "location": "Mountain Peak Observatory",
+          "hint": "Appears only during clear weather",
+          "ability_unlock": "Paint Spike Level 3"
+        },
+        {
+          "id": 4,
+          "name": "Shadow Gestral",
+          "location": "Abandoned Manor Basement",
+          "hint": "Visible only in complete darkness",
+          "ability_unlock": "Paint Spike Level 4"
+        },
+        {
+          "id": 5,
+          "name": "Prismatic Gestral",
+          "location": "Rainbow Falls Secret Chamber",
+          "hint": "Requires all 4 previous Gestrals to appear",
+          "ability_unlock": "Paint Spike Mastery"
+        }
+      ]
+    },
+    "esquie_rocks": {
+      "total": 3,
+      "description": "Special stones that unlock movement abilities",
+      "locations": [
+        {
+          "id": 1,
+          "name": "Aqua Stone",
+          "location": "Underwater Cave System",
+          "ability": "swimming",
+          "description": "Enables party to swim in deep water areas"
+        },
+        {
+          "id": 2,
+          "name": "Depth Stone",
+          "location": "Ocean Trench",
+          "ability": "diving",
+          "description": "Allows diving to ocean floor locations",
+          "requires": "swimming"
+        },
+        {
+          "id": 3,
+          "name": "Wind Stone",
+          "location": "Floating Islands",
+          "ability": "flight",
+          "description": "Grants limited flight for reaching aerial areas",
+          "requires": "diving"
+        }
+      ]
+    },
+    "white_nevron": {
+      "total": 12,
+      "description": "Rare crafting materials for ultimate weapons",
+      "locations": [
+        "Volcano Core Chamber",
+        "Ice Palace Throne Room",
+        "Desert Oasis Hidden Spring",
+        "Forest Heart Ancient Tree",
+        "Mountain Summit Wind Altar",
+        "Ocean Depths Leviathan Lair",
+        "Sky Palace Cloud Garden",
+        "Shadow Realm Portal Chamber",
+        "Light Temple Sanctum",
+        "Tech City Core Processor",
+        "Mystic Library Forbidden Section",
+        "Final Boss Chamber Reward"
+      ]
+    },
+    "paint_cages": {
+      "total": 25,
+      "description": "Containers holding rare paint materials for Lune",
+      "categories": {
+        "basic": {
+          "count": 10,
+          "materials": ["Crimson Paint", "Azure Paint", "Golden Paint", "Emerald Paint", "Violet Paint"]
+        },
+        "advanced": {
+          "count": 10,
+          "materials": ["Mystic Paint", "Shadow Paint", "Light Paint", "Fire Paint", "Ice Paint"]
+        },
+        "legendary": {
+          "count": 5,
+          "materials": ["Prismatic Paint", "Void Paint", "Creation Paint", "Time Paint", "Space Paint"]
+        }
+      }
+    }
+  },
+  "completion_rewards": {
+    "all_journals": {
+      "reward": "Chronicler Achievement + Expedition History Codex",
+      "bonus": "Access to hidden expedition memories"
+    },
+    "all_records": {
+      "reward": "Audiophile Achievement + Master Soundtrack",
+      "bonus": "Unlocks remix mode for battle music"
+    },
+    "all_gestrals": {
+      "reward": "Paint Master Achievement + Ultimate Paint Techniques",
+      "bonus": "Lune's signature ability fully unlocked"
+    },
+    "all_esquie_rocks": {
+      "reward": "Explorer Achievement + Master Navigator Title",
+      "bonus": "Access to all secret areas"
+    },
+    "all_white_nevron": {
+      "reward": "Artificer Achievement + Legendary Crafting Access",
+      "bonus": "Can craft ultimate weapons for all characters"
+    },
+    "all_paint_cages": {
+      "reward": "Artist Achievement + Infinite Paint Mode",
+      "bonus": "Lune's paint abilities have no resource cost"
+    },
+    "100_percent": {
+      "reward": "Master Collector Achievement + Expedition 33 Master Title",
+      "bonus": "Unlocks New Game+ exclusive content and developer commentary"
+    }
+  },
+  "festival_tokens": {
+    "description": "Special currency earned through various activities",
+    "sources": [
+      "Mini-games (10-50 tokens)",
+      "Side quests (25-100 tokens)",
+      "Combat achievements (15-75 tokens)",
+      "Exploration bonuses (20-60 tokens)",
+      "Perfect ratings (50-150 tokens)"
+    ],
+    "shop_items": [
+      {"item": "Lumière Record (Duplicate)", "cost": 500, "type": "music_record"},
+      {"item": "Rare Lumina Pack", "cost": 300, "type": "lumina"},
+      {"item": "Pictos Mastery Boost", "cost": 200, "type": "boost"},
+      {"item": "Character Costume Set", "cost": 150, "type": "cosmetic"},
+      {"item": "Festival Decorations", "cost": 100, "type": "cosmetic"}
+    ]
+  }
+}

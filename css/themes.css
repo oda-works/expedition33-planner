@@ -1,0 +1,302 @@
+/* Theme System for Expedition 33 Planner */
+
+/* Light Theme Variables */
+.theme-light {
+  --primary-purple: #2D1B69;
+  --secondary-purple: #4A3491;
+  --accent-gold: #B8860B;
+  --light-gold: #DAA520;
+  --dark-background: #FFFFFF;
+  --darker-background: #F8FAFC;
+  --surface-dark: #F1F5F9;
+  --surface-light: #E2E8F0;
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --border-color: #CBD5E1;
+  --hover-color: #E2E8F0;
+  --success-color: #059669;
+  --warning-color: #D97706;
+  --error-color: #DC2626;
+
+  /* Light theme shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme (Default) - Already defined in main.css */
+.theme-dark {
+  /* These are already set as :root variables in main.css */
+}
+
+/* High Contrast Theme */
+.theme-high-contrast {
+  --primary-purple: #FFFFFF;
+  --secondary-purple: #FFFFFF;
+  --accent-gold: #FFFF00;
+  --light-gold: #FFFF00;
+  --dark-background: #000000;
+  --darker-background: #000000;
+  --surface-dark: #000000;
+  --surface-light: #1A1A1A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #FFFFFF;
+  --text-muted: #CCCCCC;
+  --border-color: #FFFFFF;
+  --hover-color: #333333;
+  --success-color: #00FF00;
+  --warning-color: #FFFF00;
+  --error-color: #FF0000;
+
+  --shadow-sm: 0 0 0 2px #FFFFFF;
+  --shadow-md: 0 0 0 3px #FFFFFF;
+  --shadow-lg: 0 0 0 4px #FFFFFF;
+  --shadow-xl: 0 0 0 5px #FFFFFF;
+}
+
+/* Belle Époque Sepia Theme */
+.theme-sepia {
+  --primary-purple: #8B4513;
+  --secondary-purple: #A0522D;
+  --accent-gold: #DAA520;
+  --light-gold: #F4E4BC;
+  --dark-background: #F5E6D3;
+  --darker-background: #E6D2B5;
+  --surface-dark: #DDD5C0;
+  --surface-light: #EFE7D4;
+  --text-primary: #3C2414;
+  --text-secondary: #5D4E37;
+  --text-muted: #8B7355;
+  --border-color: #C19A6B;
+  --hover-color: #D2B48C;
+  --success-color: #228B22;
+  --warning-color: #FF8C00;
+  --error-color: #CD5C5C;
+
+  --shadow-sm: 0 1px 2px 0 rgba(60, 36, 20, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(60, 36, 20, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(60, 36, 20, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(60, 36, 20, 0.4);
+}
+
+/* Theme-specific adjustments */
+
+/* Light theme specific styles */
+.theme-light body {
+  background: linear-gradient(135deg, var(--dark-background) 0%, var(--darker-background) 100%);
+}
+
+.theme-light .loading-screen {
+  background: var(--dark-background);
+}
+
+/* High contrast theme specific styles */
+.theme-high-contrast * {
+  font-weight: bold !important;
+}
+
+.theme-high-contrast button {
+  border: 3px solid var(--border-color) !important;
+}
+
+.theme-high-contrast .nav-tab.active {
+  background: var(--accent-gold) !important;
+  color: var(--dark-background) !important;
+}
+
+.theme-high-contrast .btn-primary {
+  background: var(--text-primary) !important;
+  color: var(--dark-background) !important;
+  border: 3px solid var(--text-primary) !important;
+}
+
+.theme-high-contrast .btn-secondary {
+  background: var(--dark-background) !important;
+  color: var(--text-primary) !important;
+  border: 3px solid var(--text-primary) !important;
+}
+
+.theme-high-contrast input,
+.theme-high-contrast select {
+  border: 3px solid var(--border-color) !important;
+}
+
+.theme-high-contrast input:focus,
+.theme-high-contrast select:focus {
+  box-shadow: 0 0 0 5px var(--accent-gold) !important;
+}
+
+/* Sepia theme specific styles */
+.theme-sepia body {
+  background: linear-gradient(135deg, var(--dark-background) 0%, var(--darker-background) 100%);
+  font-family: 'Times New Roman', serif;
+}
+
+.theme-sepia h1,
+.theme-sepia h2,
+.theme-sepia h3,
+.theme-sepia h4,
+.theme-sepia h5,
+.theme-sepia h6 {
+  font-family: 'Times New Roman', serif;
+  text-shadow: 1px 1px 2px rgba(60, 36, 20, 0.3);
+}
+
+.theme-sepia .app-header,
+.theme-sepia .main-nav,
+.theme-sepia .app-footer {
+  border-color: var(--border-color);
+  background: var(--surface-dark);
+}
+
+.theme-sepia .modal,
+.theme-sepia .toast {
+  background: var(--surface-dark);
+  border-color: var(--border-color);
+}
+
+/* Theme transition animations */
+* {
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  .app-header,
+  .main-nav,
+  .app-footer,
+  .header-controls,
+  .content-controls,
+  .modal-overlay,
+  .toast-container {
+    display: none !important;
+  }
+
+  .main-content {
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  .tab-content {
+    display: block !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .character-builder,
+  .party-composer,
+  .collectibles-tracker {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Theme Toggle Icon */
+.icon-theme::before {
+  content: "🌙";
+  font-size: 1.2rem;
+}
+
+.theme-light .icon-theme::before {
+  content: "☀️";
+}
+
+.theme-high-contrast .icon-theme::before {
+  content: "⚫";
+}
+
+.theme-sepia .icon-theme::before {
+  content: "📜";
+}
+
+/* Settings Icon */
+.icon-settings::before {
+  content: "⚙️";
+  font-size: 1.2rem;
+}
+
+/* Custom scrollbars for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-dark);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-color);
+}
+
+/* Firefox scrollbars */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) var(--surface-dark);
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary-purple);
+  color: white;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}

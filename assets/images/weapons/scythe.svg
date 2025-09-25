@@ -1,0 +1,81 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="staffGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E2E8F0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#CBD5E1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#94A3B8;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="celestialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#E6E6FA;stop-opacity:0.8" />
+      <stop offset="70%" style="stop-color:#DDA0DD;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#9370DB;stop-opacity:0.4" />
+    </radialGradient>
+  </defs>
+
+  <!-- Staff handle -->
+  <rect x="28" y="25" width="4" height="35" rx="2"
+        fill="url(#staffGrad)" stroke="#654321" stroke-width="1"/>
+
+  <!-- Staff decorative bands -->
+  <rect x="27" y="30" width="6" height="2" rx="1" fill="#FFD700"/>
+  <rect x="27" y="40" width="6" height="2" rx="1" fill="#FFD700"/>
+  <rect x="27" y="50" width="6" height="2" rx="1" fill="#FFD700"/>
+
+  <!-- Scythe blade -->
+  <path d="M30 25 Q35 20 45 18 Q55 16 58 20 Q58 25 55 27 Q45 28 35 25 Q32 24 30 25"
+        fill="url(#bladeGrad)" stroke="#94A3B8" stroke-width="1"/>
+
+  <!-- Blade edge -->
+  <path d="M35 25 Q45 22 55 20 Q57 19 58 20 Q57 21 55 22 Q45 24 35 26"
+        fill="#F8FAFC" stroke="#CBD5E1" stroke-width="0.5"/>
+
+  <!-- Celestial glow around blade -->
+  <path d="M30 25 Q35 20 45 18 Q55 16 58 20 Q58 25 55 27 Q45 28 35 25 Q32 24 30 25"
+        fill="url(#celestialGlow)" opacity="0.6"/>
+
+  <!-- Staff connection ornament -->
+  <circle cx="30" cy="25" r="3"
+          fill="#FFD700" stroke="#FFA500" stroke-width="1"/>
+
+  <!-- Celestial symbols -->
+  <g transform="translate(25,15)">
+    <!-- Sun symbol -->
+    <circle cx="0" cy="0" r="2" fill="#FFD700" opacity="0.8"/>
+    <g stroke="#FFD700" stroke-width="0.5" opacity="0.6">
+      <line x1="-3" y1="0" x2="-4" y2="0"/>
+      <line x1="3" y1="0" x2="4" y2="0"/>
+      <line x1="0" y1="-3" x2="0" y2="-4"/>
+      <line x1="0" y1="3" x2="0" y2="4"/>
+      <line x1="-2" y1="-2" x2="-3" y2="-3"/>
+      <line x1="2" y1="2" x2="3" y2="3"/>
+      <line x1="2" y1="-2" x2="3" y2="-3"/>
+      <line x1="-2" y1="2" x2="-3" y2="3"/>
+    </g>
+  </g>
+
+  <g transform="translate(40,35)">
+    <!-- Moon crescent -->
+    <path d="M0 -2 Q2 0 0 2 Q-1 1 -1 -1 Q-1 -1 0 -2"
+          fill="#E6E6FA" opacity="0.8" stroke="#DDA0DD" stroke-width="0.5"/>
+  </g>
+
+  <!-- Handle grip texture -->
+  <g stroke="#A0522D" stroke-width="0.3" opacity="0.5">
+    <line x1="28.5" y1="32" x2="31.5" y2="32"/>
+    <line x1="28.5" y1="35" x2="31.5" y2="35"/>
+    <line x1="28.5" y1="38" x2="31.5" y2="38"/>
+    <line x1="28.5" y1="45" x2="31.5" y2="45"/>
+    <line x1="28.5" y1="48" x2="31.5" y2="48"/>
+  </g>
+
+  <!-- Mystical energy wisps -->
+  <path d="M20 20 Q22 18 24 20 Q26 18 28 20"
+        fill="none" stroke="#E6E6FA" stroke-width="0.8" opacity="0.6"/>
+  <path d="M35 35 Q37 33 39 35 Q41 33 43 35"
+        fill="none" stroke="#DDA0DD" stroke-width="0.8" opacity="0.6"/>
+</svg>

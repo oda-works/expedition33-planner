@@ -1,0 +1,25 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="offensiveRareGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#93C5FD;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#3B82F6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1E3A8A;stop-opacity:0.9" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#offensiveRareGrad)" stroke="#3B82F6" stroke-width="3"/>
+
+  <!-- Sword symbol with flame -->
+  <path d="M32 12 L36 16 L36 40 L40 44 L40 48 L24 48 L24 44 L28 40 L28 16 Z" fill="#FFF" stroke="#3B82F6" stroke-width="1"/>
+  <rect x="28" y="40" width="8" height="8" rx="2" fill="#3B82F6"/>
+
+  <!-- Flame effect -->
+  <path d="M30 14 Q28 10 32 8 Q36 10 34 14 Q36 12 38 16 Q34 18 32 14 Q30 16 26 16 Q28 12 30 14" fill="#F59E0B" opacity="0.8"/>
+
+  <!-- Inner glow -->
+  <path d="M32 12 L36 16 L36 40 L40 44 L40 48 L24 48 L24 44 L28 40 L28 16 Z" fill="none" stroke="#93C5FD" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Rarity border -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.8"/>
+</svg>

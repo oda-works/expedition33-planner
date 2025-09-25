@@ -1,0 +1,270 @@
+{
+  "weapons": {
+    "noahram": {
+      "id": "noahram",
+      "name": "Noahram",
+      "character": "gustave",
+      "type": "sword_pistol",
+      "element": "physical",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 38, "scaling": "D" },
+        "level10": { "attack": 95, "scaling": "C" },
+        "level20": { "attack": 190, "scaling": "B" },
+        "level33": { "attack": 285, "scaling": "A" }
+      },
+      "scalingAttributes": ["vitality", "might"],
+      "specialEffects": [],
+      "description": "Gustave's starting weapon. A balanced sword and pistol combo, but quickly outclassed by weapons with better scaling.",
+      "location": "Starting weapon",
+      "image": "https://www.creativeuncut.com/gallery-48/art/coe33-gustave-weapon-art.jpg",
+      "rarity": "common"
+    },
+    "lanceram": {
+      "id": "lanceram",
+      "name": "Lanceram",
+      "character": "gustave",
+      "type": "sword_pistol",
+      "element": "physical",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 185, "scaling": "A" },
+        "level33": { "attack": 3713, "scaling": "S" }
+      },
+      "scalingAttributes": ["might", "vitality"],
+      "specialEffects": ["Critical Strike Boost", "Combo Enhancement"],
+      "description": "High-tier physical weapon with excellent scaling and critical hit potential.",
+      "location": "Late game acquisition",
+      "rarity": "legendary"
+    },
+    "lunerim": {
+      "id": "lunerim",
+      "name": "Lunerim",
+      "character": "lune",
+      "type": "brush",
+      "element": "fire",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 38, "scaling": "C" },
+        "level10": { "attack": 95, "scaling": "B" },
+        "level20": { "attack": 190, "scaling": "A" },
+        "level33": { "attack": 285, "scaling": "S" }
+      },
+      "scalingAttributes": ["vitality", "luck"],
+      "specialEffects": ["Fire Damage Boost", "Paint Efficiency"],
+      "description": "Lune's starting weapon. Viable long-term thanks to balanced scaling and fire element.",
+      "location": "Starting weapon",
+      "image": "https://www.creativeuncut.com/gallery-48/art/coe33-lune-weapon-art.jpg",
+      "rarity": "common"
+    },
+    "scaverim": {
+      "id": "scaverim",
+      "name": "Scaverim",
+      "character": "lune",
+      "type": "brush",
+      "element": "dark",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 210, "scaling": "A" },
+        "level33": { "attack": 4197, "scaling": "S" }
+      },
+      "scalingAttributes": ["luck", "agility"],
+      "specialEffects": ["Dark Stain Generation", "Critical Rate Boost"],
+      "description": "Highest power brush weapon with dark elemental damage.",
+      "location": "Endgame content",
+      "rarity": "legendary"
+    },
+    "maellum": {
+      "id": "maellum",
+      "name": "Maellum",
+      "character": "maelle",
+      "type": "rapier",
+      "element": "physical",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 76, "scaling": "C" },
+        "level10": { "attack": 190, "scaling": "B" },
+        "level20": { "attack": 380, "scaling": "A" },
+        "level33": { "attack": 570, "scaling": "S" }
+      },
+      "scalingAttributes": ["vitality"],
+      "specialEffects": [],
+      "description": "Maelle's starting rapier. Basic weapon with single attribute scaling.",
+      "location": "Starting weapon",
+      "image": "https://www.creativeuncut.com/gallery-48/art/coe33-maelle-weapon-art.jpg",
+      "rarity": "common"
+    },
+    "tissenum": {
+      "id": "tissenum",
+      "name": "Tissenum",
+      "character": "maelle",
+      "type": "rapier",
+      "element": "earth",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 194, "scaling": "A" },
+        "level33": { "attack": 3874, "scaling": "S" }
+      },
+      "scalingAttributes": ["agility", "luck"],
+      "specialEffects": ["Earth Damage", "Stance Bonus"],
+      "description": "High-tier earth element rapier with excellent agility scaling.",
+      "location": "Mid-to-late game",
+      "rarity": "epic"
+    },
+    "scieleson": {
+      "id": "scieleson",
+      "name": "Scieleson",
+      "character": "sciel",
+      "type": "scythe",
+      "element": "celestial",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 57, "scaling": "C" },
+        "level10": { "attack": 142, "scaling": "B" },
+        "level20": { "attack": 285, "scaling": "A" },
+        "level33": { "attack": 427, "scaling": "S" }
+      },
+      "scalingAttributes": ["agility", "luck"],
+      "specialEffects": ["Foretell Bonus", "Sun/Moon Charge"],
+      "description": "Sciel's starting scythe with celestial element and foretell system integration.",
+      "location": "Starting weapon",
+      "rarity": "common"
+    },
+    "blizzon": {
+      "id": "blizzon",
+      "name": "Blizzon",
+      "character": "sciel",
+      "type": "scythe",
+      "element": "ice",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 210, "scaling": "A" },
+        "level33": { "attack": 4197, "scaling": "S" }
+      },
+      "scalingAttributes": ["agility", "luck"],
+      "specialEffects": ["Freeze Chance", "Ice Damage Boost"],
+      "description": "Highest power scythe with ice elemental damage.",
+      "location": "Endgame content",
+      "rarity": "legendary"
+    },
+    "verleso": {
+      "id": "verleso",
+      "name": "Verleso",
+      "character": "verso",
+      "type": "dual_blade",
+      "element": "dual",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 57, "scaling": "C" },
+        "level10": { "attack": 142, "scaling": "B" },
+        "level20": { "attack": 285, "scaling": "A" },
+        "level33": { "attack": 427, "scaling": "S" }
+      },
+      "scalingAttributes": ["agility", "luck"],
+      "specialEffects": ["Light/Shadow Switch", "Perfection Ranking"],
+      "description": "Verso's starting dual weapon system with light/shadow duality.",
+      "location": "Starting weapon",
+      "rarity": "common"
+    },
+    "simoso": {
+      "id": "simoso",
+      "name": "Simoso",
+      "character": "verso",
+      "type": "dual_blade",
+      "element": "void",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 220, "scaling": "S" },
+        "level33": { "attack": 4400, "scaling": "S" }
+      },
+      "scalingAttributes": ["agility", "luck", "might"],
+      "specialEffects": ["Void Damage", "Perfect Form", "Ultimate Perfection"],
+      "description": "Reward for defeating Simon, the most challenging boss in the game.",
+      "location": "Simon boss reward",
+      "rarity": "legendary"
+    },
+    "monocaro": {
+      "id": "monocaro",
+      "name": "Monocaro",
+      "character": "monoco",
+      "type": "staff",
+      "element": "bestial",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 48, "scaling": "C" },
+        "level10": { "attack": 120, "scaling": "B" },
+        "level20": { "attack": 240, "scaling": "A" },
+        "level33": { "attack": 360, "scaling": "S" }
+      },
+      "scalingAttributes": ["luck", "agility"],
+      "specialEffects": ["Bestial Transformation", "Skill Capture"],
+      "description": "Monoco's starting staff with bestial transformation abilities.",
+      "location": "Starting weapon",
+      "rarity": "common"
+    },
+    "nusaro": {
+      "id": "nusaro",
+      "name": "Nusaro",
+      "character": "monoco",
+      "type": "staff",
+      "element": "dark",
+      "maxLevel": 33,
+      "baseStats": {
+        "level1": { "attack": 210, "scaling": "A" },
+        "level33": { "attack": 4197, "scaling": "S" }
+      },
+      "scalingAttributes": ["luck", "agility"],
+      "specialEffects": ["Dark Transformation", "Shadow Skills"],
+      "description": "Highest power staff with dark elemental abilities.",
+      "location": "Endgame content",
+      "rarity": "legendary"
+    }
+  },
+  "elements": {
+    "physical": { "name": "Physical", "color": "#8B7355" },
+    "fire": { "name": "Fire", "color": "#FF4500" },
+    "ice": { "name": "Ice", "color": "#87CEEB" },
+    "lightning": { "name": "Lightning", "color": "#FFD700" },
+    "earth": { "name": "Earth", "color": "#8B4513" },
+    "light": { "name": "Light", "color": "#FFFACD" },
+    "dark": { "name": "Dark", "color": "#4B0082" },
+    "void": { "name": "Void", "color": "#2F1B69" },
+    "celestial": { "name": "Celestial", "color": "#E6E6FA" },
+    "dual": { "name": "Dual", "color": "#C0C0C0" },
+    "bestial": { "name": "Bestial", "color": "#CD853F" }
+  },
+  "upgradeMaterials": {
+    "chroma_catalyst": {
+      "name": "Chroma Catalyst",
+      "description": "Basic catalyst for weapon upgrades (Levels 1-3)",
+      "maxLevel": 3
+    },
+    "polished_chroma_catalyst": {
+      "name": "Polished Chroma Catalyst",
+      "description": "Refined catalyst for mid-tier upgrades (Levels 4-9)",
+      "maxLevel": 9
+    },
+    "resplendent_chroma_catalyst": {
+      "name": "Resplendent Chroma Catalyst",
+      "description": "Advanced catalyst for high-tier upgrades (Levels 10-19)",
+      "maxLevel": 19
+    },
+    "grandiose_chroma_catalyst": {
+      "name": "Grandiose Chroma Catalyst",
+      "description": "Elite catalyst for endgame upgrades (Levels 20-32)",
+      "maxLevel": 32
+    },
+    "perfect_chroma_catalyst": {
+      "name": "Perfect Chroma Catalyst",
+      "description": "Ultimate catalyst for maximum upgrade (Level 33)",
+      "maxLevel": 33
+    }
+  },
+  "rarities": {
+    "common": { "color": "#FFFFFF", "name": "Common" },
+    "uncommon": { "color": "#22C55E", "name": "Uncommon" },
+    "rare": { "color": "#3B82F6", "name": "Rare" },
+    "epic": { "color": "#A855F7", "name": "Epic" },
+    "legendary": { "color": "#F59E0B", "name": "Legendary" }
+  }
+}

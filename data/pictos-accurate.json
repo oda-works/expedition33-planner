@@ -1,0 +1,383 @@
+{
+  "pictos": [
+    {
+      "id": "augmented_attack",
+      "name": "Augmented Attack",
+      "type": "offensive",
+      "lumina_cost": 2,
+      "rarity": "common",
+      "stats": {
+        "level1": {"attack": 15, "critRate": 5},
+        "level2": {"attack": 22, "critRate": 8},
+        "level3": {"attack": 30, "critRate": 12},
+        "level4": {"attack": 40, "critRate": 16}
+      },
+      "lumina_effect": "Increases physical attack damage by 10%. Critical hits restore 1 AP.",
+      "location": "Early game enemy drops",
+      "mastery_requirement": 4,
+      "description": "Enhances basic attacks with increased damage and critical hit benefits."
+    },
+    {
+      "id": "anti_charm",
+      "name": "Anti-Charm",
+      "type": "defensive",
+      "lumina_cost": 1,
+      "rarity": "common",
+      "stats": {
+        "level1": {"defense": 20, "mentalResistance": 25},
+        "level2": {"defense": 30, "mentalResistance": 35},
+        "level3": {"defense": 40, "mentalResistance": 45},
+        "level4": {"defense": 50, "mentalResistance": 60}
+      },
+      "lumina_effect": "Immunity to Charm status effects. Mental debuffs have 50% reduced duration.",
+      "location": "Gestral Merchant - 150G",
+      "mastery_requirement": 4,
+      "description": "Provides protection against mind-affecting abilities and charm effects."
+    },
+    {
+      "id": "energising_break",
+      "name": "Energising Break",
+      "type": "support",
+      "lumina_cost": 3,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"speed": 10, "apRegen": 15},
+        "level2": {"speed": 15, "apRegen": 22},
+        "level3": {"speed": 20, "apRegen": 30},
+        "level4": {"speed": 28, "apRegen": 40}
+      },
+      "lumina_effect": "Gain +2 AP when breaking an enemy's guard. Party members gain +1 AP when you break.",
+      "location": "Mid-game exploration reward",
+      "mastery_requirement": 4,
+      "description": "Rewards aggressive play with AP generation from guard breaks."
+    },
+    {
+      "id": "critical_surge",
+      "name": "Critical Surge",
+      "type": "offensive",
+      "lumina_cost": 4,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"critRate": 20, "critDamage": 30},
+        "level2": {"critRate": 28, "critDamage": 42},
+        "level3": {"critRate": 36, "critDamage": 54},
+        "level4": {"critRate": 45, "critDamage": 70}
+      },
+      "lumina_effect": "Each critical hit increases next critical damage by 25%. Stacks up to 3 times.",
+      "location": "Defeat Elite Shadow Stalker",
+      "mastery_requirement": 4,
+      "description": "Builds momentum through consecutive critical hits for escalating damage."
+    },
+    {
+      "id": "defensive_mastery",
+      "name": "Defensive Mastery",
+      "type": "defensive",
+      "lumina_cost": 3,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"defense": 35, "hp": 120},
+        "level2": {"defense": 50, "hp": 180},
+        "level3": {"defense": 65, "hp": 240},
+        "level4": {"defense": 85, "hp": 320}
+      },
+      "lumina_effect": "Perfect blocks restore 5% HP and grant damage reduction for 2 turns.",
+      "location": "Complete Defense Training Trial",
+      "mastery_requirement": 4,
+      "description": "Rewards skillful defensive play with healing and damage mitigation."
+    },
+    {
+      "id": "elemental_harmony",
+      "name": "Elemental Harmony",
+      "type": "support",
+      "lumina_cost": 5,
+      "rarity": "epic",
+      "stats": {
+        "level1": {"elementalDamage": 40, "elementalResistance": 20},
+        "level2": {"elementalDamage": 60, "elementalResistance": 30},
+        "level3": {"elementalDamage": 80, "elementalResistance": 40},
+        "level4": {"elementalDamage": 105, "elementalResistance": 55}
+      },
+      "lumina_effect": "Elemental skills cycle through elements: Fire → Water → Earth → Air. Each element applies unique debuffs.",
+      "location": "Complete all Elemental Shrine trials",
+      "mastery_requirement": 4,
+      "description": "Masters all elemental forces for diverse tactical options."
+    },
+    {
+      "id": "gradient_boost",
+      "name": "Gradient Boost",
+      "type": "support",
+      "lumina_cost": 3,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"gradientCharge": 25, "skillPower": 15},
+        "level2": {"gradientCharge": 35, "skillPower": 22},
+        "level3": {"gradientCharge": 45, "skillPower": 30},
+        "level4": {"gradientCharge": 60, "skillPower": 40}
+      },
+      "lumina_effect": "Gradient Skills charge 50% faster. Using Gradient Skills doesn't end turn.",
+      "location": "Defeat Gradient Phantoms",
+      "mastery_requirement": 4,
+      "description": "Enhances the unique Gradient Skill system for more frequent usage."
+    },
+    {
+      "id": "overcharge_amplifier",
+      "name": "Overcharge Amplifier",
+      "type": "offensive",
+      "lumina_cost": 4,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"attack": 25, "lightningDamage": 35},
+        "level2": {"attack": 35, "lightningDamage": 50},
+        "level3": {"attack": 45, "lightningDamage": 65},
+        "level4": {"attack": 60, "lightningDamage": 85}
+      },
+      "lumina_effect": "Overcharge charges build 100% faster. Overcharge attacks affect 3x3 area.",
+      "location": "Gustave character-specific quest",
+      "mastery_requirement": 4,
+      "description": "Specialized enhancement for Gustave's Overcharge ability.",
+      "character_specific": "gustave"
+    },
+    {
+      "id": "elemental_mastery",
+      "name": "Elemental Mastery",
+      "type": "support",
+      "lumina_cost": 4,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"elementalPower": 30, "stainEfficiency": 25},
+        "level2": {"elementalPower": 42, "stainEfficiency": 35},
+        "level3": {"elementalPower": 54, "stainEfficiency": 45},
+        "level4": {"elementalPower": 70, "stainEfficiency": 60}
+      },
+      "lumina_effect": "Elemental Stains last 2 turns longer. Can stack up to 3 of the same stain type.",
+      "location": "Lune character-specific quest",
+      "mastery_requirement": 4,
+      "description": "Specialized enhancement for Lune's Elemental Stain system.",
+      "character_specific": "lune"
+    },
+    {
+      "id": "stance_dancer",
+      "name": "Stance Dancer",
+      "type": "offensive",
+      "lumina_cost": 4,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"speed": 20, "stancePower": 25},
+        "level2": {"speed": 30, "stancePower": 35},
+        "level3": {"speed": 40, "stancePower": 45},
+        "level4": {"speed": 55, "stancePower": 60}
+      },
+      "lumina_effect": "Switching stances doesn't cost AP. Each stance switch grants +10% damage for 3 turns.",
+      "location": "Maelle character-specific quest",
+      "mastery_requirement": 4,
+      "description": "Specialized enhancement for Maelle's Stance System.",
+      "character_specific": "maelle"
+    },
+    {
+      "id": "foretell_master",
+      "name": "Foretell Master",
+      "type": "support",
+      "lumina_cost": 4,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"sunCharge": 25, "moonCharge": 25},
+        "level2": {"sunCharge": 35, "moonCharge": 35},
+        "level3": {"sunCharge": 45, "moonCharge": 45},
+        "level4": {"sunCharge": 60, "moonCharge": 60}
+      },
+      "lumina_effect": "Sun and Moon charges build simultaneously. Perfect predictions restore party AP.",
+      "location": "Sciel character-specific quest",
+      "mastery_requirement": 4,
+      "description": "Specialized enhancement for Sciel's Foretell System.",
+      "character_specific": "sciel"
+    },
+    {
+      "id": "perfection_seeker",
+      "name": "Perfection Seeker",
+      "type": "offensive",
+      "lumina_cost": 5,
+      "rarity": "epic",
+      "stats": {
+        "level1": {"perfectionBonus": 40, "allStats": 15},
+        "level2": {"perfectionBonus": 55, "allStats": 22},
+        "level3": {"perfectionBonus": 70, "allStats": 30},
+        "level4": {"perfectionBonus": 90, "allStats": 40}
+      },
+      "lumina_effect": "Perfect rankings provide exponentially increasing bonuses. S-rank actions grant party buffs.",
+      "location": "Verso character-specific quest",
+      "mastery_requirement": 4,
+      "description": "Specialized enhancement for Verso's Perfection Ranking system.",
+      "character_specific": "verso"
+    },
+    {
+      "id": "bestial_fury",
+      "name": "Bestial Fury",
+      "type": "support",
+      "lumina_cost": 4,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"maskPower": 30, "skillCapture": 25},
+        "level2": {"maskPower": 42, "skillCapture": 35},
+        "level3": {"maskPower": 54, "skillCapture": 45},
+        "level4": {"maskPower": 70, "skillCapture": 60}
+      },
+      "lumina_effect": "Mask transformations last 50% longer. Captured skills have 25% reduced AP cost.",
+      "location": "Monoco character-specific quest",
+      "mastery_requirement": 4,
+      "description": "Specialized enhancement for Monoco's Bestial Wheel system.",
+      "character_specific": "monoco"
+    },
+    {
+      "id": "parry_master",
+      "name": "Parry Master",
+      "type": "defensive",
+      "lumina_cost": 3,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"parryWindow": 20, "counterDamage": 25},
+        "level2": {"parryWindow": 30, "counterDamage": 35},
+        "level3": {"parryWindow": 40, "counterDamage": 45},
+        "level4": {"parryWindow": 55, "counterDamage": 60}
+      },
+      "lumina_effect": "Perfect parries grant 2 AP and automatically counter. Parry window increased by 25%.",
+      "location": "Combat Training Academy",
+      "mastery_requirement": 4,
+      "description": "Masters the art of precise parrying for offensive counter-attacks."
+    },
+    {
+      "id": "dodge_specialist",
+      "name": "Dodge Specialist",
+      "type": "defensive",
+      "lumina_cost": 2,
+      "rarity": "common",
+      "stats": {
+        "level1": {"dodge": 15, "speed": 12},
+        "level2": {"dodge": 22, "speed": 18},
+        "level3": {"dodge": 30, "speed": 25},
+        "level4": {"dodge": 40, "speed": 34}
+      },
+      "lumina_effect": "Perfect dodges grant movement bonus and next attack is guaranteed critical.",
+      "location": "Agility Trial completion",
+      "mastery_requirement": 4,
+      "description": "Specializes in evasive maneuvers with offensive follow-up benefits."
+    },
+    {
+      "id": "ap_efficiency",
+      "name": "AP Efficiency",
+      "type": "support",
+      "lumina_cost": 3,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"apMax": 1, "apRegen": 20},
+        "level2": {"apMax": 1, "apRegen": 28},
+        "level3": {"apMax": 2, "apRegen": 36},
+        "level4": {"apMax": 2, "apRegen": 48}
+      },
+      "lumina_effect": "All abilities cost 1 less AP (minimum 1). Start battles with +2 AP.",
+      "location": "Strategic Mastery Quest",
+      "mastery_requirement": 4,
+      "description": "Optimizes action point usage for more actions per turn."
+    },
+    {
+      "id": "status_immunity",
+      "name": "Status Immunity",
+      "type": "defensive",
+      "lumina_cost": 4,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"statusResistance": 50, "debuffResistance": 40},
+        "level2": {"statusResistance": 65, "debuffResistance": 55},
+        "level3": {"statusResistance": 80, "debuffResistance": 70},
+        "level4": {"statusResistance": 100, "debuffResistance": 90}
+      },
+      "lumina_effect": "Immune to 2 random status effects per battle. Debuffs have 75% reduced duration.",
+      "location": "Purification Shrine completion",
+      "mastery_requirement": 4,
+      "description": "Provides comprehensive protection against negative status effects."
+    },
+    {
+      "id": "team_support",
+      "name": "Team Support",
+      "type": "support",
+      "lumina_cost": 5,
+      "rarity": "epic",
+      "stats": {
+        "level1": {"teamBonus": 20, "auraRange": 2},
+        "level2": {"teamBonus": 28, "auraRange": 2},
+        "level3": {"teamBonus": 36, "auraRange": 3},
+        "level4": {"teamBonus": 48, "auraRange": 3}
+      },
+      "lumina_effect": "Adjacent allies gain 15% of your stat bonuses. Party abilities affect all members regardless of range.",
+      "location": "Unity Trial - all characters together",
+      "mastery_requirement": 4,
+      "description": "Enhances party synergy with stat sharing and extended ability ranges."
+    },
+    {
+      "id": "burst_damage",
+      "name": "Burst Damage",
+      "type": "offensive",
+      "lumina_cost": 4,
+      "rarity": "rare",
+      "stats": {
+        "level1": {"attack": 20, "burstPower": 40},
+        "level2": {"attack": 30, "burstPower": 55},
+        "level3": {"attack": 40, "burstPower": 70},
+        "level4": {"attack": 55, "burstPower": 90}
+      },
+      "lumina_effect": "First attack each turn deals +100% damage. Killing enemies extends burst to next target.",
+      "location": "Defeat Burst Demon boss",
+      "mastery_requirement": 4,
+      "description": "Specializes in high-damage opening strikes with chain kill potential."
+    },
+    {
+      "id": "resource_management",
+      "name": "Resource Management",
+      "type": "support",
+      "lumina_cost": 3,
+      "rarity": "uncommon",
+      "stats": {
+        "level1": {"efficiency": 25, "conservation": 20},
+        "level2": {"efficiency": 35, "conservation": 30},
+        "level3": {"efficiency": 45, "conservation": 40},
+        "level4": {"efficiency": 60, "conservation": 55}
+      },
+      "lumina_effect": "25% chance abilities don't consume resources. Resource-based abilities are 50% more effective.",
+      "location": "Economic Mastery Trial",
+      "mastery_requirement": 4,
+      "description": "Optimizes resource consumption for extended battle sustainability."
+    }
+  ],
+  "lumina_types": {
+    "offensive": {
+      "name": "Offensive Lumina",
+      "color": "#EF4444",
+      "description": "Increases damage output and offensive capabilities"
+    },
+    "defensive": {
+      "name": "Defensive Lumina",
+      "color": "#3B82F6",
+      "description": "Increases survivability and damage mitigation"
+    },
+    "support": {
+      "name": "Support Lumina",
+      "color": "#10B981",
+      "description": "Affects AP gain, buffs, status effects, and team synergy"
+    }
+  },
+  "mastery_system": {
+    "requirement": 4,
+    "description": "Win 4 battles with a Pictos equipped to unlock its Lumina permanently",
+    "benefits": [
+      "Lumina can be used by any character without equipping the Pictos",
+      "Lumina effects become available in the party-wide pool",
+      "Higher level Pictos provide stronger Lumina effects",
+      "Mastered Pictos contribute to collection completion"
+    ]
+  },
+  "lumina_points_system": {
+    "description": "Lumina Points equal to character level required to equip Lumina effects",
+    "cost_scaling": "Each Lumina has individual point cost from 1-5",
+    "character_level_cap": "Level 50 = 50 Lumina Points maximum",
+    "new_game_plus": "Higher caps and special Lumina available in NG+"
+  }
+}

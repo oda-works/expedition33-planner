@@ -1,0 +1,402 @@
+{
+  "weapons": {
+    "abysseram": {
+      "id": "abysseram",
+      "name": "Abysseram",
+      "character": "gustave",
+      "type": "Heavy Rifle",
+      "rarity": "Legendary",
+      "description": "Gustave's signature weapon. A powerful rifle capable of devastating attacks.",
+      "baseStats": {
+        "attack": 250,
+        "critRate": 10,
+        "critDamage": 25
+      },
+      "specialEffect": "Overcharge Boost: Increases charge gain by 50%. Critical hits generate additional charge.",
+      "evolution": {
+        "stage1": {
+          "name": "Abysseram",
+          "requirements": "Default",
+          "stats": {
+            "attack": 250,
+            "critRate": 10,
+            "critDamage": 25
+          }
+        },
+        "stage2": {
+          "name": "Abysseram+",
+          "requirements": "Defeat 100 enemies with Abysseram",
+          "stats": {
+            "attack": 320,
+            "critRate": 15,
+            "critDamage": 35
+          }
+        },
+        "stage3": {
+          "name": "Abysseram EX",
+          "requirements": "Complete Chapter 15 with Gustave",
+          "stats": {
+            "attack": 400,
+            "critRate": 20,
+            "critDamage": 50
+          }
+        }
+      },
+      "synergies": ["overcharge_mastery", "heavy_weapon_expert", "charge_accumulator"]
+    },
+    "steampunk_rifle": {
+      "id": "steampunk_rifle",
+      "name": "Steampunk Rifle",
+      "character": "gustave",
+      "type": "Mechanical Rifle",
+      "rarity": "Epic",
+      "description": "A brass and copper rifle with steam-powered mechanisms.",
+      "baseStats": {
+        "attack": 200,
+        "critRate": 8,
+        "critDamage": 20
+      },
+      "specialEffect": "Steam Burst: Every 5th shot creates an area explosion dealing additional damage.",
+      "evolution": {
+        "stage1": {
+          "name": "Steampunk Rifle",
+          "requirements": "Found in Chapter 8",
+          "stats": {
+            "attack": 200,
+            "critRate": 8,
+            "critDamage": 20
+          }
+        },
+        "stage2": {
+          "name": "Enhanced Steam Rifle",
+          "requirements": "Collect 10 Steam Cores",
+          "stats": {
+            "attack": 270,
+            "critRate": 12,
+            "critDamage": 30
+          }
+        }
+      },
+      "synergies": ["area_damage_boost", "mechanical_mastery"]
+    },
+    "guardian_shield": {
+      "id": "guardian_shield",
+      "name": "Guardian Shield",
+      "character": "gustave",
+      "type": "Shield Weapon",
+      "rarity": "Rare",
+      "description": "A defensive weapon that can both protect and strike.",
+      "baseStats": {
+        "attack": 150,
+        "defense": 100,
+        "critRate": 5
+      },
+      "specialEffect": "Shield Counter: Blocking attacks builds counter charge. Release for powerful retaliation.",
+      "evolution": {
+        "stage1": {
+          "name": "Guardian Shield",
+          "requirements": "Purchased from Expedition 12 vendor",
+          "stats": {
+            "attack": 150,
+            "defense": 100,
+            "critRate": 5
+          }
+        },
+        "stage2": {
+          "name": "Fortress Shield",
+          "requirements": "Block 500 attacks",
+          "stats": {
+            "attack": 200,
+            "defense": 150,
+            "critRate": 8
+          }
+        }
+      },
+      "synergies": ["defensive_mastery", "counter_attack", "shield_expert"]
+    },
+    "artistic_brush": {
+      "id": "artistic_brush",
+      "name": "Artistic Brush",
+      "character": "lune",
+      "type": "Paint Brush",
+      "rarity": "Legendary",
+      "description": "Lune's signature weapon. Channels paint magic through artistic expression.",
+      "baseStats": {
+        "attack": 220,
+        "speed": 30,
+        "critRate": 15
+      },
+      "specialEffect": "Paint Mastery: Each different paint technique used increases overall effectiveness.",
+      "evolution": {
+        "stage1": {
+          "name": "Artistic Brush",
+          "requirements": "Default",
+          "stats": {
+            "attack": 220,
+            "speed": 30,
+            "critRate": 15
+          }
+        },
+        "stage2": {
+          "name": "Master's Brush",
+          "requirements": "Use 50 different paint combinations",
+          "stats": {
+            "attack": 290,
+            "speed": 40,
+            "critRate": 22
+          }
+        },
+        "stage3": {
+          "name": "Divine Brush",
+          "requirements": "Complete all paint galleries",
+          "stats": {
+            "attack": 370,
+            "speed": 55,
+            "critRate": 30
+          }
+        }
+      },
+      "synergies": ["paint_mastery", "artistic_flow", "color_harmony"]
+    },
+    "sniper_rifle": {
+      "id": "sniper_rifle",
+      "name": "Precision Rifle",
+      "character": "maelle",
+      "type": "Sniper Rifle",
+      "rarity": "Legendary",
+      "description": "Maelle's signature weapon. Built for precision and critical damage.",
+      "baseStats": {
+        "attack": 280,
+        "critRate": 25,
+        "critDamage": 60
+      },
+      "specialEffect": "Perfect Shot: Charged attacks have guaranteed critical hits and ignore enemy defense.",
+      "evolution": {
+        "stage1": {
+          "name": "Precision Rifle",
+          "requirements": "Default",
+          "stats": {
+            "attack": 280,
+            "critRate": 25,
+            "critDamage": 60
+          }
+        },
+        "stage2": {
+          "name": "Sniper's Edge",
+          "requirements": "Land 200 critical hits",
+          "stats": {
+            "attack": 350,
+            "critRate": 35,
+            "critDamage": 80
+          }
+        },
+        "stage3": {
+          "name": "Wind Piercer",
+          "requirements": "Defeat 10 bosses with critical hits",
+          "stats": {
+            "attack": 440,
+            "critRate": 45,
+            "critDamage": 105
+          }
+        }
+      },
+      "synergies": ["critical_mastery", "precision_expert", "long_range"]
+    },
+    "noble_rapier": {
+      "id": "noble_rapier",
+      "name": "Noble Rapier",
+      "character": "sciel",
+      "type": "Rapier",
+      "rarity": "Legendary",
+      "description": "Sciel's signature weapon. An elegant blade that embodies noble fighting arts.",
+      "baseStats": {
+        "attack": 240,
+        "speed": 25,
+        "critRate": 18,
+        "critDamage": 35
+      },
+      "specialEffect": "Blade Mastery: Switching stances grants temporary stat bonuses based on current form.",
+      "evolution": {
+        "stage1": {
+          "name": "Noble Rapier",
+          "requirements": "Default",
+          "stats": {
+            "attack": 240,
+            "speed": 25,
+            "critRate": 18,
+            "critDamage": 35
+          }
+        },
+        "stage2": {
+          "name": "Royal Blade",
+          "requirements": "Master all sword stances",
+          "stats": {
+            "attack": 310,
+            "speed": 35,
+            "critRate": 25,
+            "critDamage": 50
+          }
+        },
+        "stage3": {
+          "name": "Lumière Edge",
+          "requirements": "Complete noble questline",
+          "stats": {
+            "attack": 390,
+            "speed": 50,
+            "critRate": 35,
+            "critDamage": 70
+          }
+        }
+      },
+      "synergies": ["sword_mastery", "stance_dancer", "noble_arts"]
+    },
+    "dual_daggers": {
+      "id": "dual_daggers",
+      "name": "Twin Shadows",
+      "character": "verso",
+      "type": "Dual Daggers",
+      "rarity": "Legendary",
+      "description": "Verso's signature weapons. Twin daggers that reflect their dual nature.",
+      "baseStats": {
+        "attack": 200,
+        "speed": 40,
+        "critRate": 20,
+        "critDamage": 30
+      },
+      "specialEffect": "Dual Form: Different bonuses based on current personality - Light form heals on hit, Shadow form applies poison.",
+      "evolution": {
+        "stage1": {
+          "name": "Twin Shadows",
+          "requirements": "Default",
+          "stats": {
+            "attack": 200,
+            "speed": 40,
+            "critRate": 20,
+            "critDamage": 30
+          }
+        },
+        "stage2": {
+          "name": "Eclipse Blades",
+          "requirements": "Switch forms 100 times in combat",
+          "stats": {
+            "attack": 260,
+            "speed": 55,
+            "critRate": 28,
+            "critDamage": 45
+          }
+        },
+        "stage3": {
+          "name": "Unity Daggers",
+          "requirements": "Balance light and shadow actions",
+          "stats": {
+            "attack": 330,
+            "speed": 75,
+            "critRate": 38,
+            "critDamage": 65
+          }
+        }
+      },
+      "synergies": ["dual_mastery", "form_switcher", "shadow_light_balance"]
+    },
+    "tech_rifle": {
+      "id": "tech_rifle",
+      "name": "Gadget Rifle",
+      "character": "monoco",
+      "type": "Tech Rifle",
+      "rarity": "Legendary",
+      "description": "Monoco's signature weapon. A high-tech rifle with modular attachments.",
+      "baseStats": {
+        "attack": 210,
+        "speed": 20,
+        "critRate": 12,
+        "electric_damage": 50
+      },
+      "specialEffect": "Gadget Sync: Each deployed gadget increases weapon effectiveness by 15%.",
+      "evolution": {
+        "stage1": {
+          "name": "Gadget Rifle",
+          "requirements": "Default",
+          "stats": {
+            "attack": 210,
+            "speed": 20,
+            "critRate": 12,
+            "electric_damage": 50
+          }
+        },
+        "stage2": {
+          "name": "Advanced Tech Rifle",
+          "requirements": "Deploy 50 gadgets",
+          "stats": {
+            "attack": 280,
+            "speed": 30,
+            "critRate": 18,
+            "electric_damage": 75
+          }
+        },
+        "stage3": {
+          "name": "Quantum Rifle",
+          "requirements": "Complete tech research tree",
+          "stats": {
+            "attack": 360,
+            "speed": 45,
+            "critRate": 25,
+            "electric_damage": 100
+          }
+        }
+      },
+      "synergies": ["tech_mastery", "gadget_expert", "electric_specialist"]
+    }
+  },
+  "weaponTypes": {
+    "heavy_rifle": {
+      "name": "Heavy Rifle",
+      "description": "High damage, slower attacks, good for breaking enemy defenses"
+    },
+    "paint_brush": {
+      "name": "Paint Brush",
+      "description": "Magic-based weapon with utility effects and area damage"
+    },
+    "sniper_rifle": {
+      "name": "Sniper Rifle",
+      "description": "Extreme precision, high critical chance, long range"
+    },
+    "rapier": {
+      "name": "Rapier",
+      "description": "Balanced weapon with stance-changing abilities"
+    },
+    "dual_daggers": {
+      "name": "Dual Daggers",
+      "description": "Fast attacks, high mobility, form-dependent effects"
+    },
+    "tech_rifle": {
+      "name": "Tech Rifle",
+      "description": "Utility-focused with gadget synergies"
+    }
+  },
+  "rarities": {
+    "common": {
+      "color": "#9CA3AF",
+      "name": "Common"
+    },
+    "uncommon": {
+      "color": "#22C55E",
+      "name": "Uncommon"
+    },
+    "rare": {
+      "color": "#3B82F6",
+      "name": "Rare"
+    },
+    "epic": {
+      "color": "#A855F7",
+      "name": "Epic"
+    },
+    "legendary": {
+      "color": "#F59E0B",
+      "name": "Legendary"
+    },
+    "mythic": {
+      "color": "#EF4444",
+      "name": "Mythic"
+    }
+  }
+}

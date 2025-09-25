@@ -1,0 +1,132 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Water gradient -->
+    <radialGradient id="waterGrad" cx="20%" cy="40%" r="80%">
+      <stop offset="0%" style="stop-color:#4682B4;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#191970;stop-opacity:0.6" />
+    </radialGradient>
+
+    <!-- Land gradient -->
+    <linearGradient id="landGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8FBC8F;stop-opacity:0.7" />
+      <stop offset="50%" style="stop-color:#9ACD32;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:0.8" />
+    </linearGradient>
+
+    <!-- Mountain gradient -->
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#696969;stop-opacity:0.9" />
+      <stop offset="70%" style="stop-color:#2F4F4F;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#1C1C1C;stop-opacity:0.8" />
+    </radialGradient>
+
+    <!-- Forest pattern -->
+    <pattern id="forestPattern" patternUnits="userSpaceOnUse" width="20" height="20">
+      <circle cx="10" cy="10" r="3" fill="#228B22" opacity="0.4"/>
+      <circle cx="5" cy="15" r="2" fill="#32CD32" opacity="0.3"/>
+      <circle cx="15" cy="5" r="2.5" fill="#006400" opacity="0.5"/>
+    </pattern>
+
+    <!-- Beach pattern -->
+    <pattern id="beachPattern" patternUnits="userSpaceOnUse" width="15" height="15">
+      <circle cx="7.5" cy="7.5" r="1" fill="#F4A460" opacity="0.6"/>
+      <circle cx="3" cy="12" r="0.5" fill="#DEB887" opacity="0.4"/>
+      <circle cx="12" cy="3" r="0.8" fill="#D2B48C" opacity="0.5"/>
+    </pattern>
+
+    <!-- Cave entrance -->
+    <radialGradient id="caveGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#2F2F2F;stop-opacity:0.3" />
+    </radialGradient>
+  </defs>
+
+  <!-- Ocean background -->
+  <rect width="800" height="500" fill="url(#waterGrad)"/>
+
+  <!-- Waves pattern -->
+  <path d="M0,450 Q100,440 200,450 T400,450 T600,450 T800,450 L800,500 L0,500 Z" fill="#4682B4" opacity="0.3"/>
+  <path d="M0,460 Q150,450 300,460 T600,460 T800,460 L800,500 L0,500 Z" fill="#5F9EA0" opacity="0.2"/>
+
+  <!-- Main continent landmass -->
+  <path d="M50,150 Q150,120 250,140 Q350,130 450,145 Q550,140 650,160 Q720,180 750,220 Q760,280 740,340 Q700,380 650,400 Q550,420 450,410 Q350,415 250,400 Q150,390 100,350 Q60,300 50,250 Q45,200 50,150 Z"
+        fill="url(#landGrad)" stroke="#654321" stroke-width="2" opacity="0.8"/>
+
+  <!-- Northern mountains (Frozen Peaks area) -->
+  <path d="M280,80 L300,120 L320,100 L340,130 L360,110 L380,140 L400,100 L420,130 L440,110 Q450,140 430,150 Q350,155 280,150 Z"
+        fill="url(#mountainGrad)" stroke="#2F4F4F" stroke-width="1"/>
+
+  <!-- Mountain peaks with snow -->
+  <polygon points="300,80 290,120 310,120" fill="#F8F8FF" opacity="0.8"/>
+  <polygon points="340,90 330,130 350,130" fill="#F8F8FF" opacity="0.8"/>
+  <polygon points="400,85 390,125 410,125" fill="#F8F8FF" opacity="0.8"/>
+
+  <!-- Western coastal area (Gestral Beach) -->
+  <ellipse cx="180" cy="400" rx="60" ry="40" fill="url(#beachPattern)" stroke="#D2B48C" stroke-width="1"/>
+
+  <!-- Central forest (Red Woods, Crimson Forest) -->
+  <ellipse cx="600" cy="200" rx="80" ry="60" fill="url(#forestPattern)"/>
+  <ellipse cx="650" cy="160" rx="50" ry="35" fill="#8B0000" opacity="0.4"/> <!-- Crimson Forest -->
+
+  <!-- Eastern caves -->
+  <circle cx="700" cy="380" r="25" fill="url(#caveGrad)"/>
+  <circle cx="150" cy="430" r="20" fill="url(#caveGrad)"/>
+
+  <!-- Central camp area -->
+  <circle cx="500" cy="250" r="15" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  <rect x="495" y="245" width="10" height="10" fill="#D2B48C"/>
+
+  <!-- Ancient ruins -->
+  <rect x="340" y="140" width="20" height="20" fill="#696969" opacity="0.7"/>
+  <rect x="345" y="135" width="10" height="10" fill="#A9A9A9" opacity="0.8"/>
+  <rect x="355" y="145" width="8" height="15" fill="#778899" opacity="0.6"/>
+
+  <!-- Crystal caverns -->
+  <circle cx="450" cy="430" r="18" fill="#E6E6FA" opacity="0.6" stroke="#9370DB" stroke-width="2"/>
+  <polygon points="450,420 445,435 455,435" fill="#DA70D6" opacity="0.8"/>
+  <polygon points="450,440 443,430 457,430" fill="#DDA0DD" opacity="0.7"/>
+
+  <!-- Rivers -->
+  <path d="M350,160 Q400,180 450,200 Q500,220 530,250" stroke="#4682B4" stroke-width="4" fill="none" opacity="0.6"/>
+  <path d="M530,250 Q480,280 450,320 Q420,360 400,400" stroke="#4682B4" stroke-width="3" fill="none" opacity="0.6"/>
+
+  <!-- Sunken city (partially submerged) -->
+  <circle cx="100" cy="340" r="30" fill="#4682B4" opacity="0.3"/>
+  <rect x="85" y="330" width="10" height="10" fill="#696969" opacity="0.4"/>
+  <rect x="105" y="335" width="8" height="8" fill="#696969" opacity="0.4"/>
+  <rect x="95" y="345" width="12" height="6" fill="#696969" opacity="0.3"/>
+
+  <!-- Falling Leaves area -->
+  <ellipse cx="550" cy="200" rx="40" ry="25" fill="#CD853F" opacity="0.4"/>
+  <!-- Falling leaves effect -->
+  <circle cx="540" cy="190" r="2" fill="#FF8C00" opacity="0.7"/>
+  <circle cx="560" cy="195" r="1.5" fill="#FF6347" opacity="0.6"/>
+  <circle cx="545" cy="205" r="1.8" fill="#FFD700" opacity="0.8"/>
+  <circle cx="555" cy="210" r="1.2" fill="#FFA500" opacity="0.7"/>
+
+  <!-- Location labels (subtle) -->
+  <text x="300" y="100" text-anchor="middle" fill="#F8F8FF" font-family="serif" font-size="10" opacity="0.8">Frozen Peaks</text>
+  <text x="350" y="155" text-anchor="middle" fill="#696969" font-family="serif" font-size="9" opacity="0.7">Ancient Ruins</text>
+  <text x="500" y="240" text-anchor="middle" fill="#8B4513" font-family="serif" font-size="10" font-weight="bold">Camp</text>
+  <text x="180" y="420" text-anchor="middle" fill="#D2B48C" font-family="serif" font-size="9" opacity="0.8">Gestral Beach</text>
+  <text x="650" y="180" text-anchor="middle" fill="#8B0000" font-family="serif" font-size="9" opacity="0.9">Crimson Forest</text>
+  <text x="600" y="220" text-anchor="middle" fill="#228B22" font-family="serif" font-size="9" opacity="0.8">Red Woods</text>
+  <text x="100" y="360" text-anchor="middle" fill="#4682B4" font-family="serif" font-size="8" opacity="0.6">Sunken City</text>
+  <text x="450" y="450" text-anchor="middle" fill="#9370DB" font-family="serif" font-size="9" opacity="0.7">Crystal Caverns</text>
+
+  <!-- Compass rose -->
+  <g transform="translate(720,50)">
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#D4AF37" stroke-width="2" opacity="0.8"/>
+    <path d="M0,-20 L5,-5 L0,0 L-5,-5 Z" fill="#D4AF37" opacity="0.9"/>
+    <text x="0" y="-35" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="12" font-weight="bold">N</text>
+    <text x="35" y="5" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="10">E</text>
+    <text x="0" y="45" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="10">S</text>
+    <text x="-35" y="5" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="10">W</text>
+  </g>
+
+  <!-- Title cartouche -->
+  <rect x="20" y="20" width="200" height="60" rx="10" fill="rgba(45,27,105,0.8)" stroke="#D4AF37" stroke-width="2"/>
+  <text x="120" y="40" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="16" font-weight="bold">The Continent</text>
+  <text x="120" y="55" text-anchor="middle" fill="#E6E6FA" font-family="serif" font-size="12">Expedition 33</text>
+  <text x="120" y="70" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="10">Interactive Map</text>
+</svg>

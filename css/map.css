@@ -1,0 +1,301 @@
+/* Interactive Map Styles */
+.map-container {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.map-title {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.map-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.map-filter {
+  padding: 0.5rem;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.map-toggle {
+  padding: 0.5rem 1rem;
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.map-toggle:hover {
+  background: var(--btn-secondary-hover);
+}
+
+.map-toggle.active {
+  background: var(--accent-color);
+  color: var(--background-primary);
+}
+
+.interactive-map {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-image: url('https://static0.gamerantimages.com/wordpress/wp-content/uploads/mapimages/clair_obscur_expedition_33_the_continent_2048.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  border: 2px solid var(--accent-color);
+  overflow: hidden;
+}
+
+.map-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0.3;
+}
+
+.location-marker {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 2;
+  border: 2px solid var(--background-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.location-marker:hover {
+  width: 16px;
+  height: 16px;
+  z-index: 5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.location-marker.story {
+  background: var(--accent-color);
+}
+
+.location-marker.optional {
+  background: var(--secondary-color);
+}
+
+.location-marker.hub {
+  background: var(--text-gold);
+  width: 16px;
+  height: 16px;
+}
+
+.location-marker.hub:hover {
+  width: 20px;
+  height: 20px;
+}
+
+.collectible-marker {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+  z-index: 3;
+  border: 1px solid var(--background-primary);
+}
+
+.collectible-marker:hover {
+  width: 10px;
+  height: 10px;
+  z-index: 4;
+}
+
+.collectible-marker.journal {
+  background: #8B4513;
+}
+
+.collectible-marker.music {
+  background: #4169E1;
+}
+
+.collectible-marker.special {
+  background: #FFD700;
+}
+
+.collectible-marker.gestral {
+  background: #FF69B4;
+}
+
+.collectible-marker.found {
+  opacity: 0.4;
+  background: #666;
+}
+
+.map-tooltip {
+  position: absolute;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -100%);
+  margin-top: -8px;
+}
+
+.map-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--tooltip-bg);
+}
+
+.location-info {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-primary);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  max-height: 120px;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 4;
+}
+
+.location-info.visible {
+  transform: translateY(0);
+}
+
+.location-info h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--accent-color);
+  font-size: 1rem;
+}
+
+.location-info p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.location-collectibles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.collectible-chip {
+  background: var(--accent-color);
+  color: var(--background-primary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.collectible-chip.found {
+  background: var(--success-color);
+  opacity: 0.7;
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.legend-marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--background-primary);
+  flex-shrink: 0;
+}
+
+.legend-marker.story { background: var(--accent-color); }
+.legend-marker.optional { background: var(--secondary-color); }
+.legend-marker.hub { background: var(--text-gold); }
+.legend-marker.journal { background: #8B4513; }
+.legend-marker.music { background: #4169E1; }
+.legend-marker.special { background: #FFD700; }
+.legend-marker.gestral { background: #FF69B4; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .interactive-map {
+    height: 400px;
+  }
+
+  .map-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .map-toggle {
+    text-align: center;
+  }
+
+  .location-info {
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    max-height: 100px;
+  }
+
+  .map-legend {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

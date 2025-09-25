@@ -1,0 +1,32 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="supportEpicGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#BBF7D0;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#10B981;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:0.9" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#supportEpicGrad)" stroke="#A855F7" stroke-width="3"/>
+
+  <!-- Shield symbol with enhancement -->
+  <path d="M32 12 L42 18 L42 34 Q42 42 32 48 Q22 42 22 34 L22 18 Z" fill="#FFF" stroke="#10B981" stroke-width="1"/>
+
+  <!-- Inner design -->
+  <circle cx="32" cy="28" r="6" fill="#10B981" opacity="0.8"/>
+  <path d="M28 24 L36 24 L36 32 L28 32 Z" fill="#FFF"/>
+
+  <!-- Energy aura -->
+  <path d="M32 10 L44 16 L44 36 Q44 44 32 50 Q20 44 20 36 L20 16 Z" fill="none" stroke="#BBF7D0" stroke-width="1" opacity="0.7"/>
+  <circle cx="22" cy="22" r="2" fill="#C4B5FD" opacity="0.8"/>
+  <circle cx="42" cy="22" r="2" fill="#C4B5FD" opacity="0.8"/>
+  <circle cx="22" cy="42" r="2" fill="#C4B5FD" opacity="0.8"/>
+  <circle cx="42" cy="42" r="2" fill="#C4B5FD" opacity="0.8"/>
+
+  <!-- Inner glow -->
+  <path d="M32 12 L42 18 L42 34 Q42 42 32 48 Q22 42 22 34 L22 18 Z" fill="none" stroke="#BBF7D0" stroke-width="1" opacity="0.9"/>
+
+  <!-- Rarity border -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#A855F7" stroke-width="2" opacity="0.9"/>
+</svg>

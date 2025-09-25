@@ -1,0 +1,172 @@
+{
+  "locations": {
+    "spring_meadows": {
+      "id": "spring_meadows",
+      "name": "Spring Meadows",
+      "description": "The starting area of the expedition",
+      "type": "story",
+      "coordinates": { "x": 400, "y": 300 },
+      "unlocked_by": "default",
+      "collectibles": ["journal_001", "journal_002", "music_001"]
+    },
+    "camp": {
+      "id": "camp",
+      "name": "Camp",
+      "description": "The central hub for expedition members",
+      "type": "hub",
+      "coordinates": { "x": 500, "y": 250 },
+      "unlocked_by": "story_progress",
+      "collectibles": ["journal_003", "music_002", "special_001"]
+    },
+    "gestral_beach": {
+      "id": "gestral_beach",
+      "name": "Gestral Beach",
+      "description": "A beautiful coastal area with hidden secrets",
+      "type": "optional",
+      "coordinates": { "x": 200, "y": 400 },
+      "unlocked_by": "optional",
+      "collectibles": ["journal_004", "journal_005", "music_003", "gestral_001"]
+    },
+    "red_woods": {
+      "id": "red_woods",
+      "name": "The Red Woods",
+      "description": "Dense forest area with autumn-colored trees",
+      "type": "optional",
+      "coordinates": { "x": 600, "y": 350 },
+      "unlocked_by": "optional",
+      "collectibles": ["journal_006", "journal_007", "music_004", "special_002"]
+    },
+    "coastal_cave": {
+      "id": "coastal_cave",
+      "name": "Coastal Cave",
+      "description": "Underwater cave system with coral formations",
+      "type": "optional",
+      "coordinates": { "x": 150, "y": 450 },
+      "unlocked_by": "gestral_beach",
+      "collectibles": ["journal_008", "music_005", "gestral_002"]
+    },
+    "sinister_cave": {
+      "id": "sinister_cave",
+      "name": "Sinister Cave",
+      "description": "Dark cave system filled with dangers",
+      "type": "optional",
+      "coordinates": { "x": 700, "y": 400 },
+      "unlocked_by": "red_woods",
+      "collectibles": ["journal_009", "journal_010", "music_006", "special_003"]
+    },
+    "falling_leaves": {
+      "id": "falling_leaves",
+      "name": "Falling Leaves",
+      "description": "Peaceful area with beautiful autumn scenery",
+      "type": "optional",
+      "coordinates": { "x": 550, "y": 200 },
+      "unlocked_by": "camp",
+      "collectibles": ["journal_011", "journal_012", "music_007"]
+    },
+    "crimson_forest": {
+      "id": "crimson_forest",
+      "name": "Crimson Forest",
+      "description": "Deep forest with mysterious red foliage",
+      "type": "story",
+      "coordinates": { "x": 650, "y": 150 },
+      "unlocked_by": "story_progress",
+      "collectibles": ["journal_013", "journal_014", "journal_015", "music_008", "music_009"]
+    },
+    "ancient_ruins": {
+      "id": "ancient_ruins",
+      "name": "Ancient Ruins",
+      "description": "Mysterious ruins from a forgotten civilization",
+      "type": "story",
+      "coordinates": { "x": 350, "y": 150 },
+      "unlocked_by": "story_progress",
+      "collectibles": ["journal_016", "journal_017", "music_010", "special_004"]
+    },
+    "crystal_caverns": {
+      "id": "crystal_caverns",
+      "name": "Crystal Caverns",
+      "description": "Beautiful underground caverns filled with crystals",
+      "type": "optional",
+      "coordinates": { "x": 450, "y": 450 },
+      "unlocked_by": "ancient_ruins",
+      "collectibles": ["journal_018", "journal_019", "music_011", "gestral_003"]
+    },
+    "frozen_peaks": {
+      "id": "frozen_peaks",
+      "name": "Frozen Peaks",
+      "description": "Snow-covered mountain peaks with harsh weather",
+      "type": "story",
+      "coordinates": { "x": 300, "y": 100 },
+      "unlocked_by": "story_progress",
+      "collectibles": ["journal_020", "journal_021", "journal_022", "music_012", "special_005"]
+    },
+    "sunken_city": {
+      "id": "sunken_city",
+      "name": "Sunken City",
+      "description": "Underwater city ruins with unique aquatic life",
+      "type": "optional",
+      "coordinates": { "x": 100, "y": 350 },
+      "unlocked_by": "coastal_cave",
+      "collectibles": ["journal_023", "journal_024", "music_013", "gestral_004"]
+    }
+  },
+  "collectible_mapping": {
+    "journals": {
+      "journal_001": { "name": "First Steps", "location": "spring_meadows", "coordinates": { "x": 380, "y": 320 } },
+      "journal_002": { "name": "The Journey Begins", "location": "spring_meadows", "coordinates": { "x": 420, "y": 280 } },
+      "journal_003": { "name": "Setting Up Camp", "location": "camp", "coordinates": { "x": 500, "y": 250 } },
+      "journal_004": { "name": "Ocean's Edge", "location": "gestral_beach", "coordinates": { "x": 180, "y": 420 } },
+      "journal_005": { "name": "Coastal Winds", "location": "gestral_beach", "coordinates": { "x": 220, "y": 380 } },
+      "journal_006": { "name": "Autumn Colors", "location": "red_woods", "coordinates": { "x": 580, "y": 330 } },
+      "journal_007": { "name": "Forest Depths", "location": "red_woods", "coordinates": { "x": 620, "y": 370 } },
+      "journal_008": { "name": "Underwater Echoes", "location": "coastal_cave", "coordinates": { "x": 150, "y": 450 } },
+      "journal_009": { "name": "Dark Passages", "location": "sinister_cave", "coordinates": { "x": 680, "y": 380 } },
+      "journal_010": { "name": "Cave Mysteries", "location": "sinister_cave", "coordinates": { "x": 720, "y": 420 } },
+      "journal_011": { "name": "Peaceful Moments", "location": "falling_leaves", "coordinates": { "x": 530, "y": 180 } },
+      "journal_012": { "name": "Nature's Beauty", "location": "falling_leaves", "coordinates": { "x": 570, "y": 220 } },
+      "journal_013": { "name": "Red Mysteries", "location": "crimson_forest", "coordinates": { "x": 630, "y": 130 } },
+      "journal_014": { "name": "Forest Secrets", "location": "crimson_forest", "coordinates": { "x": 670, "y": 170 } },
+      "journal_015": { "name": "Deep Woods", "location": "crimson_forest", "coordinates": { "x": 650, "y": 140 } },
+      "journal_016": { "name": "Ancient Texts", "location": "ancient_ruins", "coordinates": { "x": 330, "y": 130 } },
+      "journal_017": { "name": "Lost Civilization", "location": "ancient_ruins", "coordinates": { "x": 370, "y": 170 } },
+      "journal_018": { "name": "Crystal Formations", "location": "crystal_caverns", "coordinates": { "x": 430, "y": 430 } },
+      "journal_019": { "name": "Underground Wonders", "location": "crystal_caverns", "coordinates": { "x": 470, "y": 470 } },
+      "journal_020": { "name": "Mountain Heights", "location": "frozen_peaks", "coordinates": { "x": 280, "y": 80 } },
+      "journal_021": { "name": "Frozen Memories", "location": "frozen_peaks", "coordinates": { "x": 320, "y": 120 } },
+      "journal_022": { "name": "Peak Discoveries", "location": "frozen_peaks", "coordinates": { "x": 300, "y": 90 } },
+      "journal_023": { "name": "Submerged History", "location": "sunken_city", "coordinates": { "x": 80, "y": 330 } },
+      "journal_024": { "name": "Aquatic Ruins", "location": "sunken_city", "coordinates": { "x": 120, "y": 370 } }
+    },
+    "music_records": {
+      "music_001": { "name": "Expedition Theme", "location": "spring_meadows", "coordinates": { "x": 400, "y": 290 } },
+      "music_002": { "name": "Camp Melody", "location": "camp", "coordinates": { "x": 510, "y": 260 } },
+      "music_003": { "name": "Ocean Waves", "location": "gestral_beach", "coordinates": { "x": 200, "y": 400 } },
+      "music_004": { "name": "Autumn Breeze", "location": "red_woods", "coordinates": { "x": 600, "y": 350 } },
+      "music_005": { "name": "Cave Acoustics", "location": "coastal_cave", "coordinates": { "x": 160, "y": 460 } },
+      "music_006": { "name": "Sinister Echoes", "location": "sinister_cave", "coordinates": { "x": 700, "y": 400 } },
+      "music_007": { "name": "Tranquil Forest", "location": "falling_leaves", "coordinates": { "x": 550, "y": 200 } },
+      "music_008": { "name": "Crimson Ballad", "location": "crimson_forest", "coordinates": { "x": 640, "y": 160 } },
+      "music_009": { "name": "Forest Symphony", "location": "crimson_forest", "coordinates": { "x": 660, "y": 140 } },
+      "music_010": { "name": "Ancient Hymn", "location": "ancient_ruins", "coordinates": { "x": 350, "y": 150 } },
+      "music_011": { "name": "Crystal Resonance", "location": "crystal_caverns", "coordinates": { "x": 450, "y": 450 } },
+      "music_012": { "name": "Mountain Song", "location": "frozen_peaks", "coordinates": { "x": 290, "y": 110 } },
+      "music_013": { "name": "Underwater Serenade", "location": "sunken_city", "coordinates": { "x": 100, "y": 350 } }
+    },
+    "special_items": {
+      "special_001": { "name": "Expedition Badge", "location": "camp", "coordinates": { "x": 490, "y": 240 } },
+      "special_002": { "name": "Red Wood Emblem", "location": "red_woods", "coordinates": { "x": 610, "y": 360 } },
+      "special_003": { "name": "Cave Crystal", "location": "sinister_cave", "coordinates": { "x": 710, "y": 410 } },
+      "special_004": { "name": "Ancient Artifact", "location": "ancient_ruins", "coordinates": { "x": 360, "y": 140 } },
+      "special_005": { "name": "Frozen Relic", "location": "frozen_peaks", "coordinates": { "x": 310, "y": 100 } }
+    },
+    "gestrals": {
+      "gestral_001": { "name": "Beach Gestral", "location": "gestral_beach", "coordinates": { "x": 190, "y": 410 } },
+      "gestral_002": { "name": "Cave Gestral", "location": "coastal_cave", "coordinates": { "x": 140, "y": 440 } },
+      "gestral_003": { "name": "Crystal Gestral", "location": "crystal_caverns", "coordinates": { "x": 460, "y": 440 } },
+      "gestral_004": { "name": "Sunken Gestral", "location": "sunken_city", "coordinates": { "x": 110, "y": 360 } }
+    }
+  },
+  "map_dimensions": {
+    "width": 800,
+    "height": 500
+  }
+}

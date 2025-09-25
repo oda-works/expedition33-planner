@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unofficial build planner and collectibles tracker for Clair Obscur: Expedition 33">
+    <meta name="theme-color" content="#2D1B69">
+    <title>Expedition 33 Planner - Clair Obscur Build Tool</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pictos-manager.css">
+    <link rel="stylesheet" href="css/party-composer.css">
+    <link rel="stylesheet" href="css/party-synergy.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/pictos.css">
+    <link rel="stylesheet" href="css/damage-calculator.css">
+    <link rel="stylesheet" href="css/boss-tracker.css">
+    <link rel="stylesheet" href="css/build-comparison.css">
+    <link rel="stylesheet" href="css/build-guides.css">
+    <link rel="stylesheet" href="css/team-optimizer.css">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/app.js" as="script">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.svg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+</head>
+<body class="theme-dark">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <h2>Loading Expedition 33 Planner...</h2>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app-container" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="title-main">Expedition 33</span>
+                    <span class="title-sub">Build Planner</span>
+                </h1>
+                <div class="header-controls">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                        <span class="icon-theme"></span>
+                    </button>
+                    <button id="settings-btn" class="btn-icon" aria-label="Settings">
+                        <span class="icon-settings"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-nav" role="navigation">
+            <ul class="nav-tabs">
+                <li><button class="nav-tab active" data-tab="characters" aria-selected="true">Characters</button></li>
+                <li><button class="nav-tab" data-tab="pictos" aria-selected="false">Pictos & Lumina</button></li>
+                <li><button class="nav-tab" data-tab="party" aria-selected="false">Party Composer</button></li>
+                <li><button class="nav-tab" data-tab="collectibles" aria-selected="false">Collectibles</button></li>
+                <li><button class="nav-tab" data-tab="calculator" aria-selected="false">Damage Calculator</button></li>
+                <li><button class="nav-tab" data-tab="bosses" aria-selected="false">Boss Tracker</button></li>
+                <li><button class="nav-tab" data-tab="comparison" aria-selected="false">Build Compare</button></li>
+                <li><button class="nav-tab" data-tab="guides" aria-selected="false">Build Guides</button></li>
+                <li><button class="nav-tab" data-tab="optimizer" aria-selected="false">Team Optimizer</button></li>
+                <li><button class="nav-tab" data-tab="builds" aria-selected="false">Saved Builds</button></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <!-- Characters Tab -->
+            <section id="characters-tab" class="tab-content active" role="tabpanel" aria-labelledby="characters">
+                <div class="content-header">
+                    <h2>Character Builder</h2>
+                    <div class="content-controls">
+                        <select id="character-select" class="character-selector" aria-label="Select character">
+                            <option value="">Select a Character</option>
+                            <option value="gustave">Gustave</option>
+                            <option value="lune">Lune</option>
+                            <option value="maelle">Maelle</option>
+                            <option value="sciel">Sciel</option>
+                            <option value="verso">Verso</option>
+                            <option value="monoco">Monoco</option>
+                        </select>
+                        <button id="reset-build" class="btn-secondary">Reset Build</button>
+                        <button id="save-build" class="btn-primary">Save Build</button>
+                    </div>
+                </div>
+
+                <div id="character-builder" class="character-builder">
+                    <div class="builder-placeholder">
+                        <p>Select a character to begin building</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pictos & Lumina Tab -->
+            <section id="pictos-tab" class="tab-content" role="tabpanel" aria-labelledby="pictos">
+                <div class="content-header">
+                    <h2>Pictos & Lumina Manager</h2>
+                    <div class="content-controls">
+                        <input type="search" id="pictos-search" placeholder="Search pictos..." class="search-input">
+                        <select id="pictos-filter" class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="offensive">Offensive</option>
+                            <option value="defensive">Defensive</option>
+                            <option value="support">Support</option>
+                        </select>
+                        <div class="sort-controls">
+                            <button class="sort-btn active" data-sort="name">Name</button>
+                            <button class="sort-btn" data-sort="type">Type</button>
+                            <button class="sort-btn" data-sort="cost">Cost</button>
+                            <button class="sort-btn" data-sort="rarity">Rarity</button>
+                            <button class="sort-btn" data-sort="mastery">Mastery</button>
+                        </div>
+                        <button id="mastery-toggle" class="btn-toggle">Show Mastered Only</button>
+                    </div>
+                </div>
+
+                <div id="pictos-manager" class="pictos-manager">
+                    <div class="pictos-main-content">
+                        <div class="pictos-collection">
+                            <h3>Pictos Collection</h3>
+                            <div class="pictos-grid" id="pictos-grid">
+                                <!-- Pictos will be dynamically loaded here -->
+                            </div>
+                        </div>
+
+                        <div class="lumina-panel" id="lumina-panel">
+                            <!-- Lumina effects will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Party Composer Tab -->
+            <section id="party-tab" class="tab-content" role="tabpanel" aria-labelledby="party">
+                <div class="content-header">
+                    <h2>Party Composer</h2>
+                    <div class="content-controls">
+                        <button id="optimize-party" class="btn-primary">Auto-Optimize</button>
+                        <button id="clear-party" class="btn-secondary">Clear Party</button>
+                    </div>
+                </div>
+
+                <div id="party-composer" class="party-composer">
+                    <div class="party-main-layout">
+                        <div class="character-pool" id="character-pool">
+                            <!-- Character cards will be rendered here -->
+                        </div>
+
+                        <div class="party-slots">
+                            <div class="active-party">
+                                <h3>Active Party</h3>
+                                <div class="party-grid">
+                                    <div class="party-slot" data-slot="0" data-type="active">
+                                        <div class="slot-placeholder">
+                                            <span class="slot-icon">+</span>
+                                            <span class="slot-text">Empty</span>
+                                        </div>
+                                    </div>
+                                    <div class="party-slot" data-slot="1" data-type="active">
+                                        <div class="slot-placeholder">
+                                            <span class="slot-icon">+</span>
+                                            <span class="slot-text">Empty</span>
+                                        </div>
+                                    </div>
+                                    <div class="party-slot" data-slot="2" data-type="active">
+                                        <div class="slot-placeholder">
+                                            <span class="slot-icon">+</span>
+                                            <span class="slot-text">Empty</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reserve-party">
+                                <h3>Reserve Party</h3>
+                                <div class="party-grid">
+                                    <div class="party-slot" data-slot="0" data-type="reserve">
+                                        <div class="slot-placeholder">
+                                            <span class="slot-icon">+</span>
+                                            <span class="slot-text">Empty</span>
+                                        </div>
+                                    </div>
+                                    <div class="party-slot" data-slot="1" data-type="reserve">
+                                        <div class="slot-placeholder">
+                                            <span class="slot-icon">+</span>
+                                            <span class="slot-text">Empty</span>
+                                        </div>
+                                    </div>
+                                    <div class="party-slot" data-slot="2" data-type="reserve">
+                                        <div class="slot-placeholder">
+                                            <span class="slot-icon">+</span>
+                                            <span class="slot-text">Empty</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="party-analysis">
+                        <div class="party-stats" id="party-stats-display">
+                            <!-- Party stats will be displayed here -->
+                        </div>
+
+                        <div class="synergy-analyzer">
+                            <div id="party-synergy">
+                                <!-- Advanced party synergy visualization will be rendered here -->
+                            </div>
+                        </div>
+
+                        <div class="turn-order" id="turn-order-display">
+                            <!-- Turn order will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collectibles Tab -->
+            <section id="collectibles-tab" class="tab-content" role="tabpanel" aria-labelledby="collectibles">
+                <div class="content-header">
+                    <h2>Collectibles Tracker</h2>
+                    <div class="content-controls">
+                        <div class="progress-summary">
+                            <span id="overall-progress">0% Complete</span>
+                        </div>
+                        <button id="import-save" class="btn-secondary">Import Save</button>
+                        <button id="export-progress" class="btn-primary">Export Progress</button>
+                    </div>
+                </div>
+
+                <div id="collectibles-tracker" class="collectibles-tracker">
+                    <div class="collectibles-categories">
+                        <div class="category-tab active" data-category="journals">
+                            Expedition Journals <span class="count">(0/49)</span>
+                        </div>
+                        <div class="category-tab" data-category="records">
+                            Music Records <span class="count">(0/33)</span>
+                        </div>
+                        <div class="category-tab" data-category="other">
+                            Other <span class="count">(0/15)</span>
+                        </div>
+                        <div class="category-tab" data-category="map">
+                            Interactive Map <span class="count">🗺️</span>
+                        </div>
+                    </div>
+
+                    <div id="collectibles-content" class="collectibles-content">
+                        <!-- Collectibles will be dynamically loaded here -->
+                    </div>
+
+                    <div id="collectibles-map" class="collectibles-map" style="display: none;">
+                        <!-- Interactive map will be rendered here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Damage Calculator Tab -->
+            <section id="calculator-tab" class="tab-content" role="tabpanel" aria-labelledby="calculator">
+                <div class="content-header">
+                    <h2>Damage Calculator & Build Optimizer</h2>
+                    <div class="content-controls">
+                        <button id="calculator-help" class="btn-secondary">Help</button>
+                        <button id="calculator-settings" class="btn-primary">Settings</button>
+                    </div>
+                </div>
+
+                <div id="damage-calculator">
+                    <!-- Damage calculator content will be rendered here -->
+                </div>
+            </section>
+
+            <!-- Boss Tracker Tab -->
+            <section id="bosses-tab" class="tab-content" role="tabpanel" aria-labelledby="bosses">
+                <div class="content-header">
+                    <h2>Boss Encounter Tracker</h2>
+                    <div class="content-controls">
+                        <button id="boss-help" class="btn-secondary">Boss Guide</button>
+                        <button id="boss-reset" class="btn-primary">Reset Progress</button>
+                    </div>
+                </div>
+
+                <div id="boss-tracker">
+                    <!-- Boss tracker content will be rendered here -->
+                </div>
+            </section>
+
+            <!-- Build Comparison Tab -->
+            <section id="comparison-tab" class="tab-content" role="tabpanel" aria-labelledby="comparison">
+                <div class="content-header">
+                    <h2>Build Comparison</h2>
+                    <div class="content-controls">
+                        <button id="comparison-help" class="btn-secondary">Comparison Guide</button>
+                        <button id="clear-comparison" class="btn-primary">Clear All</button>
+                    </div>
+                </div>
+                <div id="build-comparison">
+                    <!-- Build comparison content will be rendered here -->
+                </div>
+            </section>
+
+            <!-- Build Guides Tab -->
+            <section id="guides-tab" class="tab-content" role="tabpanel" aria-labelledby="guides">
+                <div class="content-header">
+                    <h2>Comprehensive Build Guides</h2>
+                    <div class="content-controls">
+                        <button id="guides-help" class="btn-secondary">Guide Help</button>
+                    </div>
+                </div>
+                <div id="build-guides">
+                    <!-- Build guides content will be rendered here -->
+                </div>
+            </section>
+
+            <!-- Team Optimizer Tab -->
+            <section id="optimizer-tab" class="tab-content" role="tabpanel" aria-labelledby="optimizer">
+                <div class="content-header">
+                    <h2>Team Formation Optimizer</h2>
+                    <div class="content-controls">
+                        <button id="optimizer-help" class="btn-secondary">Optimizer Help</button>
+                    </div>
+                </div>
+                <div id="team-optimizer">
+                    <!-- Team optimizer content will be rendered here -->
+                </div>
+            </section>
+
+            <!-- Saved Builds Tab -->
+            <section id="builds-tab" class="tab-content" role="tabpanel" aria-labelledby="builds">
+                <div class="content-header">
+                    <h2>Saved Builds</h2>
+                    <div class="content-controls">
+                        <button id="import-build" class="btn-secondary">Import Build</button>
+                        <button id="export-all-builds" class="btn-primary">Export All</button>
+                    </div>
+                </div>
+
+                <div id="saved-builds" class="saved-builds">
+                    <div class="builds-grid" id="builds-grid">
+                        <!-- Saved builds will be displayed here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>
+                Unofficial fan tool for <strong>Clair Obscur: Expedition 33</strong> by Sandfall Interactive.
+                <a href="#disclaimer" class="disclaimer-link">Disclaimer</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Modals and Overlays -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal" role="dialog" aria-modal="true">
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-cancel">Cancel</button>
+                <button class="btn-primary modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script type="module">
+        console.log('🚀 Starting Expedition 33 Planner...');
+
+        let dataManager, storage, characterBuilder, pictosManager, partyComposer, collectiblesTracker, mapManager, damageCalculator, bossTracker;
+
+        async function initApp() {
+            try {
+                // Import modules dynamically
+                console.log('Loading modules...');
+                const dataModule = await import('./js/modules/data-manager.js');
+                const storageModule = await import('./js/modules/storage.js');
+                const charBuilderModule = await import('./js/modules/character-builder.js');
+                const pictosModule = await import('./js/modules/pictos-manager.js');
+                const partyModule = await import('./js/modules/party-composer.js');
+                const collectiblesModule = await import('./js/modules/collectibles-tracker.js');
+                const mapModule = await import('./js/modules/map-manager.js');
+                const calculatorModule = await import('./js/modules/damage-calculator.js');
+                const bossModule = await import('./js/modules/boss-tracker.js');
+                const comparisonModule = await import('./js/modules/build-comparison.js');
+                const synergyModule = await import('./js/modules/party-synergy.js');
+                const guidesModule = await import('./js/modules/build-guides.js');
+                const optimizerModule = await import('./js/modules/team-optimizer.js');
+
+                dataManager = dataModule.dataManager;
+                storage = storageModule.storage;
+                console.log('✓ Core modules loaded');
+
+                // Load game data
+                console.log('Loading game data...');
+                await dataManager.loadAllData();
+                console.log('✓ Game data loaded');
+
+                // Initialize feature modules
+                console.log('Initializing feature modules...');
+                characterBuilder = new charBuilderModule.CharacterBuilder(dataManager, storage);
+                pictosManager = new pictosModule.PictosManager(dataManager, storage);
+                partyComposer = new partyModule.PartyComposer(dataManager, storage);
+                collectiblesTracker = new collectiblesModule.CollectiblesTracker(dataManager, storage);
+                mapManager = new mapModule.MapManager(dataManager, storage);
+                damageCalculator = new calculatorModule.DamageCalculator(dataManager);
+                bossTracker = new bossModule.BossTracker(dataManager, storage);
+                buildComparison = new comparisonModule.BuildComparison(dataManager, storage);
+                partySynergy = new synergyModule.PartySynergy(dataManager, storage);
+                buildGuides = new guidesModule.BuildGuides(dataManager, storage);
+                teamOptimizer = new optimizerModule.TeamOptimizer(dataManager, storage);
+
+                // Initialize each module
+                await Promise.all([
+                    characterBuilder.init(),
+                    pictosManager.init(),
+                    partyComposer.init(),
+                    collectiblesTracker.init(),
+                    mapManager.init(),
+                    damageCalculator.init(),
+                    bossTracker.init(),
+                    buildComparison.init(),
+                    partySynergy.init(),
+                    buildGuides.init(),
+                    teamOptimizer.init()
+                ]);
+                console.log('✓ Feature modules initialized');
+
+                // Simple initialization - hide loading, show app
+                console.log('Initializing interface...');
+                const loadingScreen = document.getElementById('loading-screen');
+                const appContainer = document.getElementById('app');
+
+                if (loadingScreen && appContainer) {
+                    loadingScreen.style.display = 'none';
+                    appContainer.style.display = 'block';
+                    appContainer.classList.add('loaded');
+                    console.log('✅ Application loaded successfully!');
+                } else {
+                    throw new Error('Could not find required DOM elements');
+                }
+
+                // Set up navigation
+                setupNavigation();
+
+                // Set up character selection
+                setupCharacterSelection();
+
+                console.log('✓ All functionality initialized');
+
+            } catch (error) {
+                console.error('💥 Failed to initialize app:', error);
+
+                // Show error in loading screen
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.innerHTML = `
+                        <div class="error-message" style="text-align: center; color: #ff4444;">
+                            <h2>Failed to Load Application</h2>
+                            <p>${error.message}</p>
+                            <button onclick="location.reload()" style="padding: 10px 20px; margin-top: 10px; background: #2D1B69; color: white; border: none; border-radius: 5px; cursor: pointer;">Reload Page</button>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        function setupNavigation() {
+            const navTabs = document.querySelectorAll('.nav-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    const tabId = e.target.dataset.tab;
+
+                    // Update active states
+                    navTabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    e.target.classList.add('active');
+                    e.target.setAttribute('aria-selected', 'true');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+
+                    // Trigger module refresh when tab is activated
+                    switch(tabId) {
+                        case 'characters':
+                            characterBuilder?.refresh();
+                            break;
+                        case 'pictos':
+                            pictosManager?.refresh();
+                            break;
+                        case 'party':
+                            partyComposer?.refresh();
+                            break;
+                        case 'collectibles':
+                            collectiblesTracker?.refresh();
+                            setupCollectiblesNavigation();
+                            break;
+                    }
+                });
+            });
+        }
+
+        function setupCharacterSelection() {
+            // Let the character builder module handle its own initialization
+            // This avoids duplicate event listeners
+            console.log('✓ Character selection delegated to character-builder module');
+        }
+
+        function setupCollectiblesNavigation() {
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const collectiblesContent = document.getElementById('collectibles-content');
+            const collectiblesMap = document.getElementById('collectibles-map');
+
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    const category = e.target.dataset.category;
+
+                    // Update active tab
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    e.target.classList.add('active');
+
+                    if (category === 'map') {
+                        // Show map, hide content
+                        if (collectiblesContent) collectiblesContent.style.display = 'none';
+                        if (collectiblesMap) {
+                            collectiblesMap.style.display = 'block';
+                            mapManager?.renderMap('collectibles-map');
+                        }
+                    } else {
+                        // Show content, hide map
+                        if (collectiblesMap) collectiblesMap.style.display = 'none';
+                        if (collectiblesContent) collectiblesContent.style.display = 'block';
+                        // Let collectibles tracker handle the category change
+                        collectiblesTracker?.handleCategoryChange?.(category);
+                    }
+                });
+            });
+        }
+
+        // Start when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
+</body>
+</html>
