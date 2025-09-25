@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/build-comparison.css">
     <link rel="stylesheet" href="css/build-guides.css">
     <link rel="stylesheet" href="css/team-optimizer.css">
+    <link rel="stylesheet" href="css/achievement-tracker.css">
 
     <!-- Preload critical assets -->
     <link rel="preload" href="css/main.css" as="style">
@@ -74,6 +75,7 @@
                 <li><button class="nav-tab" data-tab="comparison" aria-selected="false">Build Compare</button></li>
                 <li><button class="nav-tab" data-tab="guides" aria-selected="false">Build Guides</button></li>
                 <li><button class="nav-tab" data-tab="optimizer" aria-selected="false">Team Optimizer</button></li>
+                <li><button class="nav-tab" data-tab="achievements" aria-selected="false">Achievements</button></li>
                 <li><button class="nav-tab" data-tab="builds" aria-selected="false">Saved Builds</button></li>
             </ul>
         </nav>
@@ -338,6 +340,19 @@
                 </div>
             </section>
 
+            <!-- Achievements Tab -->
+            <section id="achievements-tab" class="tab-content" role="tabpanel" aria-labelledby="achievements">
+                <div class="content-header">
+                    <h2>Achievement Tracker</h2>
+                    <div class="content-controls">
+                        <button id="achievements-help" class="btn-secondary">Achievement Guide</button>
+                    </div>
+                </div>
+                <div id="achievement-tracker">
+                    <!-- Achievement tracker content will be rendered here -->
+                </div>
+            </section>
+
             <!-- Saved Builds Tab -->
             <section id="builds-tab" class="tab-content" role="tabpanel" aria-labelledby="builds">
                 <div class="content-header">
@@ -406,6 +421,7 @@
                 const synergyModule = await import('./js/modules/party-synergy.js');
                 const guidesModule = await import('./js/modules/build-guides.js');
                 const optimizerModule = await import('./js/modules/team-optimizer.js');
+                const achievementModule = await import('./js/modules/achievement-tracker.js');
 
                 dataManager = dataModule.dataManager;
                 storage = storageModule.storage;
@@ -429,6 +445,7 @@
                 partySynergy = new synergyModule.PartySynergy(dataManager, storage);
                 buildGuides = new guidesModule.BuildGuides(dataManager, storage);
                 teamOptimizer = new optimizerModule.TeamOptimizer(dataManager, storage);
+                achievementTracker = new achievementModule.AchievementTracker(dataManager, storage);
 
                 // Initialize each module
                 await Promise.all([
@@ -442,7 +459,8 @@
                     buildComparison.init(),
                     partySynergy.init(),
                     buildGuides.init(),
-                    teamOptimizer.init()
+                    teamOptimizer.init(),
+                    achievementTracker.init()
                 ]);
                 console.log('✓ Feature modules initialized');
 
@@ -518,6 +536,9 @@
                         case 'collectibles':
                             collectiblesTracker?.refresh();
                             setupCollectiblesNavigation();
+                            break;
+                        case 'achievements':
+                            achievementTracker?.refresh();
                             break;
                     }
                 });
