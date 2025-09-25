@@ -368,26 +368,26 @@ export class DataManager {
     if (categories.includes('characters') && this.gameData.characters) {
       results.characters = Object.values(this.gameData.characters.characters)
         .filter(c => c.name.toLowerCase().includes(term) ||
-                    c.description.toLowerCase().includes(term));
+          c.description.toLowerCase().includes(term));
     }
 
     if (categories.includes('weapons') && this.gameData.weapons) {
       results.weapons = Object.values(this.gameData.weapons.weapons)
         .filter(w => w.name.toLowerCase().includes(term) ||
-                    w.description.toLowerCase().includes(term));
+          w.description.toLowerCase().includes(term));
     }
 
     if (categories.includes('pictos') && this.gameData.pictos) {
       results.pictos = this.gameData.pictos.pictos
         .filter(p => p.name.toLowerCase().includes(term) ||
-                    p.description.toLowerCase().includes(term) ||
-                    p.effect.toLowerCase().includes(term));
+          p.description.toLowerCase().includes(term) ||
+          p.effect.toLowerCase().includes(term));
     }
 
     if (categories.includes('luminas') && this.gameData.luminas) {
       results.luminas = Object.values(this.gameData.luminas.luminas)
         .filter(l => l.name.toLowerCase().includes(term) ||
-                    l.effect.toLowerCase().includes(term));
+          l.effect.toLowerCase().includes(term));
     }
 
     return results;

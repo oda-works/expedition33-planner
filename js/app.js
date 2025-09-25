@@ -115,14 +115,14 @@ class App {
     try {
       // Import only the modules that exist
       const modulePromises = [];
-      
+
       // Core modules
       modulePromises.push(import('./modules/character-builder.js'));
-      
+
       // Try to import optional modules, but continue if they fail
       const optionalModules = [
         'pictos-manager',
-        'party-composer', 
+        'party-composer',
         'collectibles-tracker',
         'map-manager',
         'damage-calculator',
@@ -136,7 +136,7 @@ class App {
 
       const importResults = await Promise.allSettled([
         ...modulePromises,
-        ...optionalModules.map(module => 
+        ...optionalModules.map(module =>
           import(`./modules/${module}.js`).catch(err => {
             console.warn(`Optional module ${module} not found:`, err);
             return null;
@@ -160,7 +160,7 @@ class App {
       modules.slice(1).forEach((module, index) => {
         const moduleName = optionalModules[index];
         const ModuleClass = Object.values(module || {})[0];
-        
+
         if (ModuleClass && typeof ModuleClass === 'function') {
           try {
             this.modules[moduleName] = new ModuleClass(dataManager, storage);
@@ -422,10 +422,10 @@ class App {
           event.preventDefault();
           const tabIndex = parseInt(event.key) - 1;
           const tabs = [
-            TABS.CHARACTERS, 
-            TABS.PICTOS, 
-            TABS.PARTY, 
-            TABS.COLLECTIBLES, 
+            TABS.CHARACTERS,
+            TABS.PICTOS,
+            TABS.PARTY,
+            TABS.COLLECTIBLES,
             TABS.CALCULATOR,
             TABS.BOSSES,
             TABS.COMPARISON,

@@ -641,8 +641,8 @@ export class CharacterBuilder {
             </div>
             <div class="lumina-stats">
               ${Object.entries(lumina.stats).map(([stat, value]) =>
-                `<span>+${formatStat(stat, value)} ${stat}</span>`
-              ).join('')}
+      `<span>+${formatStat(stat, value)} ${stat}</span>`
+    ).join('')}
             </div>
             <div class="lumina-effect">${lumina.effect}</div>
           </div>
