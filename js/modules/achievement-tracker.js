@@ -19,11 +19,7 @@ export class AchievementTracker {
     // Achievement definitions
     this.achievementDefinitions = this.initializeAchievements();
 
-    // Bind methods
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleSortChange = this.handleSortChange.bind(this);
-    this.handleViewChange = this.handleViewChange.bind(this);
-    this.handleAchievementClick = this.handleAchievementClick.bind(this);
+    // Methods will be bound automatically when called as arrow functions in event listeners
   }
 
   /**
