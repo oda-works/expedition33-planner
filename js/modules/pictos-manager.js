@@ -76,27 +76,27 @@ export class PictosManager {
     const equippedToggle = document.getElementById('equipped-toggle');
 
     if (searchInput) {
-      searchInput.addEventListener('input', this.handleSearch);
+      searchInput.addEventListener('input', this.handleSearch.bind(this));
     }
 
     if (filterSelect) {
-      filterSelect.addEventListener('change', this.handleFilter);
+      filterSelect.addEventListener('change', this.handleFilter.bind(this));
     }
 
     if (masteryToggle) {
-      masteryToggle.addEventListener('click', this.handleMasteryToggle);
+      masteryToggle.addEventListener('click', this.handleMasteryToggle.bind(this));
     }
 
     if (rarityFilter) {
-      rarityFilter.addEventListener('change', this.handleRarityFilter);
+      rarityFilter.addEventListener('change', this.handleRarityFilter.bind(this));
     }
 
     if (expeditionFilter) {
-      expeditionFilter.addEventListener('change', this.handleExpeditionFilter);
+      expeditionFilter.addEventListener('change', this.handleExpeditionFilter.bind(this));
     }
 
     if (equippedToggle) {
-      equippedToggle.addEventListener('click', this.handleEquippedToggle);
+      equippedToggle.addEventListener('click', this.handleEquippedToggle.bind(this));
     }
 
     // Sort controls
@@ -278,7 +278,7 @@ export class PictosManager {
     gridContainer.innerHTML = pictosList.map(pictos => this.createPictosCard(pictos)).join('');
 
     // Add click event listeners
-    gridContainer.addEventListener('click', this.handlePictosClick);
+    gridContainer.addEventListener('click', this.handlePictosClick.bind(this));
   }
 
   /**
@@ -748,7 +748,7 @@ export class PictosManager {
     `;
 
     // Add event listeners for Lumina toggles
-    luminaPanel.addEventListener('click', this.handleLuminaToggle);
+    luminaPanel.addEventListener('click', this.handleLuminaToggle.bind(this));
   }
 
   /**

@@ -88,6 +88,12 @@ export const TABS = {
   PICTOS: 'pictos',
   PARTY: 'party',
   COLLECTIBLES: 'collectibles',
+  CALCULATOR: 'calculator',
+  BOSSES: 'bosses',
+  COMPARISON: 'comparison',
+  GUIDES: 'guides',
+  OPTIMIZER: 'optimizer',
+  ACHIEVEMENTS: 'achievements',
   BUILDS: 'builds'
 };
 

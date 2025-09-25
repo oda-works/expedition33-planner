@@ -1,0 +1,36 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="defensiveCommonGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#BFDBFE;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#60A5FA;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FAFC;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E2E8F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CBD5E1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#defensiveCommonGrad)" stroke="#9CA3AF" stroke-width="2"/>
+
+  <!-- Shield base -->
+  <path d="M32 10 Q20 14 20 28 Q20 42 32 52 Q44 42 44 28 Q44 14 32 10 Z" fill="url(#shieldGrad)" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <!-- Shield cross design -->
+  <rect x="30" y="15" width="4" height="32" fill="#3B82F6" opacity="0.8"/>
+  <rect x="22" y="27" width="20" height="4" fill="#3B82F6" opacity="0.8"/>
+
+  <!-- Shield rivets -->
+  <circle cx="26" cy="20" r="1.5" fill="#1E40AF"/>
+  <circle cx="38" cy="20" r="1.5" fill="#1E40AF"/>
+  <circle cx="26" cy="40" r="1.5" fill="#1E40AF"/>
+  <circle cx="38" cy="40" r="1.5" fill="#1E40AF"/>
+
+  <!-- Protective aura -->
+  <path d="M32 8 Q18 12 18 28 Q18 44 32 54 Q46 44 46 28 Q46 12 32 8 Z" fill="none" stroke="#60A5FA" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Rarity border -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#9CA3AF" stroke-width="1" opacity="0.6"/>
+</svg>

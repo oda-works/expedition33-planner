@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration Tests - Expedition 33 Planner</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            border: 1px solid #333;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background: #2a2a2a;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .status.success { background: rgba(76, 175, 80, 0.2); color: #4CAF50; }
+        .status.error { background: rgba(244, 67, 54, 0.2); color: #f44336; }
+        .status.loading { background: rgba(255, 193, 7, 0.2); color: #ffc107; }
+        .pictos-sample {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .pictos-card {
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 16px;
+            background: #333;
+        }
+        .pictos-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            float: left;
+            margin-right: 12px;
+        }
+        .controls {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+        .controls input,
+        .controls select,
+        .controls button {
+            padding: 8px 16px;
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .metric {
+            background: #333;
+            padding: 16px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .metric-label {
+            color: #ccc;
+            margin-top: 8px;
+        }
+        pre {
+            background: #000;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔗 Integration Tests - Expedition 33 Planner</h1>
+
+        <div class="test-section">
+            <h2>System Initialization</h2>
+            <div id="init-status" class="status loading">🔄 Initializing system...</div>
+            <div class="metrics" id="init-metrics" style="display: none;">
+                <div class="metric">
+                    <div class="metric-value" id="load-time">--</div>
+                    <div class="metric-label">Load Time (ms)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="pictos-count">--</div>
+                    <div class="metric-label">Pictos Loaded</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="icons-loaded">--</div>
+                    <div class="metric-label">Icons Available</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Interactive Pictos Manager</h2>
+            <div id="pictos-status" class="status loading">🔄 Loading pictos manager...</div>
+
+            <div class="controls" id="pictos-controls" style="display: none;">
+                <input type="search" id="search-input" placeholder="Search pictos...">
+                <select id="type-filter">
+                    <option value="">All Types</option>
+                    <option value="offensive">Offensive</option>
+                    <option value="defensive">Defensive</option>
+                    <option value="support">Support</option>
+                </select>
+                <select id="rarity-filter">
+                    <option value="">All Rarities</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="epic">Epic</option>
+                </select>
+                <button id="mastery-toggle">Show Mastered Only</button>
+                <button id="reset-filters">Reset Filters</button>
+            </div>
+
+            <div class="metrics" id="filter-metrics" style="display: none;">
+                <div class="metric">
+                    <div class="metric-value" id="filtered-count">--</div>
+                    <div class="metric-label">Filtered Results</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="filter-time">--</div>
+                    <div class="metric-label">Filter Time (ms)</div>
+                </div>
+            </div>
+
+            <div id="pictos-display" class="pictos-sample" style="display: none;">
+                <!-- Pictos will be displayed here -->
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Error Handling & Edge Cases</h2>
+            <div id="edge-cases-status" class="status loading">🔄 Testing edge cases...</div>
+            <div id="edge-cases-results"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Performance Metrics</h2>
+            <div id="performance-status" class="status loading">🔄 Running performance tests...</div>
+            <div class="metrics" id="performance-metrics" style="display: none;">
+                <div class="metric">
+                    <div class="metric-value" id="avg-filter-time">--</div>
+                    <div class="metric-label">Avg Filter Time (ms)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="avg-render-time">--</div>
+                    <div class="metric-label">Avg Render Time (ms)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="memory-usage">--</div>
+                    <div class="metric-label">Memory Usage (MB)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test Console</h2>
+            <pre id="console-output">Initializing tests...\n</pre>
+        </div>
+    </div>
+
+    <script type="module">
+        class IntegrationTester {
+            constructor() {
+                this.dataManager = null;
+                this.storage = null;
+                this.pictosManager = null;
+                this.startTime = performance.now();
+                this.consoleOutput = [];
+            }
+
+            log(message) {
+                console.log(message);
+                this.consoleOutput.push(`${new Date().toLocaleTimeString()}: ${message}`);
+                document.getElementById('console-output').textContent = this.consoleOutput.join('\n');
+            }
+
+            updateStatus(elementId, status, message) {
+                const element = document.getElementById(elementId);
+                element.className = `status ${status}`;
+                element.innerHTML = `${status === 'success' ? '✅' : status === 'error' ? '❌' : '🔄'} ${message}`;
+            }
+
+            async testSystemInitialization() {
+                this.log('Starting system initialization test...');
+                const startTime = performance.now();
+
+                try {
+                    // Load modules
+                    this.log('Loading core modules...');
+                    const dataModule = await import('./js/modules/data-manager.js');
+                    const storageModule = await import('./js/modules/storage.js');
+                    const pictosModule = await import('./js/modules/pictos-manager.js');
+
+                    this.dataManager = dataModule.dataManager;
+                    this.storage = storageModule.storage;
+
+                    // Load data
+                    this.log('Loading game data...');
+                    await this.dataManager.loadAllData();
+
+                    // Initialize pictos manager
+                    this.log('Initializing pictos manager...');
+                    this.pictosManager = new pictosModule.PictosManager(this.dataManager, this.storage);
+
+                    const loadTime = Math.round(performance.now() - startTime);
+                    const pictosCount = this.dataManager.gameData.pictos?.pictos?.length || 0;
+
+                    // Test icon availability
+                    this.log('Testing icon availability...');
+                    const iconTests = await this.testIconAvailability();
+
+                    // Update UI
+                    this.updateStatus('init-status', 'success', 'System initialized successfully');
+                    document.getElementById('init-metrics').style.display = 'grid';
+                    document.getElementById('load-time').textContent = loadTime;
+                    document.getElementById('pictos-count').textContent = pictosCount;
+                    document.getElementById('icons-loaded').textContent = `${iconTests.passed}/${iconTests.total}`;
+
+                    this.log(`✅ System initialized in ${loadTime}ms`);
+                    this.log(`📊 Loaded ${pictosCount} pictos with ${iconTests.passed}/${iconTests.total} icons available`);
+
+                    return true;
+
+                } catch (error) {
+                    this.updateStatus('init-status', 'error', `Initialization failed: ${error.message}`);
+                    this.log(`❌ Initialization failed: ${error.message}`);
+                    throw error;
+                }
+            }
+
+            async testIconAvailability() {
+                const iconPaths = [
+                    'assets/images/pictos/defensive-common.svg',
+                    'assets/images/pictos/defensive-uncommon.svg',
+                    'assets/images/pictos/defensive-rare.svg',
+                    'assets/images/pictos/defensive-epic.svg',
+                    'assets/images/pictos/offensive-common.svg',
+                    'assets/images/pictos/offensive-uncommon.svg',
+                    'assets/images/pictos/offensive-rare.svg',
+                    'assets/images/pictos/offensive-epic.svg',
+                    'assets/images/pictos/support-common.svg',
+                    'assets/images/pictos/support-uncommon.svg',
+                    'assets/images/pictos/support-rare.svg',
+                    'assets/images/pictos/support-epic.svg'
+                ];
+
+                let passed = 0;
+
+                for (const iconPath of iconPaths) {
+                    try {
+                        const response = await fetch(iconPath);
+                        if (response.ok) passed++;
+                    } catch (error) {
+                        this.log(`⚠️  Icon not available: ${iconPath}`);
+                    }
+                }
+
+                return { passed, total: iconPaths.length };
+            }
+
+            async testInteractivePictosManager() {
+                this.log('Starting interactive pictos manager test...');
+
+                try {
+                    // Setup UI
+                    this.updateStatus('pictos-status', 'success', 'Pictos manager ready');
+                    document.getElementById('pictos-controls').style.display = 'flex';
+                    document.getElementById('filter-metrics').style.display = 'grid';
+                    document.getElementById('pictos-display').style.display = 'grid';
+
+                    // Initial render
+                    this.renderPictos();
+
+                    // Setup event listeners
+                    this.setupEventListeners();
+
+                    this.log('✅ Interactive pictos manager initialized');
+
+                } catch (error) {
+                    this.updateStatus('pictos-status', 'error', `Failed: ${error.message}`);
+                    this.log(`❌ Pictos manager failed: ${error.message}`);
+                    throw error;
+                }
+            }
+
+            setupEventListeners() {
+                const searchInput = document.getElementById('search-input');
+                const typeFilter = document.getElementById('type-filter');
+                const rarityFilter = document.getElementById('rarity-filter');
+                const masteryToggle = document.getElementById('mastery-toggle');
+                const resetFilters = document.getElementById('reset-filters');
+
+                searchInput.addEventListener('input', (e) => {
+                    this.pictosManager.currentSearch = e.target.value.toLowerCase().trim();
+                    this.renderPictos();
+                });
+
+                typeFilter.addEventListener('change', (e) => {
+                    this.pictosManager.currentFilter = e.target.value;
+                    this.renderPictos();
+                });
+
+                rarityFilter.addEventListener('change', (e) => {
+                    this.pictosManager.currentRarityFilter = e.target.value;
+                    this.renderPictos();
+                });
+
+                masteryToggle.addEventListener('click', () => {
+                    this.pictosManager.showMasteredOnly = !this.pictosManager.showMasteredOnly;
+                    masteryToggle.textContent = this.pictosManager.showMasteredOnly ?
+                        'Show All' : 'Show Mastered Only';
+                    this.renderPictos();
+                });
+
+                resetFilters.addEventListener('click', () => {
+                    this.pictosManager.currentSearch = '';
+                    this.pictosManager.currentFilter = '';
+                    this.pictosManager.currentRarityFilter = '';
+                    this.pictosManager.showMasteredOnly = false;
+
+                    searchInput.value = '';
+                    typeFilter.value = '';
+                    rarityFilter.value = '';
+                    masteryToggle.textContent = 'Show Mastered Only';
+
+                    this.renderPictos();
+                });
+            }
+
+            renderPictos() {
+                const startTime = performance.now();
+
+                const filtered = this.pictosManager.getFilteredPictos();
+                const displayCount = Math.min(filtered.length, 12); // Show max 12
+                const toDisplay = filtered.slice(0, displayCount);
+
+                const renderTime = Math.round(performance.now() - startTime);
+
+                // Update metrics
+                document.getElementById('filtered-count').textContent = filtered.length;
+                document.getElementById('filter-time').textContent = renderTime;
+
+                // Render pictos
+                const container = document.getElementById('pictos-display');
+                container.innerHTML = toDisplay.map(pictos => {
+                    const iconPath = this.pictosManager.getPictosIcon(pictos.type, pictos.rarity);
+                    return `
+                        <div class="pictos-card">
+                            <img src="${iconPath}" alt="${pictos.name}" class="pictos-icon"
+                                 onerror="this.style.background='#f44336'">
+                            <div>
+                                <h4 style="margin: 0 0 8px 0;">${pictos.name}</h4>
+                                <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                                    <span style="background: #555; padding: 2px 8px; border-radius: 12px; font-size: 0.8em;">
+                                        ${pictos.type}
+                                    </span>
+                                    <span style="background: #666; padding: 2px 8px; border-radius: 12px; font-size: 0.8em;">
+                                        ${pictos.rarity || 'common'}
+                                    </span>
+                                </div>
+                                <div style="font-size: 0.9em; color: #ccc;">
+                                    Cost: ${pictos.lumina_cost || 0} LP
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            async testEdgeCases() {
+                this.log('Testing edge cases...');
+                const results = [];
+
+                try {
+                    // Test empty search
+                    this.pictosManager.currentSearch = '';
+                    const emptySearch = this.pictosManager.getFilteredPictos();
+                    results.push(`✅ Empty search: ${emptySearch.length} results`);
+
+                    // Test nonsense search
+                    this.pictosManager.currentSearch = 'xyzabcnonexistent';
+                    const nonsenseSearch = this.pictosManager.getFilteredPictos();
+                    results.push(`✅ Nonsense search: ${nonsenseSearch.length} results`);
+
+                    // Test invalid filter
+                    this.pictosManager.currentFilter = 'invalid_type';
+                    const invalidFilter = this.pictosManager.getFilteredPictos();
+                    results.push(`✅ Invalid type filter: ${invalidFilter.length} results`);
+
+                    // Test mastery toggle with no mastered pictos
+                    this.pictosManager.masteredPictos = {};
+                    this.pictosManager.showMasteredOnly = true;
+                    const noMastered = this.pictosManager.getFilteredPictos();
+                    results.push(`✅ No mastered pictos: ${noMastered.length} results`);
+
+                    // Reset filters
+                    this.pictosManager.currentSearch = '';
+                    this.pictosManager.currentFilter = '';
+                    this.pictosManager.showMasteredOnly = false;
+
+                    this.updateStatus('edge-cases-status', 'success', 'Edge cases passed');
+                    document.getElementById('edge-cases-results').innerHTML = results.join('<br>');
+
+                    this.log('✅ Edge cases test completed');
+
+                } catch (error) {
+                    this.updateStatus('edge-cases-status', 'error', `Failed: ${error.message}`);
+                    this.log(`❌ Edge cases failed: ${error.message}`);
+                }
+            }
+
+            async testPerformance() {
+                this.log('Running performance tests...');
+
+                try {
+                    const filterTimes = [];
+                    const renderTimes = [];
+
+                    // Test multiple filter operations
+                    for (let i = 0; i < 10; i++) {
+                        const startTime = performance.now();
+                        this.pictosManager.getFilteredPictos();
+                        filterTimes.push(performance.now() - startTime);
+
+                        // Vary the filter for realistic testing
+                        this.pictosManager.currentFilter = ['', 'offensive', 'defensive', 'support'][i % 4];
+                    }
+
+                    // Test rendering performance
+                    for (let i = 0; i < 5; i++) {
+                        const startTime = performance.now();
+                        this.renderPictos();
+                        renderTimes.push(performance.now() - startTime);
+                    }
+
+                    // Calculate averages
+                    const avgFilterTime = Math.round(filterTimes.reduce((a, b) => a + b, 0) / filterTimes.length);
+                    const avgRenderTime = Math.round(renderTimes.reduce((a, b) => a + b, 0) / renderTimes.length);
+
+                    // Memory usage (approximation)
+                    const memoryUsage = performance.memory ?
+                        Math.round(performance.memory.usedJSHeapSize / 1024 / 1024) : 'N/A';
+
+                    // Update UI
+                    this.updateStatus('performance-status', 'success', 'Performance tests completed');
+                    document.getElementById('performance-metrics').style.display = 'grid';
+                    document.getElementById('avg-filter-time').textContent = avgFilterTime;
+                    document.getElementById('avg-render-time').textContent = avgRenderTime;
+                    document.getElementById('memory-usage').textContent = memoryUsage;
+
+                    this.log(`✅ Performance tests completed`);
+                    this.log(`📊 Avg filter time: ${avgFilterTime}ms, render time: ${avgRenderTime}ms`);
+
+                } catch (error) {
+                    this.updateStatus('performance-status', 'error', `Failed: ${error.message}`);
+                    this.log(`❌ Performance tests failed: ${error.message}`);
+                }
+            }
+
+            async runAllTests() {
+                this.log('🚀 Starting integration tests...');
+
+                try {
+                    await this.testSystemInitialization();
+                    await this.testInteractivePictosManager();
+                    await this.testEdgeCases();
+                    await this.testPerformance();
+
+                    const totalTime = Math.round(performance.now() - this.startTime);
+                    this.log(`🎉 All integration tests completed successfully in ${totalTime}ms`);
+
+                } catch (error) {
+                    this.log(`💥 Integration tests failed: ${error.message}`);
+                    console.error('Integration test error:', error);
+                }
+            }
+        }
+
+        // Run integration tests
+        const tester = new IntegrationTester();
+        tester.runAllTests();
+    </script>
+</body>
+</html>

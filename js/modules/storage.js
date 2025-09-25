@@ -472,29 +472,6 @@ export class StorageManager {
   }
 
   /**
-   * Load party data
-   * @returns {Object} Party data
-   */
-  loadParty() {
-    const data = this.loadData();
-    return data.party || {
-      active: [null, null, null],
-      reserve: [null, null, null]
-    };
-  }
-
-  /**
-   * Save party data
-   * @param {Object} partyData - Party data to save
-   * @returns {boolean} Success status
-   */
-  saveParty(partyData) {
-    const data = this.loadData();
-    data.party = partyData;
-    return this.saveData(data);
-  }
-
-  /**
    * Format bytes to human-readable string
    * @param {number} bytes - Number of bytes
    * @returns {string} Formatted string

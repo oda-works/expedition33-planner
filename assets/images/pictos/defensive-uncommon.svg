@@ -1,0 +1,47 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="defensiveUncommonGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#BFDBFE;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#60A5FA;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="shieldGradUncommon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FAFC;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#DCFCE7;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#E2E8F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CBD5E1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#defensiveUncommonGrad)" stroke="#22C55E" stroke-width="2.5"/>
+
+  <!-- Shield base with enhanced design -->
+  <path d="M32 10 Q20 14 20 28 Q20 42 32 52 Q44 42 44 28 Q44 14 32 10 Z" fill="url(#shieldGradUncommon)" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <!-- Enhanced cross design -->
+  <rect x="30" y="15" width="4" height="32" fill="#22C55E" opacity="0.9"/>
+  <rect x="22" y="27" width="20" height="4" fill="#22C55E" opacity="0.9"/>
+
+  <!-- Decorative elements -->
+  <path d="M32 15 L29 18 L32 21 L35 18 Z" fill="#16A34A" opacity="0.8"/>
+  <path d="M32 39 L29 42 L32 45 L35 42 Z" fill="#16A34A" opacity="0.8"/>
+
+  <!-- Shield rivets -->
+  <circle cx="26" cy="20" r="1.5" fill="#1E40AF"/>
+  <circle cx="38" cy="20" r="1.5" fill="#1E40AF"/>
+  <circle cx="26" cy="40" r="1.5" fill="#1E40AF"/>
+  <circle cx="38" cy="40" r="1.5" fill="#1E40AF"/>
+
+  <!-- Enhancement sparkles -->
+  <circle cx="18" cy="18" r="1.2" fill="#22C55E" opacity="0.9"/>
+  <circle cx="46" cy="18" r="1" fill="#22C55E" opacity="0.7"/>
+  <circle cx="18" cy="46" r="1" fill="#22C55E" opacity="0.8"/>
+  <circle cx="46" cy="46" r="1.2" fill="#22C55E" opacity="0.9"/>
+
+  <!-- Protective aura -->
+  <path d="M32 8 Q18 12 18 28 Q18 44 32 54 Q46 44 46 28 Q46 12 32 8 Z" fill="none" stroke="#22C55E" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Rarity border -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#22C55E" stroke-width="1.2" opacity="0.7"/>
+</svg>

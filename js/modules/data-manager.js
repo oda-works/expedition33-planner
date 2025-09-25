@@ -52,7 +52,9 @@ export class DataManager {
         this.loadJsonFile('data/weapons-accurate.json').catch(() =>
           this.loadJsonFile('data/weapons.json')
         ),
-        this.loadJsonFile('data/pictos.json'),
+        this.loadJsonFile('data/pictos-accurate.json').catch(() =>
+          this.loadJsonFile('data/pictos.json')
+        ),
         this.loadJsonFile('data/luminas.json'),
         // Try accurate collectibles data first, fallback to original
         this.loadJsonFile('data/collectibles-accurate.json').catch(() =>
@@ -119,8 +121,8 @@ export class DataManager {
   }
 
   /**
-   * Get specific Pictos by ID
-   * @param {string} pictosId - The Pictos ID
+   * Get Pictos data by ID
+   * @param {string} pictosId - Pictos identifier
    * @returns {Object|null} Pictos data or null if not found
    */
   getPictos(pictosId) {
@@ -167,16 +169,6 @@ export class DataManager {
 
     return Object.values(this.gameData.weapons.weapons)
       .filter(weapon => weapon.character === characterId);
-  }
-
-  /**
-   * Get Pictos data by ID
-   * @param {string} pictosId - Pictos identifier
-   * @returns {Object|null} Pictos data or null if not found
-   */
-  getPictos(pictosId) {
-    if (!this.gameData.pictos) return null;
-    return this.gameData.pictos.pictos.find(p => p.id === pictosId) || null;
   }
 
   /**

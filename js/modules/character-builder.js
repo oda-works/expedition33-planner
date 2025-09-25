@@ -14,8 +14,12 @@ export class CharacterBuilder {
     this.currentBuild = this.getDefaultBuild();
     this.isInitialized = false;
 
-    // Bind methods
-    // Methods will be bound automatically when called as arrow functions in event listeners
+    // Bind methods to maintain context
+    this.handleCharacterChange = this.handleCharacterChange.bind(this);
+    this.handleResetBuild = this.handleResetBuild.bind(this);
+    this.handleSaveBuild = this.handleSaveBuild.bind(this);
+    this.handleLevelChange = this.handleLevelChange.bind(this);
+    this.handleAttributeChange = this.handleAttributeChange.bind(this);
   }
 
   /**

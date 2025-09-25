@@ -1,0 +1,49 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="defensiveEpicGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#DDD6FE;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#A855F7;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#581C87;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="shieldGradEpic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEFCE8;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#FEF3C7;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#F3E8FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E9D5FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#defensiveEpicGrad)" stroke="#A855F7" stroke-width="3"/>
+
+  <!-- Epic shield with ornate design -->
+  <path d="M32 8 Q18 12 18 28 Q18 44 32 54 Q46 44 46 28 Q46 12 32 8 Z" fill="url(#shieldGradEpic)" stroke="#A855F7" stroke-width="2"/>
+
+  <!-- Ornate cross design -->
+  <rect x="30" y="13" width="4" height="36" fill="#A855F7" opacity="0.9"/>
+  <rect x="20" y="27" width="24" height="4" fill="#A855F7" opacity="0.9"/>
+
+  <!-- Epic decorative elements -->
+  <path d="M32 13 L28 17 L32 21 L36 17 Z" fill="#F59E0B" opacity="0.9"/>
+  <path d="M32 43 L28 47 L32 51 L36 47 Z" fill="#F59E0B" opacity="0.9"/>
+  <circle cx="32" cy="30" r="3" fill="#F59E0B" opacity="0.8"/>
+
+  <!-- Epic energy wisps -->
+  <path d="M24 15 Q20 12 16 16 Q20 18 24 15" fill="#C4B5FD" opacity="0.8"/>
+  <path d="M40 15 Q44 12 48 16 Q44 18 40 15" fill="#C4B5FD" opacity="0.8"/>
+  <path d="M24 45 Q20 48 16 44 Q20 42 24 45" fill="#C4B5FD" opacity="0.8"/>
+  <path d="M40 45 Q44 48 48 44 Q44 42 40 45" fill="#C4B5FD" opacity="0.8"/>
+
+  <!-- Epic energy orbs -->
+  <circle cx="15" cy="20" r="2" fill="#A855F7" opacity="0.9"/>
+  <circle cx="49" cy="20" r="2" fill="#A855F7" opacity="0.9"/>
+  <circle cx="15" cy="44" r="2" fill="#A855F7" opacity="0.9"/>
+  <circle cx="49" cy="44" r="2" fill="#A855F7" opacity="0.9"/>
+
+  <!-- Protective aura layers -->
+  <path d="M32 6 Q16 10 16 28 Q16 46 32 56 Q48 46 48 28 Q48 10 32 6 Z" fill="none" stroke="#DDD6FE" stroke-width="1" opacity="0.6"/>
+  <path d="M32 4 Q14 8 14 28 Q14 48 32 58 Q50 48 50 28 Q50 8 32 4 Z" fill="none" stroke="#A855F7" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Rarity border -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#A855F7" stroke-width="2" opacity="0.9"/>
+</svg>

@@ -120,6 +120,19 @@
                             <option value="defensive">Defensive</option>
                             <option value="support">Support</option>
                         </select>
+                        <select id="rarity-filter" class="filter-select">
+                            <option value="">All Rarities</option>
+                            <option value="common">Common</option>
+                            <option value="uncommon">Uncommon</option>
+                            <option value="rare">Rare</option>
+                            <option value="epic">Epic</option>
+                        </select>
+                        <select id="expedition-filter" class="filter-select">
+                            <option value="">All Expeditions</option>
+                            <option value="1">Expedition 1+</option>
+                            <option value="2">Expedition 2+</option>
+                            <option value="3">Expedition 3+</option>
+                        </select>
                         <div class="sort-controls">
                             <button class="sort-btn active" data-sort="name">Name</button>
                             <button class="sort-btn" data-sort="type">Type</button>
@@ -128,6 +141,8 @@
                             <button class="sort-btn" data-sort="mastery">Mastery</button>
                         </div>
                         <button id="mastery-toggle" class="btn-toggle">Show Mastered Only</button>
+                        <button id="equipped-toggle" class="btn-toggle">Show Equipped Only</button>
+                        <button id="clear-filters" class="btn-secondary">Clear Filters</button>
                     </div>
                 </div>
 
@@ -399,192 +414,6 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- Scripts -->
-    <script type="module">
-        console.log('🚀 Starting Expedition 33 Planner...');
-
-        let dataManager, storage, characterBuilder, pictosManager, partyComposer, collectiblesTracker, mapManager, damageCalculator, bossTracker, buildComparison, partySynergy, buildGuides, teamOptimizer, achievementTracker;
-
-        async function initApp() {
-            try {
-                // Import modules dynamically
-                console.log('Loading modules...');
-                const dataModule = await import('./js/modules/data-manager.js');
-                const storageModule = await import('./js/modules/storage.js');
-                const charBuilderModule = await import('./js/modules/character-builder.js');
-                const pictosModule = await import('./js/modules/pictos-manager.js');
-                const partyModule = await import('./js/modules/party-composer.js');
-                const collectiblesModule = await import('./js/modules/collectibles-tracker.js');
-                const mapModule = await import('./js/modules/map-manager.js');
-                const calculatorModule = await import('./js/modules/damage-calculator.js');
-                const bossModule = await import('./js/modules/boss-tracker.js');
-                const comparisonModule = await import('./js/modules/build-comparison.js');
-                const synergyModule = await import('./js/modules/party-synergy.js');
-                const guidesModule = await import('./js/modules/build-guides.js');
-                const optimizerModule = await import('./js/modules/team-optimizer.js');
-                const achievementModule = await import('./js/modules/achievement-tracker.js');
-
-                dataManager = dataModule.dataManager;
-                storage = storageModule.storage;
-                console.log('✓ Core modules loaded');
-
-                // Load game data
-                console.log('Loading game data...');
-                await dataManager.loadAllData();
-                console.log('✓ Game data loaded');
-
-                // Initialize feature modules
-                console.log('Initializing feature modules...');
-                characterBuilder = new charBuilderModule.CharacterBuilder(dataManager, storage);
-                pictosManager = new pictosModule.PictosManager(dataManager, storage);
-                partyComposer = new partyModule.PartyComposer(dataManager, storage);
-                collectiblesTracker = new collectiblesModule.CollectiblesTracker(dataManager, storage);
-                mapManager = new mapModule.MapManager(dataManager, storage);
-                damageCalculator = new calculatorModule.DamageCalculator(dataManager);
-                bossTracker = new bossModule.BossTracker(dataManager, storage);
-                buildComparison = new comparisonModule.BuildComparison(dataManager, storage);
-                partySynergy = new synergyModule.PartySynergy(dataManager, storage);
-                buildGuides = new guidesModule.BuildGuides(dataManager, storage);
-                teamOptimizer = new optimizerModule.TeamOptimizer(dataManager, storage);
-                achievementTracker = new achievementModule.AchievementTracker(dataManager, storage);
-
-                // Initialize each module
-                await Promise.all([
-                    characterBuilder.init(),
-                    pictosManager.init(),
-                    partyComposer.init(),
-                    collectiblesTracker.init(),
-                    mapManager.init(),
-                    damageCalculator.init(),
-                    bossTracker.init(),
-                    buildComparison.init(),
-                    partySynergy.init(),
-                    buildGuides.init(),
-                    teamOptimizer.init(),
-                    achievementTracker.init()
-                ]);
-                console.log('✓ Feature modules initialized');
-
-                // Simple initialization - hide loading, show app
-                console.log('Initializing interface...');
-                const loadingScreen = document.getElementById('loading-screen');
-                const appContainer = document.getElementById('app');
-
-                if (loadingScreen && appContainer) {
-                    loadingScreen.style.display = 'none';
-                    appContainer.style.display = 'block';
-                    appContainer.classList.add('loaded');
-                    console.log('✅ Application loaded successfully!');
-                } else {
-                    throw new Error('Could not find required DOM elements');
-                }
-
-                // Set up navigation
-                setupNavigation();
-
-                // Set up character selection
-                setupCharacterSelection();
-
-                console.log('✓ All functionality initialized');
-
-            } catch (error) {
-                console.error('💥 Failed to initialize app:', error);
-
-                // Show error in loading screen
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen) {
-                    loadingScreen.innerHTML = `
-                        <div class="error-message" style="text-align: center; color: #ff4444;">
-                            <h2>Failed to Load Application</h2>
-                            <p>${error.message}</p>
-                            <button onclick="location.reload()" style="padding: 10px 20px; margin-top: 10px; background: #2D1B69; color: white; border: none; border-radius: 5px; cursor: pointer;">Reload Page</button>
-                        </div>
-                    `;
-                }
-            }
-        }
-
-        function setupNavigation() {
-            const navTabs = document.querySelectorAll('.nav-tab');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            navTabs.forEach(tab => {
-                tab.addEventListener('click', (e) => {
-                    const tabId = e.target.dataset.tab;
-
-                    // Update active states
-                    navTabs.forEach(t => {
-                        t.classList.remove('active');
-                        t.setAttribute('aria-selected', 'false');
-                    });
-                    tabContents.forEach(c => c.classList.remove('active'));
-
-                    e.target.classList.add('active');
-                    e.target.setAttribute('aria-selected', 'true');
-                    document.getElementById(`${tabId}-tab`).classList.add('active');
-
-                    // Trigger module refresh when tab is activated
-                    switch(tabId) {
-                        case 'characters':
-                            characterBuilder?.refresh();
-                            break;
-                        case 'pictos':
-                            pictosManager?.refresh();
-                            break;
-                        case 'party':
-                            partyComposer?.refresh();
-                            break;
-                        case 'collectibles':
-                            collectiblesTracker?.refresh();
-                            setupCollectiblesNavigation();
-                            break;
-                    }
-                });
-            });
-        }
-
-        function setupCharacterSelection() {
-            // Let the character builder module handle its own initialization
-            // This avoids duplicate event listeners
-            console.log('✓ Character selection delegated to character-builder module');
-        }
-
-        function setupCollectiblesNavigation() {
-            const categoryTabs = document.querySelectorAll('.category-tab');
-            const collectiblesContent = document.getElementById('collectibles-content');
-            const collectiblesMap = document.getElementById('collectibles-map');
-
-            categoryTabs.forEach(tab => {
-                tab.addEventListener('click', (e) => {
-                    const category = e.target.dataset.category;
-
-                    // Update active tab
-                    categoryTabs.forEach(t => t.classList.remove('active'));
-                    e.target.classList.add('active');
-
-                    if (category === 'map') {
-                        // Show map, hide content
-                        if (collectiblesContent) collectiblesContent.style.display = 'none';
-                        if (collectiblesMap) {
-                            collectiblesMap.style.display = 'block';
-                            mapManager?.renderMap('collectibles-map');
-                        }
-                    } else {
-                        // Show content, hide map
-                        if (collectiblesMap) collectiblesMap.style.display = 'none';
-                        if (collectiblesContent) collectiblesContent.style.display = 'block';
-                        // Let collectibles tracker handle the category change
-                        collectiblesTracker?.handleCategoryChange?.(category);
-                    }
-                });
-            });
-        }
-
-        // Start when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initApp);
-        } else {
-            initApp();
-        }
-    </script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>

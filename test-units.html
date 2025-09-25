@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Tests - Expedition 33 Planner</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        .test-suite {
+            border: 1px solid #333;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .test-suite-header {
+            background: #2a2a2a;
+            padding: 16px 20px;
+            border-bottom: 1px solid #333;
+        }
+        .test-suite-body {
+            padding: 20px;
+        }
+        .test-case {
+            margin: 10px 0;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border-left: 4px solid #555;
+        }
+        .test-passed {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-left-color: #4CAF50;
+        }
+        .test-failed {
+            background-color: rgba(244, 67, 54, 0.1);
+            border-left-color: #f44336;
+        }
+        .test-pending {
+            background-color: rgba(255, 193, 7, 0.1);
+            border-left-color: #ffc107;
+        }
+        .test-results {
+            margin-top: 20px;
+            padding: 16px;
+            background: #2a2a2a;
+            border-radius: 6px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            transition: width 0.3s ease;
+        }
+        pre {
+            background: #000;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+        .error-details {
+            margin-top: 8px;
+            font-size: 0.9em;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Unit Tests - Expedition 33 Planner</h1>
+
+    <div id="test-results-summary" class="test-results">
+        <h2>Test Results Summary</h2>
+        <div id="progress-container">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div id="progress-text">Running tests...</div>
+        </div>
+    </div>
+
+    <div id="test-suites-container">
+        <!-- Test suites will be added here -->
+    </div>
+
+    <script type="module">
+        class TestRunner {
+            constructor() {
+                this.suites = new Map();
+                this.results = {
+                    passed: 0,
+                    failed: 0,
+                    total: 0
+                };
+            }
+
+            createTestSuite(name, description = '') {
+                const suite = {
+                    name,
+                    description,
+                    tests: [],
+                    beforeEach: null,
+                    afterEach: null
+                };
+                this.suites.set(name, suite);
+                return suite;
+            }
+
+            addTest(suiteName, testName, testFn, description = '') {
+                const suite = this.suites.get(suiteName);
+                if (!suite) throw new Error(`Test suite '${suiteName}' not found`);
+
+                suite.tests.push({
+                    name: testName,
+                    description,
+                    fn: testFn,
+                    status: 'pending',
+                    error: null,
+                    duration: 0
+                });
+            }
+
+            async runTests() {
+                console.log('🚀 Starting unit tests...');
+
+                // Create UI containers
+                this.createTestUI();
+
+                for (const [suiteName, suite] of this.suites) {
+                    console.group(`📁 ${suiteName}`);
+
+                    const suiteContainer = this.createSuiteUI(suite);
+
+                    for (const test of suite.tests) {
+                        this.results.total++;
+                        const startTime = performance.now();
+
+                        try {
+                            // Run beforeEach if defined
+                            if (suite.beforeEach) {
+                                await suite.beforeEach();
+                            }
+
+                            // Run the test
+                            await test.fn();
+
+                            test.status = 'passed';
+                            this.results.passed++;
+                            console.log(`✅ ${test.name}`);
+
+                            // Run afterEach if defined
+                            if (suite.afterEach) {
+                                await suite.afterEach();
+                            }
+
+                        } catch (error) {
+                            test.status = 'failed';
+                            test.error = error;
+                            this.results.failed++;
+                            console.error(`❌ ${test.name}:`, error);
+                        }
+
+                        test.duration = performance.now() - startTime;
+                        this.updateTestUI(suiteContainer, test);
+                        this.updateProgress();
+                    }
+
+                    console.groupEnd();
+                }
+
+                this.showFinalResults();
+            }
+
+            createTestUI() {
+                const container = document.getElementById('test-suites-container');
+                container.innerHTML = '';
+            }
+
+            createSuiteUI(suite) {
+                const container = document.getElementById('test-suites-container');
+
+                const suiteDiv = document.createElement('div');
+                suiteDiv.className = 'test-suite';
+                suiteDiv.innerHTML = `
+                    <div class="test-suite-header">
+                        <h3>${suite.name}</h3>
+                        ${suite.description ? `<p style="margin: 8px 0 0 0; color: #ccc;">${suite.description}</p>` : ''}
+                    </div>
+                    <div class="test-suite-body" id="suite-${suite.name.replace(/\s+/g, '-')}">
+                        <!-- Tests will be added here -->
+                    </div>
+                `;
+
+                container.appendChild(suiteDiv);
+                return suiteDiv;
+            }
+
+            updateTestUI(suiteContainer, test) {
+                const testsContainer = suiteContainer.querySelector('.test-suite-body');
+
+                const testDiv = document.createElement('div');
+                testDiv.className = `test-case test-${test.status}`;
+
+                let statusIcon = test.status === 'passed' ? '✅' :
+                               test.status === 'failed' ? '❌' : '⏳';
+
+                testDiv.innerHTML = `
+                    <div>
+                        ${statusIcon} <strong>${test.name}</strong>
+                        <span style="float: right; font-size: 0.9em; color: #999;">
+                            ${test.duration.toFixed(2)}ms
+                        </span>
+                    </div>
+                    ${test.description ? `<div style="margin-top: 4px; color: #ccc; font-size: 0.9em;">${test.description}</div>` : ''}
+                    ${test.error ? `
+                        <div class="error-details">
+                            <strong>Error:</strong> ${test.error.message}
+                            ${test.error.stack ? `<pre>${test.error.stack}</pre>` : ''}
+                        </div>
+                    ` : ''}
+                `;
+
+                testsContainer.appendChild(testDiv);
+            }
+
+            updateProgress() {
+                const progressFill = document.getElementById('progress-fill');
+                const progressText = document.getElementById('progress-text');
+
+                const percentage = (this.results.passed + this.results.failed) / this.results.total * 100;
+                progressFill.style.width = `${percentage}%`;
+
+                progressText.textContent =
+                    `${this.results.passed + this.results.failed}/${this.results.total} tests completed ` +
+                    `(${this.results.passed} passed, ${this.results.failed} failed)`;
+            }
+
+            showFinalResults() {
+                const progressText = document.getElementById('progress-text');
+                const isSuccess = this.results.failed === 0;
+
+                progressText.innerHTML = `
+                    <strong>${isSuccess ? '🎉 All tests passed!' : '⚠️ Some tests failed'}</strong><br>
+                    ${this.results.passed}/${this.results.total} tests passed
+                    ${this.results.failed > 0 ? `<br><span style="color: #ff6b6b;">${this.results.failed} tests failed</span>` : ''}
+                `;
+
+                console.log(`\n📊 Final Results:`);
+                console.log(`✅ Passed: ${this.results.passed}`);
+                console.log(`❌ Failed: ${this.results.failed}`);
+                console.log(`📋 Total: ${this.results.total}`);
+            }
+        }
+
+        // Assertion helpers
+        function assert(condition, message = 'Assertion failed') {
+            if (!condition) {
+                throw new Error(message);
+            }
+        }
+
+        function assertEqual(actual, expected, message = '') {
+            if (actual !== expected) {
+                throw new Error(
+                    `${message}\nExpected: ${JSON.stringify(expected)}\nActual: ${JSON.stringify(actual)}`
+                );
+            }
+        }
+
+        function assertThrows(fn, expectedError = null) {
+            try {
+                fn();
+                throw new Error('Expected function to throw, but it did not');
+            } catch (error) {
+                if (expectedError && !(error instanceof expectedError)) {
+                    throw new Error(`Expected ${expectedError.name}, but got ${error.constructor.name}: ${error.message}`);
+                }
+            }
+        }
+
+        async function assertRejects(asyncFn, expectedError = null) {
+            try {
+                await asyncFn();
+                throw new Error('Expected async function to reject, but it resolved');
+            } catch (error) {
+                if (expectedError && !(error instanceof expectedError)) {
+                    throw new Error(`Expected ${expectedError.name}, but got ${error.constructor.name}: ${error.message}`);
+                }
+            }
+        }
+
+        // Initialize test runner
+        const testRunner = new TestRunner();
+
+        // ===== DATA MANAGER TESTS =====
+        const dataManagerSuite = testRunner.createTestSuite(
+            'DataManager',
+            'Tests for data loading and management functionality'
+        );
+
+        let dataManager;
+
+        dataManagerSuite.beforeEach = async () => {
+            const module = await import('./js/modules/data-manager.js');
+            dataManager = module.dataManager;
+        };
+
+        testRunner.addTest('DataManager', 'should load all data successfully', async () => {
+            await dataManager.loadAllData();
+
+            assert(dataManager.gameData, 'Game data should be loaded');
+            assert(dataManager.gameData.pictos, 'Pictos data should be loaded');
+            assert(dataManager.gameData.characters, 'Characters data should be loaded');
+            assert(dataManager.isLoaded, 'isLoaded flag should be true');
+        });
+
+        testRunner.addTest('DataManager', 'should handle missing files gracefully', async () => {
+            // This should not throw even if some files are missing
+            await dataManager.loadAllData();
+
+            // Should have at least some data
+            assert(Object.keys(dataManager.gameData).length > 0, 'Should have some game data');
+        });
+
+        // ===== PICTOS MANAGER TESTS =====
+        const pictosManagerSuite = testRunner.createTestSuite(
+            'PictosManager',
+            'Tests for Pictos management, filtering, and UI functionality'
+        );
+
+        let pictosManager, storage;
+
+        pictosManagerSuite.beforeEach = async () => {
+            // Load required modules
+            const dataModule = await import('./js/modules/data-manager.js');
+            const storageModule = await import('./js/modules/storage.js');
+            const pictosModule = await import('./js/modules/pictos-manager.js');
+
+            dataManager = dataModule.dataManager;
+            storage = storageModule.storage;
+
+            // Ensure data is loaded
+            await dataManager.loadAllData();
+
+            pictosManager = new pictosModule.PictosManager(dataManager, storage);
+        };
+
+        testRunner.addTest('PictosManager', 'should initialize with default values', () => {
+            assertEqual(pictosManager.currentFilter, '', 'Current filter should be empty');
+            assertEqual(pictosManager.currentSearch, '', 'Current search should be empty');
+            assertEqual(pictosManager.showMasteredOnly, false, 'Show mastered only should be false');
+            assert(typeof pictosManager.masteredPictos === 'object', 'Mastered pictos should be an object');
+        });
+
+        testRunner.addTest('PictosManager', 'should generate correct icon paths', () => {
+            const iconPath = pictosManager.getPictosIcon('defensive', 'common');
+            assertEqual(iconPath, 'assets/images/pictos/defensive-common.svg', 'Should generate correct icon path');
+
+            const rareIconPath = pictosManager.getPictosIcon('offensive', 'rare');
+            assertEqual(rareIconPath, 'assets/images/pictos/offensive-rare.svg', 'Should generate correct rare icon path');
+        });
+
+        testRunner.addTest('PictosManager', 'should filter pictos by type', () => {
+            pictosManager.currentFilter = 'defensive';
+            const filtered = pictosManager.getFilteredPictos();
+
+            assert(filtered.length > 0, 'Should have filtered results');
+
+            // All results should be defensive type
+            filtered.forEach(pictos => {
+                assertEqual(pictos.type, 'defensive', `Pictos ${pictos.name} should be defensive type`);
+            });
+        });
+
+        testRunner.addTest('PictosManager', 'should filter pictos by rarity', () => {
+            pictosManager.currentRarityFilter = 'common';
+            const filtered = pictosManager.getFilteredPictos();
+
+            // All results should be common rarity
+            filtered.forEach(pictos => {
+                assertEqual(pictos.rarity || 'common', 'common', `Pictos ${pictos.name} should be common rarity`);
+            });
+        });
+
+        testRunner.addTest('PictosManager', 'should search pictos by name', () => {
+            pictosManager.currentSearch = 'attack';
+            const filtered = pictosManager.getFilteredPictos();
+
+            if (filtered.length > 0) {
+                // All results should contain 'attack' in searchable text
+                filtered.forEach(pictos => {
+                    const searchableText = [
+                        pictos.name,
+                        pictos.description || '',
+                        pictos.effect || '',
+                        pictos.location || '',
+                        pictos.type,
+                        pictos.rarity || 'common'
+                    ].join(' ').toLowerCase();
+
+                    assert(
+                        searchableText.includes('attack'),
+                        `Pictos ${pictos.name} should contain 'attack' in searchable text`
+                    );
+                });
+            }
+        });
+
+        testRunner.addTest('PictosManager', 'should sort pictos correctly', () => {
+            const allPictos = pictosManager.getFilteredPictos();
+
+            // Test name sorting
+            pictosManager.currentSort = 'name';
+            const sortedByName = pictosManager.sortPictos([...allPictos]);
+
+            for (let i = 1; i < sortedByName.length; i++) {
+                assert(
+                    sortedByName[i-1].name.localeCompare(sortedByName[i].name) <= 0,
+                    'Pictos should be sorted by name alphabetically'
+                );
+            }
+
+            // Test type sorting
+            pictosManager.currentSort = 'type';
+            const sortedByType = pictosManager.sortPictos([...allPictos]);
+
+            for (let i = 1; i < sortedByType.length; i++) {
+                const comparison = sortedByType[i-1].type.localeCompare(sortedByType[i].type);
+                if (comparison === 0) {
+                    // If types are equal, should be sorted by name
+                    assert(
+                        sortedByType[i-1].name.localeCompare(sortedByType[i].name) <= 0,
+                        'When types are equal, should be sorted by name'
+                    );
+                } else {
+                    assert(comparison <= 0, 'Pictos should be sorted by type');
+                }
+            }
+        });
+
+        testRunner.addTest('PictosManager', 'should toggle mastery correctly', () => {
+            const testPictosId = 'test_pictos';
+
+            // Initially should be 0
+            assertEqual(
+                pictosManager.masteredPictos[testPictosId] || 0,
+                0,
+                'Initial mastery should be 0'
+            );
+
+            // Toggle mastery
+            pictosManager.toggleMastery(testPictosId);
+
+            assertEqual(
+                pictosManager.masteredPictos[testPictosId],
+                4,
+                'After toggle, mastery should be 4'
+            );
+
+            // Toggle again should reset to 0
+            pictosManager.toggleMastery(testPictosId);
+
+            assertEqual(
+                pictosManager.masteredPictos[testPictosId],
+                0,
+                'After second toggle, mastery should be 0'
+            );
+        });
+
+        // ===== ICON LOADING TESTS =====
+        const iconLoadingSuite = testRunner.createTestSuite(
+            'Icon Loading',
+            'Tests for icon file availability and loading'
+        );
+
+        const iconPaths = [
+            'assets/images/pictos/defensive-common.svg',
+            'assets/images/pictos/defensive-uncommon.svg',
+            'assets/images/pictos/defensive-rare.svg',
+            'assets/images/pictos/defensive-epic.svg',
+            'assets/images/pictos/offensive-common.svg',
+            'assets/images/pictos/offensive-uncommon.svg',
+            'assets/images/pictos/offensive-rare.svg',
+            'assets/images/pictos/offensive-epic.svg',
+            'assets/images/pictos/support-common.svg',
+            'assets/images/pictos/support-uncommon.svg',
+            'assets/images/pictos/support-rare.svg',
+            'assets/images/pictos/support-epic.svg'
+        ];
+
+        iconPaths.forEach(iconPath => {
+            const iconName = iconPath.split('/').pop();
+            testRunner.addTest('Icon Loading', `should load ${iconName}`, async () => {
+                const response = await fetch(iconPath);
+                assert(response.ok, `Icon ${iconName} should load successfully (got ${response.status})`);
+
+                const contentType = response.headers.get('content-type');
+                assert(
+                    contentType && contentType.includes('svg'),
+                    `Icon ${iconName} should be an SVG file`
+                );
+            });
+        });
+
+        // ===== FORMAT UTILITY TESTS =====
+        const formatUtilsSuite = testRunner.createTestSuite(
+            'Format Utils',
+            'Tests for formatting utility functions'
+        );
+
+        let formatUtils;
+
+        formatUtilsSuite.beforeEach = async () => {
+            const module = await import('./js/utils/formatters.js');
+            formatUtils = module;
+        };
+
+        testRunner.addTest('Format Utils', 'should format numbers correctly', () => {
+            assertEqual(formatUtils.formatNumber(1000), '1,000', 'Should format thousands');
+            assertEqual(formatUtils.formatNumber(1234567), '1,234,567', 'Should format millions');
+            assertEqual(formatUtils.formatNumber(42), '42', 'Should handle small numbers');
+        });
+
+        testRunner.addTest('Format Utils', 'should format stats correctly', () => {
+            assertEqual(formatUtils.formatStat('attack', 50), '50', 'Should format attack stat');
+            assertEqual(formatUtils.formatStat('critRate', 0.15), '15%', 'Should format percentage stats');
+        });
+
+        testRunner.addTest('Format Utils', 'should truncate text correctly', () => {
+            const longText = 'This is a very long text that should be truncated';
+            const truncated = formatUtils.truncateText(longText, 20);
+
+            assert(truncated.length <= 23, 'Truncated text should not exceed limit + ellipsis');
+            assert(truncated.endsWith('...'), 'Truncated text should end with ellipsis');
+        });
+
+        // Run all tests
+        await testRunner.runTests();
+    </script>
+</body>
+</html>

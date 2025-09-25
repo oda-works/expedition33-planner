@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pictos Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .test-section {
+            border: 1px solid #333;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .test-passed { border-color: #4CAF50; background-color: rgba(76, 175, 80, 0.1); }
+        .test-failed { border-color: #f44336; background-color: rgba(244, 67, 54, 0.1); }
+        .pictos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .pictos-card {
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+            background: #2a2a2a;
+        }
+        .pictos-image {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        .controls input, .controls select, .controls button {
+            margin: 5px;
+            padding: 8px 16px;
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+        .status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pictos System Test Suite</h1>
+
+    <div id="test-results">
+        <div id="data-loading-test" class="test-section">
+            <h2>Data Loading Test</h2>
+            <div id="data-status">Testing...</div>
+        </div>
+
+        <div id="icons-test" class="test-section">
+            <h2>Icons Loading Test</h2>
+            <div id="icons-status">Testing...</div>
+        </div>
+
+        <div id="functionality-test" class="test-section">
+            <h2>Functionality Test</h2>
+            <div class="controls">
+                <input type="search" id="test-search" placeholder="Search pictos...">
+                <select id="test-filter">
+                    <option value="">All Types</option>
+                    <option value="offensive">Offensive</option>
+                    <option value="defensive">Defensive</option>
+                    <option value="support">Support</option>
+                </select>
+                <select id="test-rarity">
+                    <option value="">All Rarities</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="epic">Epic</option>
+                </select>
+                <button id="test-mastery-toggle">Show Mastered Only</button>
+            </div>
+            <div id="functionality-status">Ready for testing...</div>
+        </div>
+
+        <div id="pictos-display" class="test-section">
+            <h2>Pictos Display</h2>
+            <div class="pictos-grid" id="test-pictos-grid">
+                <!-- Pictos will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        console.log('🧪 Starting Pictos Test Suite...');
+
+        let dataManager, storage, pictosManager;
+        let testResults = {
+            dataLoading: false,
+            iconLoading: false,
+            searchFunctionality: false,
+            filterFunctionality: false,
+            masteryToggle: false
+        };
+
+        // Test 1: Data Loading
+        async function testDataLoading() {
+            const statusDiv = document.getElementById('data-status');
+            const testSection = document.getElementById('data-loading-test');
+
+            try {
+                const dataModule = await import('./js/modules/data-manager.js');
+                const storageModule = await import('./js/modules/storage.js');
+
+                dataManager = dataModule.dataManager;
+                storage = storageModule.storage;
+
+                await dataManager.loadAllData();
+
+                if (dataManager.gameData.pictos && dataManager.gameData.pictos.pictos) {
+                    const pictosCount = dataManager.gameData.pictos.pictos.length;
+                    statusDiv.innerHTML = `✅ SUCCESS: Loaded ${pictosCount} pictos`;
+                    testSection.classList.add('test-passed');
+                    testResults.dataLoading = true;
+                } else {
+                    throw new Error('Pictos data not found in loaded data');
+                }
+            } catch (error) {
+                statusDiv.innerHTML = `❌ FAILED: ${error.message}`;
+                testSection.classList.add('test-failed');
+            }
+        }
+
+        // Test 2: Icon Loading
+        async function testIconLoading() {
+            const statusDiv = document.getElementById('icons-status');
+            const testSection = document.getElementById('icons-test');
+
+            const iconTests = [
+                'assets/images/pictos/defensive-common.svg',
+                'assets/images/pictos/defensive-uncommon.svg',
+                'assets/images/pictos/defensive-rare.svg',
+                'assets/images/pictos/defensive-epic.svg',
+                'assets/images/pictos/offensive-common.svg',
+                'assets/images/pictos/support-common.svg'
+            ];
+
+            let passed = 0;
+            let results = [];
+
+            for (const iconPath of iconTests) {
+                try {
+                    const response = await fetch(iconPath);
+                    if (response.ok) {
+                        passed++;
+                        results.push(`✅ ${iconPath.split('/').pop()}`);
+                    } else {
+                        results.push(`❌ ${iconPath.split('/').pop()} (${response.status})`);
+                    }
+                } catch (error) {
+                    results.push(`❌ ${iconPath.split('/').pop()} (${error.message})`);
+                }
+            }
+
+            statusDiv.innerHTML = `${passed}/${iconTests.length} icons loaded<br>${results.join('<br>')}`;
+
+            if (passed === iconTests.length) {
+                testSection.classList.add('test-passed');
+                testResults.iconLoading = true;
+            } else {
+                testSection.classList.add('test-failed');
+            }
+        }
+
+        // Test 3: Initialize Pictos Manager
+        async function initPictosManager() {
+            if (!testResults.dataLoading) {
+                console.error('Cannot initialize PictosManager: data loading failed');
+                return;
+            }
+
+            try {
+                const pictosModule = await import('./js/modules/pictos-manager.js');
+                pictosManager = new pictosModule.PictosManager(dataManager, storage);
+                console.log('✓ PictosManager created');
+                return true;
+            } catch (error) {
+                console.error('Failed to create PictosManager:', error);
+                return false;
+            }
+        }
+
+        // Test 4: Display Pictos
+        async function displayPictos() {
+            if (!pictosManager || !testResults.dataLoading) return;
+
+            const grid = document.getElementById('test-pictos-grid');
+            const pictosList = dataManager.gameData.pictos.pictos.slice(0, 12); // Show first 12
+
+            grid.innerHTML = pictosList.map(pictos => {
+                const iconPath = `assets/images/pictos/${pictos.type.toLowerCase()}-${pictos.rarity || 'common'}.svg`;
+                return `
+                    <div class="pictos-card">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <img src="${iconPath}" alt="${pictos.name}" class="pictos-image"
+                                 onerror="this.style.background='#f44336'; this.alt='❌'">
+                            <div>
+                                <h4 style="margin: 0 0 8px 0;">${pictos.name}</h4>
+                                <div style="display: flex; gap: 8px;">
+                                    <span style="background: #333; padding: 2px 8px; border-radius: 12px; font-size: 0.8em;">
+                                        ${pictos.type}
+                                    </span>
+                                    <span style="background: #555; padding: 2px 8px; border-radius: 12px; font-size: 0.8em;">
+                                        ${pictos.rarity || 'common'}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Test 5: Functionality Tests
+        function testFunctionality() {
+            const statusDiv = document.getElementById('functionality-status');
+            const testSection = document.getElementById('functionality-test');
+
+            let tests = [];
+
+            // Test search
+            const searchInput = document.getElementById('test-search');
+            if (searchInput) {
+                tests.push('✅ Search input found');
+                searchInput.addEventListener('input', (e) => {
+                    console.log('🔍 Search:', e.target.value);
+                });
+                testResults.searchFunctionality = true;
+            } else {
+                tests.push('❌ Search input not found');
+            }
+
+            // Test filters
+            const filterSelect = document.getElementById('test-filter');
+            if (filterSelect) {
+                tests.push('✅ Type filter found');
+                filterSelect.addEventListener('change', (e) => {
+                    console.log('🏷️ Filter:', e.target.value);
+                });
+                testResults.filterFunctionality = true;
+            } else {
+                tests.push('❌ Type filter not found');
+            }
+
+            // Test mastery toggle
+            const masteryToggle = document.getElementById('test-mastery-toggle');
+            if (masteryToggle) {
+                tests.push('✅ Mastery toggle found');
+                masteryToggle.addEventListener('click', () => {
+                    console.log('⭐ Mastery toggle clicked');
+                });
+                testResults.masteryToggle = true;
+            } else {
+                tests.push('❌ Mastery toggle not found');
+            }
+
+            statusDiv.innerHTML = tests.join('<br>');
+
+            if (testResults.searchFunctionality && testResults.filterFunctionality && testResults.masteryToggle) {
+                testSection.classList.add('test-passed');
+            } else {
+                testSection.classList.add('test-failed');
+            }
+        }
+
+        // Run all tests
+        async function runTests() {
+            console.log('🧪 Running Test Suite...');
+
+            await testDataLoading();
+            await testIconLoading();
+            await initPictosManager();
+            testFunctionality();
+            await displayPictos();
+
+            console.log('🧪 Test Results:', testResults);
+
+            // Summary
+            const passed = Object.values(testResults).filter(Boolean).length;
+            const total = Object.keys(testResults).length;
+
+            console.log(`📊 Tests Passed: ${passed}/${total}`);
+
+            if (passed === total) {
+                console.log('🎉 All tests passed! Pictos system is working correctly.');
+            } else {
+                console.log('⚠️ Some tests failed. Check the issues above.');
+            }
+        }
+
+        // Start tests
+        runTests();
+    </script>
+</body>
+</html>

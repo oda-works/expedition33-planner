@@ -113,32 +113,66 @@ class App {
    */
   async initializeModules() {
     try {
-      // Dynamically import modules to reduce initial bundle size
-      const [
-        { CharacterBuilder },
-        { PictosManager },
-        { PartyComposer },
-        { CollectiblesTracker }
-      ] = await Promise.all([
-        import('./modules/character-builder.js'),
-        import('./modules/pictos-manager.js'),
-        import('./modules/party-composer.js'),
-        import('./modules/collectibles-tracker.js')
+      // Import only the modules that exist
+      const modulePromises = [];
+      
+      // Core modules
+      modulePromises.push(import('./modules/character-builder.js'));
+      
+      // Try to import optional modules, but continue if they fail
+      const optionalModules = [
+        'pictos-manager',
+        'party-composer', 
+        'collectibles-tracker',
+        'map-manager',
+        'damage-calculator',
+        'boss-tracker',
+        'build-comparison',
+        'party-synergy',
+        'build-guides',
+        'team-optimizer',
+        'achievement-tracker'
+      ];
+
+      const importResults = await Promise.allSettled([
+        ...modulePromises,
+        ...optionalModules.map(module => 
+          import(`./modules/${module}.js`).catch(err => {
+            console.warn(`Optional module ${module} not found:`, err);
+            return null;
+          })
+        )
       ]);
 
-      // Initialize modules
-      this.modules.characterBuilder = new CharacterBuilder(dataManager, storage);
-      this.modules.pictosManager = new PictosManager(dataManager, storage);
-      this.modules.partyComposer = new PartyComposer(dataManager, storage);
-      this.modules.collectiblesTracker = new CollectiblesTracker(dataManager, storage);
+      // Initialize available modules
+      const modules = importResults
+        .filter(result => result.status === 'fulfilled' && result.value)
+        .map(result => result.value);
 
-      // Initialize each module
-      await Promise.all([
-        this.modules.characterBuilder.init(),
-        this.modules.pictosManager.init(),
-        this.modules.partyComposer.init(),
-        this.modules.collectiblesTracker.init()
-      ]);
+      // Initialize character builder (required)
+      if (modules[0] && modules[0].CharacterBuilder) {
+        this.modules.characterBuilder = new modules[0].CharacterBuilder(dataManager, storage);
+        await this.modules.characterBuilder.init();
+        console.log('✓ Character builder initialized');
+      }
+
+      // Initialize optional modules
+      modules.slice(1).forEach((module, index) => {
+        const moduleName = optionalModules[index];
+        const ModuleClass = Object.values(module || {})[0];
+        
+        if (ModuleClass && typeof ModuleClass === 'function') {
+          try {
+            this.modules[moduleName] = new ModuleClass(dataManager, storage);
+            if (this.modules[moduleName].init) {
+              this.modules[moduleName].init();
+            }
+            console.log(`✓ ${moduleName} initialized`);
+          } catch (error) {
+            console.warn(`Failed to initialize ${moduleName}:`, error);
+          }
+        }
+      });
 
     } catch (error) {
       console.error('Failed to initialize modules:', error);
@@ -247,13 +281,31 @@ class App {
         this.modules.characterBuilder?.refresh();
         break;
       case TABS.PICTOS:
-        this.modules.pictosManager?.refresh();
+        this.modules['pictos-manager']?.refresh();
         break;
       case TABS.PARTY:
-        this.modules.partyComposer?.refresh();
+        this.modules['party-composer']?.refresh();
         break;
       case TABS.COLLECTIBLES:
-        this.modules.collectiblesTracker?.refresh();
+        this.modules['collectibles-tracker']?.refresh();
+        break;
+      case TABS.CALCULATOR:
+        this.modules['damage-calculator']?.refresh();
+        break;
+      case TABS.BOSSES:
+        this.modules['boss-tracker']?.refresh();
+        break;
+      case TABS.COMPARISON:
+        this.modules['build-comparison']?.refresh();
+        break;
+      case TABS.GUIDES:
+        this.modules['build-guides']?.refresh();
+        break;
+      case TABS.OPTIMIZER:
+        this.modules['team-optimizer']?.refresh();
+        break;
+      case TABS.ACHIEVEMENTS:
+        this.modules['achievement-tracker']?.refresh();
         break;
     }
   }
@@ -369,7 +421,19 @@ class App {
         if (event.ctrlKey || event.metaKey) {
           event.preventDefault();
           const tabIndex = parseInt(event.key) - 1;
-          const tabs = [TABS.CHARACTERS, TABS.PICTOS, TABS.PARTY, TABS.COLLECTIBLES, TABS.BUILDS];
+          const tabs = [
+            TABS.CHARACTERS, 
+            TABS.PICTOS, 
+            TABS.PARTY, 
+            TABS.COLLECTIBLES, 
+            TABS.CALCULATOR,
+            TABS.BOSSES,
+            TABS.COMPARISON,
+            TABS.GUIDES,
+            TABS.OPTIMIZER,
+            TABS.ACHIEVEMENTS,
+            TABS.BUILDS
+          ];
           if (tabs[tabIndex]) {
             this.switchToTab(tabs[tabIndex]);
           }
