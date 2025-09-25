@@ -14,11 +14,7 @@ export class BossTracker {
     this.defeatedBosses = {};
     this.bossesData = null;
 
-    // Bind methods
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleSortChange = this.handleSortChange.bind(this);
-    this.handleBossToggle = this.handleBossToggle.bind(this);
-    this.handleBossInfo = this.handleBossInfo.bind(this);
+    // Methods will be bound automatically when called as arrow functions in event listeners
   }
 
   /**

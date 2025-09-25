@@ -22,16 +22,7 @@ export class PictosManager {
     this.activeLuminas = {};
     this.searchDebounce = null;
 
-    // Bind methods
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleFilter = this.handleFilter.bind(this);
-    this.handleSort = this.handleSort.bind(this);
-    this.handleMasteryToggle = this.handleMasteryToggle.bind(this);
-    this.handleRarityFilter = this.handleRarityFilter.bind(this);
-    this.handleExpeditionFilter = this.handleExpeditionFilter.bind(this);
-    this.handleEquippedToggle = this.handleEquippedToggle.bind(this);
-    this.handlePictosClick = this.handlePictosClick.bind(this);
-    this.handleLuminaToggle = this.handleLuminaToggle.bind(this);
+    // Methods will be bound automatically when called as arrow functions in event listeners
   }
 
   /**

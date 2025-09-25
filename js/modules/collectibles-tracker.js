@@ -14,12 +14,7 @@ export class CollectiblesTracker {
     this.collectiblesData = null;
     this.userProgress = {};
 
-    // Bind methods
-    this.handleCategoryChange = this.handleCategoryChange.bind(this);
-    this.handleItemToggle = this.handleItemToggle.bind(this);
-    this.handleSpoilerToggle = this.handleSpoilerToggle.bind(this);
-    this.handleImportSave = this.handleImportSave.bind(this);
-    this.handleExportProgress = this.handleExportProgress.bind(this);
+    // Methods will be bound automatically when called as arrow functions in event listeners
   }
 
   /**

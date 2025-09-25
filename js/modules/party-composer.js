@@ -20,13 +20,7 @@ export class PartyComposer {
     this.draggedCharacter = null;
     this.draggedFromSlot = null;
 
-    // Bind methods
-    this.handleOptimizeParty = this.handleOptimizeParty.bind(this);
-    this.handleClearParty = this.handleClearParty.bind(this);
-    this.handleDragStart = this.handleDragStart.bind(this);
-    this.handleDragOver = this.handleDragOver.bind(this);
-    this.handleDrop = this.handleDrop.bind(this);
-    this.handleDragEnd = this.handleDragEnd.bind(this);
+    // Methods will be bound automatically when called as arrow functions in event listeners
   }
 
   /**

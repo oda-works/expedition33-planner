@@ -15,12 +15,7 @@ export class CharacterBuilder {
     this.isInitialized = false;
 
     // Bind methods
-    this.handleCharacterChange = this.handleCharacterChange.bind(this);
-    this.handleLevelChange = this.handleLevelChange.bind(this);
-    this.handleAttributeChange = this.handleAttributeChange.bind(this);
-    this.handleWeaponChange = this.handleWeaponChange.bind(this);
-    this.handleSaveBuild = this.handleSaveBuild.bind(this);
-    this.handleResetBuild = this.handleResetBuild.bind(this);
+    // Methods will be bound automatically when called as arrow functions in event listeners
   }
 
   /**
