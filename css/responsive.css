@@ -1,6 +1,48 @@
-/* Responsive Design for Expedition 33 Planner */
+/* Modern Responsive Design for Expedition 33 Planner */
 
-/* Mobile First Approach */
+/* Mobile First Approach with Enhanced Breakpoints */
+
+/* Base styles for all devices */
+.grid-cols-2 {
+  grid-template-columns: 1fr;
+}
+
+.grid-cols-3 {
+  grid-template-columns: 1fr;
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Container queries for modern responsive design */
+@container (min-width: 20rem) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container (min-width: 30rem) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container (min-width: 40rem) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@container (min-width: 60rem) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 /* Small mobile (320px and up) */
 @media (max-width: 480px) {
@@ -39,6 +81,20 @@
     font-size: 0.8rem;
     min-width: 0;
     flex-shrink: 0;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav-tab:hover {
+    transform: none;
+  }
+
+  .card {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
   }
 
   .main-content {
