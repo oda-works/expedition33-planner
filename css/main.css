@@ -220,6 +220,7 @@ p {
   white-space: nowrap;
   position: relative;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
+  z-index: 3;
 }
 
 .nav-tab::before {
@@ -233,6 +234,8 @@ p {
   opacity: 0;
   transition: opacity var(--transition-fast);
   border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .nav-tab:hover {
@@ -313,6 +316,7 @@ p {
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
 .btn-primary::before {
@@ -324,6 +328,8 @@ p {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   transition: left 0.5s;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .btn-primary:hover {
@@ -801,6 +807,8 @@ p {
   background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
   opacity: 0;
   transition: opacity var(--transition-normal);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .card:hover {
@@ -926,4 +934,27 @@ p {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-purple);
+}
+
+/* Fix for interactive elements */
+button, .btn-primary, .btn-secondary, .btn-icon, .btn-toggle, .nav-tab {
+  pointer-events: auto !important;
+  z-index: 10;
+  position: relative;
+}
+
+/* Ensure pseudo-elements don't interfere */
+button::before, button::after {
+  pointer-events: none !important;
+}
+
+/* Fix for modal and overlay interactions */
+.modal-overlay {
+  pointer-events: auto;
+  z-index: 1000;
+}
+
+.modal {
+  pointer-events: auto;
+  z-index: 1001;
 }
