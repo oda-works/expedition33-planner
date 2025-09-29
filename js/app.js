@@ -1,6 +1,8 @@
 // Main application file for Expedition 33 Planner
 import { dataManager } from './modules/data-manager.js';
 import { storage } from './modules/storage.js';
+import { router } from './utils/router.js';
+import { navigation } from './components/navigation.js';
 import { TABS, THEMES, FEATURES, SUCCESS_MESSAGES, ERROR_MESSAGES, KEYBOARD_KEYS } from './utils/constants.js';
 
 /**
@@ -8,13 +10,15 @@ import { TABS, THEMES, FEATURES, SUCCESS_MESSAGES, ERROR_MESSAGES, KEYBOARD_KEYS
  */
 class App {
   constructor() {
-    this.currentTab = TABS.CHARACTERS;
+    this.currentRoute = 'characters';
     this.isLoading = true;
     this.settings = {};
     this.modules = {};
+    this.router = router;
+    this.navigation = navigation;
 
     // Bind methods to maintain context
-    this.handleTabChange = this.handleTabChange.bind(this);
+    this.handleRouteChange = this.handleRouteChange.bind(this);
     this.handleThemeToggle = this.handleThemeToggle.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
     this.showToast = this.showToast.bind(this);
@@ -48,25 +52,31 @@ class App {
       await this.initializeModules();
       console.log('✓ Modules initialized');
 
+      // Initialize router
+      console.log('5. Initializing router...');
+      this.setupRoutes();
+      this.router.init();
+      console.log('✓ Router initialized');
+
+      // Initialize navigation
+      console.log('6. Initializing navigation...');
+      this.navigation.init();
+      console.log('✓ Navigation initialized');
+
       // Set up event listeners
-      console.log('5. Setting up event listeners...');
+      console.log('7. Setting up event listeners...');
       this.setupEventListeners();
       console.log('✓ Event listeners set up');
 
       // Register service worker
-      console.log('6. Registering service worker...');
+      console.log('8. Registering service worker...');
       this.registerServiceWorker();
       console.log('✓ Service worker registered');
 
       // Hide loading screen and show app
-      console.log('7. Hiding loading screen...');
+      console.log('9. Hiding loading screen...');
       this.hideLoadingScreen();
       console.log('✓ Loading screen hidden');
-
-      // Initialize default tab
-      console.log('8. Initializing default tab...');
-      this.switchToTab(this.currentTab);
-      console.log('✓ Default tab initialized');
 
       console.log('🎉 Expedition 33 Planner initialized successfully');
     } catch (error) {
@@ -236,77 +246,151 @@ class App {
   }
 
   /**
-   * Handle tab change
-   * @param {Event} event - Click event
+   * Handle route change events
+   * @param {CustomEvent} event - Route change event
    */
-  handleTabChange(event) {
-    const tab = event.target;
-    const tabId = tab.dataset.tab;
+  handleRouteChange(event) {
+    console.log('Route changed:', event.detail);
+    this.currentRoute = event.detail.path;
+  }
 
-    if (tabId && tabId !== this.currentTab) {
-      this.switchToTab(tabId);
+  /**
+   * Set up application routes
+   */
+  setupRoutes() {
+    // Register all routes with their handlers
+    this.router.addRoute('characters', (path) => this.showRoute(path), {
+      title: 'Character Builder',
+      category: 'build-tools'
+    });
+
+    this.router.addRoute('pictos', (path) => this.showRoute(path), {
+      title: 'Pictos & Lumina',
+      category: 'build-tools'
+    });
+
+    this.router.addRoute('calculator', (path) => this.showRoute(path), {
+      title: 'Damage Calculator',
+      category: 'build-tools'
+    });
+
+    this.router.addRoute('party', (path) => this.showRoute(path), {
+      title: 'Party Composer',
+      category: 'team-management'
+    });
+
+    this.router.addRoute('optimizer', (path) => this.showRoute(path), {
+      title: 'Team Optimizer',
+      category: 'team-management'
+    });
+
+    this.router.addRoute('comparison', (path) => this.showRoute(path), {
+      title: 'Build Comparison',
+      category: 'team-management'
+    });
+
+    this.router.addRoute('collectibles', (path) => this.showRoute(path), {
+      title: 'Collectibles Tracker',
+      category: 'progress-tracking'
+    });
+
+    this.router.addRoute('bosses', (path) => this.showRoute(path), {
+      title: 'Boss Tracker',
+      category: 'progress-tracking'
+    });
+
+    this.router.addRoute('achievements', (path) => this.showRoute(path), {
+      title: 'Achievement Tracker',
+      category: 'progress-tracking'
+    });
+
+    this.router.addRoute('guides', (path) => this.showRoute(path), {
+      title: 'Build Guides',
+      category: 'resources'
+    });
+
+    this.router.addRoute('builds', (path) => this.showRoute(path), {
+      title: 'Saved Builds',
+      category: 'resources'
+    });
+  }
+
+  /**
+   * Show a specific route/tab
+   * @param {string} path - Route path
+   */
+  showRoute(path) {
+    console.log(`Navigating to route: ${path}`);
+
+    // Update current route
+    this.currentRoute = path;
+
+    // Update tab content visibility
+    this.updateTabContent(path);
+
+    // Special handling for specific routes (includes module activation)
+    this.handleRouteSpecifics(path);
+  }
+
+  /**
+   * Update tab content visibility
+   * @param {string} path - Active route path
+   */
+  updateTabContent(path) {
+    // Hide all tab contents
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(content => {
+      content.classList.remove('active');
+    });
+
+    // Show active tab content
+    const activeContent = document.getElementById(`${path}-tab`);
+    if (activeContent) {
+      activeContent.classList.add('active');
     }
   }
 
   /**
-   * Switch to a specific tab
-   * @param {string} tabId - Tab identifier
+   * Handle route-specific logic
+   * @param {string} path - Route path
    */
-  switchToTab(tabId) {
-    // Update tab buttons
-    const navTabs = document.querySelectorAll('.nav-tab');
-    navTabs.forEach(tab => {
-      const isActive = tab.dataset.tab === tabId;
-      tab.classList.toggle('active', isActive);
-      tab.setAttribute('aria-selected', isActive.toString());
-    });
+  handleRouteSpecifics(path) {
+    // Map route paths to module names
+    const moduleMap = {
+      'characters': 'characterBuilder',
+      'pictos': 'pictos-manager',
+      'party': 'party-composer',
+      'collectibles': 'collectibles-tracker',
+      'calculator': 'damage-calculator',
+      'bosses': 'boss-tracker',
+      'comparison': 'build-comparison',
+      'guides': 'build-guides',
+      'optimizer': 'team-optimizer',
+      'achievements': 'achievement-tracker'
+      // 'builds' route doesn't have a dedicated module - it's handled in the HTML
+    };
 
-    // Update tab content
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(content => {
-      content.classList.toggle('active', content.id === `${tabId}-tab`);
-    });
+    const moduleName = moduleMap[path];
 
-    // Update current tab
-    this.currentTab = tabId;
+    if (moduleName) {
+      const module = this.modules[moduleName];
 
-    // Notify relevant module about activation
-    if (this.modules[tabId]) {
-      this.modules[tabId].onActivate?.();
-    }
+      if (module) {
+        console.log(`Activating module: ${moduleName}`);
 
-    // Special handling for specific tabs
-    switch (tabId) {
-      case TABS.CHARACTERS:
-        this.modules.characterBuilder?.refresh();
-        break;
-      case TABS.PICTOS:
-        this.modules['pictos-manager']?.refresh();
-        break;
-      case TABS.PARTY:
-        this.modules['party-composer']?.refresh();
-        break;
-      case TABS.COLLECTIBLES:
-        this.modules['collectibles-tracker']?.refresh();
-        break;
-      case TABS.CALCULATOR:
-        this.modules['damage-calculator']?.refresh();
-        break;
-      case TABS.BOSSES:
-        this.modules['boss-tracker']?.refresh();
-        break;
-      case TABS.COMPARISON:
-        this.modules['build-comparison']?.refresh();
-        break;
-      case TABS.GUIDES:
-        this.modules['build-guides']?.refresh();
-        break;
-      case TABS.OPTIMIZER:
-        this.modules['team-optimizer']?.refresh();
-        break;
-      case TABS.ACHIEVEMENTS:
-        this.modules['achievement-tracker']?.refresh();
-        break;
+        // Call onActivate first (which typically calls refresh)
+        if (module.onActivate) {
+          module.onActivate();
+        } else if (module.refresh) {
+          // Fallback to refresh if onActivate doesn't exist
+          module.refresh();
+        }
+      } else {
+        console.warn(`Module not found: ${moduleName} for route: ${path}`);
+        console.log('Available modules:', Object.keys(this.modules));
+      }
+    } else {
+      console.log(`Route ${path} has no associated module (static content)`);
     }
   }
 

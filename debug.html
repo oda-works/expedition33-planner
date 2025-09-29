@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Expedition 33 Planner</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .log {
+            background: #2a2a2a;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #6366F1;
+        }
+        .error { border-left-color: #EF4444; }
+        .warning { border-left-color: #F59E0B; }
+        .success { border-left-color: #10B981; }
+        .check-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: #2a2a2a;
+            border-radius: 5px;
+        }
+        .status-ok { background: #059669; }
+        .status-fail { background: #DC2626; }
+        .status-warn { background: #D97706; }
+    </style>
+</head>
+<body>
+    <h1>🐛 Expedition 33 Planner - Debug Mode</h1>
+
+    <div id="debug-output">
+        <div class="log">Starting debug checks...</div>
+    </div>
+
+    <script>
+        const debugOutput = document.getElementById('debug-output');
+
+        function log(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `log ${type}`;
+            div.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            debugOutput.appendChild(div);
+            console.log(message);
+        }
+
+        function checkElement(selector, name) {
+            const element = document.querySelector(selector);
+            const div = document.createElement('div');
+            div.className = `check-item ${element ? 'status-ok' : 'status-fail'}`;
+            div.innerHTML = `${element ? '✅' : '❌'} ${name}: ${element ? 'Found' : 'Missing'}`;
+            debugOutput.appendChild(div);
+            return element;
+        }
+
+        // Override console methods to capture errors
+        window.addEventListener('error', (e) => {
+            log(`❌ JavaScript Error: ${e.message} at ${e.filename}:${e.lineno}`, 'error');
+        });
+
+        window.addEventListener('unhandledrejection', (e) => {
+            log(`❌ Unhandled Promise Rejection: ${e.reason}`, 'error');
+        });
+
+        // Test the main app
+        setTimeout(() => {
+            log('🔍 Checking DOM elements...');
+
+            checkElement('#app', 'App Container');
+            checkElement('.app-header', 'App Header');
+            checkElement('.app-content-wrapper', 'Content Wrapper');
+            checkElement('#loading-screen', 'Loading Screen');
+
+            // Check if navigation was created
+            const sidebar = checkElement('.app-sidebar', 'Sidebar Navigation');
+            const navToggle = checkElement('.nav-toggle', 'Mobile Nav Toggle');
+            const navGroups = document.querySelectorAll('.nav-group');
+
+            const div = document.createElement('div');
+            div.className = `check-item ${navGroups.length > 0 ? 'status-ok' : 'status-fail'}`;
+            div.innerHTML = `${navGroups.length > 0 ? '✅' : '❌'} Navigation Groups: ${navGroups.length} found`;
+            debugOutput.appendChild(div);
+
+            // Check if router is working
+            log('🔍 Testing routing system...');
+            if (window.location.hash) {
+                log(`Current route: ${window.location.hash}`);
+            } else {
+                log('No route hash detected');
+            }
+
+            // Test navigation clicks
+            if (sidebar) {
+                const navItems = sidebar.querySelectorAll('.nav-item');
+                const div = document.createElement('div');
+                div.className = `check-item ${navItems.length > 0 ? 'status-ok' : 'status-fail'}`;
+                div.innerHTML = `${navItems.length > 0 ? '✅' : '❌'} Navigation Items: ${navItems.length} found`;
+                debugOutput.appendChild(div);
+
+                if (navItems.length > 0) {
+                    log('🔗 Testing first navigation item...');
+                    setTimeout(() => {
+                        try {
+                            navItems[0].click();
+                            log('✅ Navigation click test successful');
+                        } catch (err) {
+                            log(`❌ Navigation click failed: ${err.message}`, 'error');
+                        }
+                    }, 1000);
+                }
+            }
+
+            // Check modules
+            if (window.app) {
+                log('✅ Global app object found');
+                const modules = Object.keys(window.app.modules || {});
+                log(`📦 Loaded modules: ${modules.join(', ')}`);
+            } else {
+                log('❌ Global app object not found', 'error');
+            }
+
+            // Test manual route change
+            setTimeout(() => {
+                log('🧪 Testing manual route change to #/characters...');
+                window.location.hash = '#/characters';
+
+                setTimeout(() => {
+                    const activeTab = document.querySelector('#characters-tab.active');
+                    if (activeTab) {
+                        log('✅ Route change successful - Characters tab is active');
+                    } else {
+                        log('❌ Route change failed - Characters tab not active', 'error');
+                    }
+                }, 500);
+            }, 2000);
+
+        }, 1000);
+
+        // Load the actual app scripts
+        log('🚀 Loading app modules...');
+
+        // Dynamically load app.js to test
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = 'js/app.js';
+        script.onload = () => log('✅ App.js loaded successfully');
+        script.onerror = () => log('❌ Failed to load app.js', 'error');
+        document.head.appendChild(script);
+
+    </script>
+</body>
+</html>

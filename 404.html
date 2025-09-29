@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expedition 33 Planner</title>
+    <script>
+        // GitHub Pages SPA redirect handling
+        // This script takes the current path and redirects to the main app with the hash
+        (function() {
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect !== location.href) {
+                // Convert path to hash for SPA routing
+                var pathSegments = location.pathname.split('/').filter(Boolean);
+                var repoName = pathSegments[0]; // assuming repo name is first segment
+                var route = pathSegments.slice(1).join('/'); // get route after repo name
+
+                if (route) {
+                    location.replace(location.protocol + '//' + location.host + '/' + repoName + '/#/' + route);
+                } else {
+                    location.replace(redirect);
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+    <script>
+        // If no redirect happened, go to main app
+        setTimeout(function() {
+            window.location.href = './index.html';
+        }, 100);
+    </script>
+    <p>Redirecting to Expedition 33 Planner...</p>
+</body>
+</html>

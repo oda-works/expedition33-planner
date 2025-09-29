@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA Test - Expedition 33 Planner</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: #2a2a2a;
+        }
+        .test-link {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 15px;
+            background: #6366F1;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        .test-link:hover {
+            background: #5855eb;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success { background: #10B981; }
+        .error { background: #EF4444; }
+        .warning { background: #F59E0B; }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #444;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 SPA Functionality Test</h1>
+
+    <div class="test-section">
+        <h2>Navigation Test</h2>
+        <p>Test the new sidebar navigation and routing system:</p>
+
+        <a href="index.html#/characters" class="test-link" target="app-frame">Characters</a>
+        <a href="index.html#/pictos" class="test-link" target="app-frame">Pictos & Lumina</a>
+        <a href="index.html#/party" class="test-link" target="app-frame">Party Composer</a>
+        <a href="index.html#/collectibles" class="test-link" target="app-frame">Collectibles</a>
+        <a href="index.html#/calculator" class="test-link" target="app-frame">Damage Calculator</a>
+        <a href="index.html#/bosses" class="test-link" target="app-frame">Boss Tracker</a>
+        <a href="index.html#/comparison" class="test-link" target="app-frame">Build Comparison</a>
+        <a href="index.html#/guides" class="test-link" target="app-frame">Build Guides</a>
+        <a href="index.html#/optimizer" class="test-link" target="app-frame">Team Optimizer</a>
+        <a href="index.html#/achievements" class="test-link" target="app-frame">Achievements</a>
+        <a href="index.html#/builds" class="test-link" target="app-frame">Saved Builds</a>
+    </div>
+
+    <div class="test-section">
+        <h2>App Preview</h2>
+        <iframe name="app-frame" src="index.html"></iframe>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Expected Improvements</h2>
+        <div class="status success">
+            ✅ Sidebar navigation instead of horizontal tabs<br>
+            ✅ Organized categories (Build Tools, Team Management, etc.)<br>
+            ✅ URL routing with browser history support<br>
+            ✅ Mobile-responsive with hamburger menu<br>
+            ✅ All existing features preserved and functional
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 What to Test</h2>
+        <ol>
+            <li><strong>Navigation:</strong> Click the links above to test routing</li>
+            <li><strong>Sidebar:</strong> Check if the sidebar appears with grouped categories</li>
+            <li><strong>Mobile:</strong> Resize browser to see hamburger menu</li>
+            <li><strong>Features:</strong> Try character selection, pictos filtering, etc.</li>
+            <li><strong>Browser Back/Forward:</strong> Use browser navigation buttons</li>
+            <li><strong>Direct Links:</strong> Bookmark a specific section and reload</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🐛 Troubleshooting</h2>
+        <p>If something doesn't work:</p>
+        <ol>
+            <li>Open browser DevTools (F12)</li>
+            <li>Check Console for JavaScript errors</li>
+            <li>Verify all CSS and JS files are loading</li>
+            <li>Ensure the sidebar navigation appears</li>
+        </ol>
+    </div>
+
+    <script>
+        // Simple test to check if main app is loading
+        setTimeout(() => {
+            const frame = document.querySelector('iframe[name="app-frame"]');
+            if (frame && frame.contentDocument) {
+                const appElement = frame.contentDocument.getElementById('app');
+                if (appElement) {
+                    console.log('✅ Main app element found');
+
+                    const sidebar = frame.contentDocument.querySelector('.app-sidebar');
+                    if (sidebar) {
+                        console.log('✅ Sidebar navigation found');
+                    } else {
+                        console.warn('⚠️ Sidebar navigation not found');
+                    }
+                } else {
+                    console.error('❌ Main app element not found');
+                }
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

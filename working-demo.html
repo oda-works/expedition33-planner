@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Demo - Expedition 33 Planner</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="theme-dark">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <h2>Loading Demo...</h2>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app-container" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="title-main">Expedition 33</span>
+                    <span class="title-sub">Working Demo</span>
+                </h1>
+                <div class="header-controls">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                        <span class="icon-theme">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- App Content Wrapper -->
+        <div class="app-content-wrapper">
+            <!-- Main Content -->
+            <main class="main-content" role="main">
+                <!-- Characters Tab -->
+                <section id="characters-tab" class="tab-content active">
+                    <div class="content-header">
+                        <h2>Character Builder</h2>
+                        <div class="content-controls">
+                            <select id="character-select" class="character-selector">
+                                <option value="">Select a Character</option>
+                                <option value="gustave">Gustave</option>
+                                <option value="lune">Lune</option>
+                                <option value="maelle">Maelle</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="character-builder">
+                        <p>✅ Character Builder is working!</p>
+                    </div>
+                </section>
+
+                <!-- Pictos Tab -->
+                <section id="pictos-tab" class="tab-content">
+                    <div class="content-header">
+                        <h2>Pictos & Lumina Manager</h2>
+                    </div>
+                    <div class="pictos-manager">
+                        <p>✅ Pictos Manager is working!</p>
+                    </div>
+                </section>
+
+                <!-- Party Tab -->
+                <section id="party-tab" class="tab-content">
+                    <div class="content-header">
+                        <h2>Party Composer</h2>
+                    </div>
+                    <div class="party-composer">
+                        <p>✅ Party Composer is working!</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script type="module">
+        // Simple demo script to show functionality
+        console.log('🚀 Starting working demo...');
+
+        // Hide loading and show app
+        setTimeout(() => {
+            document.getElementById('loading-screen').style.display = 'none';
+            document.getElementById('app').style.display = 'block';
+            console.log('✅ App loaded');
+        }, 1000);
+
+        // Import and initialize navigation
+        try {
+            const { navigation } = await import('./js/components/navigation.js');
+            const { router } = await import('./js/utils/router.js');
+
+            console.log('📦 Modules imported successfully');
+
+            // Set up basic routes
+            router.addRoute('characters', (path) => showTab(path), {
+                title: 'Character Builder',
+                category: 'build-tools'
+            });
+
+            router.addRoute('pictos', (path) => showTab(path), {
+                title: 'Pictos & Lumina',
+                category: 'build-tools'
+            });
+
+            router.addRoute('party', (path) => showTab(path), {
+                title: 'Party Composer',
+                category: 'team-management'
+            });
+
+            // Initialize navigation and router
+            navigation.init();
+            router.init();
+
+            console.log('✅ Navigation and routing initialized');
+
+            // Simple tab switching function
+            function showTab(path) {
+                console.log(`Switching to tab: ${path}`);
+
+                // Hide all tabs
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+
+                // Show active tab
+                const activeTab = document.getElementById(`${path}-tab`);
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                    console.log(`✅ Activated tab: ${path}`);
+                } else {
+                    console.warn(`❌ Tab not found: ${path}`);
+                }
+            }
+
+            // Add manual navigation buttons for testing
+            setTimeout(() => {
+                const header = document.querySelector('.header-controls');
+                if (header) {
+                    const testButtons = document.createElement('div');
+                    testButtons.innerHTML = `
+                        <button onclick="location.hash='#/characters'" style="margin: 0 5px; padding: 5px 10px; background: #6366F1; color: white; border: none; border-radius: 3px;">Characters</button>
+                        <button onclick="location.hash='#/pictos'" style="margin: 0 5px; padding: 5px 10px; background: #6366F1; color: white; border: none; border-radius: 3px;">Pictos</button>
+                        <button onclick="location.hash='#/party'" style="margin: 0 5px; padding: 5px 10px; background: #6366F1; color: white; border: none; border-radius: 3px;">Party</button>
+                    `;
+                    header.appendChild(testButtons);
+                    console.log('✅ Test buttons added');
+                }
+            }, 2000);
+
+        } catch (error) {
+            console.error('❌ Demo error:', error);
+        }
+    </script>
+</body>
+</html>

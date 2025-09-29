@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Test - Navigation</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        body { background: #1a1a1a; color: white; padding: 20px; }
+        .debug { background: #333; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="debug">
+        <h2>Minimal Navigation Test</h2>
+        <div id="debug-log"></div>
+    </div>
+
+    <!-- Simplified App Structure -->
+    <div id="app" class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">Test App</h1>
+                <div class="header-controls">
+                    <button id="theme-toggle" class="btn-icon">🌙</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="app-content-wrapper">
+            <main class="main-content">
+                <div id="characters-tab" class="tab-content active">
+                    <h2>Characters Tab</h2>
+                    <p>This is the characters content.</p>
+                </div>
+                <div id="pictos-tab" class="tab-content">
+                    <h2>Pictos Tab</h2>
+                    <p>This is the pictos content.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script type="module">
+        const debugLog = document.getElementById('debug-log');
+
+        function log(message) {
+            console.log(message);
+            debugLog.innerHTML += `<div>${message}</div>`;
+        }
+
+        log('🧪 Starting minimal navigation test...');
+
+        // Test if navigation component can be imported and created
+        try {
+            log('📦 Importing navigation component...');
+
+            // Import the navigation module
+            const { navigation } = await import('./js/components/navigation.js');
+            log('✅ Navigation component imported successfully');
+
+            // Test navigation initialization
+            log('🚀 Initializing navigation...');
+            navigation.init();
+            log('✅ Navigation initialized');
+
+            // Check if sidebar was created
+            setTimeout(() => {
+                const sidebar = document.querySelector('.app-sidebar');
+                if (sidebar) {
+                    log('✅ Sidebar element found in DOM');
+                    const navItems = sidebar.querySelectorAll('.nav-item');
+                    log(`✅ Found ${navItems.length} navigation items`);
+
+                    // Test click on first nav item
+                    if (navItems.length > 0) {
+                        log('🔗 Testing navigation click...');
+                        navItems[0].click();
+                        log('✅ Navigation click completed');
+                    }
+                } else {
+                    log('❌ Sidebar element NOT found in DOM');
+                }
+
+                // Check for mobile toggle
+                const toggle = document.querySelector('.nav-toggle');
+                if (toggle) {
+                    log('✅ Mobile toggle button found');
+                } else {
+                    log('❌ Mobile toggle button NOT found');
+                }
+            }, 500);
+
+        } catch (error) {
+            log(`❌ Error: ${error.message}`);
+            console.error(error);
+        }
+    </script>
+</body>
+</html>

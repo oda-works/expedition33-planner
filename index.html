@@ -18,6 +18,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/pictos-manager.css">
     <link rel="stylesheet" href="css/party-composer.css">
@@ -68,25 +69,11 @@
             </div>
         </header>
 
-        <!-- Navigation -->
-        <nav class="main-nav" role="navigation">
-            <ul class="nav-tabs">
-                <li><button class="nav-tab active" data-tab="characters" aria-selected="true">Characters</button></li>
-                <li><button class="nav-tab" data-tab="pictos" aria-selected="false">Pictos & Lumina</button></li>
-                <li><button class="nav-tab" data-tab="party" aria-selected="false">Party Composer</button></li>
-                <li><button class="nav-tab" data-tab="collectibles" aria-selected="false">Collectibles</button></li>
-                <li><button class="nav-tab" data-tab="calculator" aria-selected="false">Damage Calculator</button></li>
-                <li><button class="nav-tab" data-tab="bosses" aria-selected="false">Boss Tracker</button></li>
-                <li><button class="nav-tab" data-tab="comparison" aria-selected="false">Build Compare</button></li>
-                <li><button class="nav-tab" data-tab="guides" aria-selected="false">Build Guides</button></li>
-                <li><button class="nav-tab" data-tab="optimizer" aria-selected="false">Team Optimizer</button></li>
-                <li><button class="nav-tab" data-tab="achievements" aria-selected="false">Achievements</button></li>
-                <li><button class="nav-tab" data-tab="builds" aria-selected="false">Saved Builds</button></li>
-            </ul>
-        </nav>
+        <!-- App Content Wrapper -->
+        <div class="app-content-wrapper">
 
-        <!-- Main Content -->
-        <main class="main-content" role="main">
+            <!-- Main Content -->
+            <main class="main-content" role="main">
             <!-- Characters Tab -->
             <section id="characters-tab" class="tab-content active" role="tabpanel" aria-labelledby="characters">
                 <div class="content-header">
@@ -389,15 +376,16 @@
                     </div>
                 </div>
             </section>
-        </main>
+            </main>
 
-        <!-- Footer -->
-        <footer class="app-footer">
-            <p>
-                Unofficial fan tool for <strong>Clair Obscur: Expedition 33</strong> by Sandfall Interactive.
-                <a href="#disclaimer" class="disclaimer-link">Disclaimer</a>
-            </p>
-        </footer>
+            <!-- Footer -->
+            <footer class="app-footer">
+                <p>
+                    Unofficial fan tool for <strong>Clair Obscur: Expedition 33</strong> by Sandfall Interactive.
+                    <a href="#disclaimer" class="disclaimer-link">Disclaimer</a>
+                </p>
+            </footer>
+        </div>
     </div>
 
     <!-- Modals and Overlays -->
