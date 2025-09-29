@@ -361,11 +361,13 @@
 
 @media (min-width: 769px) {
   .app-sidebar.desktop {
-    position: sticky;
-    top: 80px; /* Height of header */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 280px;
-    height: calc(100vh - 80px);
-    flex-shrink: 0;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(0);
   }
 
   .sidebar-close {
@@ -373,17 +375,18 @@
   }
 
   .main-content.with-sidebar {
-    margin-left: 0;
+    margin-left: 280px;
+    transition: margin-left var(--transition-normal);
+  }
+
+  .app-content-wrapper.with-sidebar {
+    margin-left: 280px;
+    transition: margin-left var(--transition-normal);
   }
 
   /* Desktop layout adjustments */
   .app-container {
-    display: flex;
-  }
-
-  .app-content-wrapper {
-    flex: 1;
-    min-width: 0; /* Prevents flex item from overflowing */
+    position: relative;
   }
 }
 

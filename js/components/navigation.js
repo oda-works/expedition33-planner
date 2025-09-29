@@ -28,7 +28,9 @@ export class Navigation {
     setTimeout(() => {
       this.restoreGroupStates();
       this.updateActiveState();
-      console.log('🚀 Navigation: Groups and active state restored');
+      // Apply initial responsive state
+      this.handleResize();
+      console.log('🚀 Navigation: Groups, active state, and responsive layout applied');
     }, 100);
 
     console.log('✅ Navigation: Initialization complete');
@@ -130,11 +132,16 @@ export class Navigation {
           appContainer.insertBefore(sidebar, appContainer.firstChild);
         }
 
-        // Update main content layout
+        // Update content layout
         const mainContent = document.querySelector('.main-content');
+        const contentWrapper = document.querySelector('.app-content-wrapper');
         if (mainContent) {
           mainContent.classList.add('with-sidebar');
           console.log('📐 Navigation: Main content updated with sidebar class');
+        }
+        if (contentWrapper) {
+          contentWrapper.classList.add('with-sidebar');
+          console.log('📐 Navigation: Content wrapper updated with sidebar class');
         }
       } catch (error) {
         console.error('❌ Navigation: Error inserting sidebar:', error);
@@ -389,12 +396,14 @@ export class Navigation {
     if (!sidebar) return;
 
     if (window.innerWidth > 768) {
-      // Desktop: always show sidebar
+      // Desktop: always show sidebar with desktop class
       sidebar.classList.add('desktop');
-      this.closeSidebar(); // Reset mobile state
+      sidebar.classList.remove('open'); // Remove mobile open state
+      this.isCollapsed = false; // Sidebar is visible on desktop
     } else {
       // Mobile: collapsible sidebar
       sidebar.classList.remove('desktop');
+      // Keep current mobile state (open/closed)
     }
   }
 
@@ -412,20 +421,6 @@ export class Navigation {
     }
 
     return overlay;
-  }
-
-  /**
-   * Restore expanded groups from localStorage
-   */
-  restoreGroupStates() {
-    Object.keys(this.navigationData).forEach(category => {
-      const isExpanded = localStorage.getItem(`nav-group-${category}`) === 'true';
-      const group = document.querySelector(`[data-category="${category}"]`);
-
-      if (group && isExpanded) {
-        group.classList.add('expanded');
-      }
-    });
   }
 
   /**
