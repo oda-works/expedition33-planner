@@ -111,7 +111,7 @@ export class Navigation {
       }
     }
 
-    // Insert sidebar into app container
+    // Insert sidebar into app container with error handling
     const appContainer = document.getElementById('app');
     const appContentWrapper = document.querySelector('.app-content-wrapper');
 
@@ -119,17 +119,40 @@ export class Navigation {
     console.log('📐 Navigation: Content wrapper found:', !!appContentWrapper);
 
     if (appContainer && appContentWrapper) {
-      appContainer.insertBefore(sidebar, appContentWrapper);
-      console.log('📐 Navigation: Sidebar inserted into DOM');
+      try {
+        // Verify appContentWrapper is actually a child of appContainer
+        if (appContainer.contains(appContentWrapper)) {
+          appContainer.insertBefore(sidebar, appContentWrapper);
+          console.log('📐 Navigation: Sidebar inserted into DOM');
+        } else {
+          // Fallback: append sidebar as first child
+          console.warn('📐 Navigation: ContentWrapper not direct child, using appendChild');
+          appContainer.insertBefore(sidebar, appContainer.firstChild);
+        }
 
-      // Update main content layout
-      const mainContent = document.querySelector('.main-content');
-      if (mainContent) {
-        mainContent.classList.add('with-sidebar');
-        console.log('📐 Navigation: Main content updated with sidebar class');
+        // Update main content layout
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+          mainContent.classList.add('with-sidebar');
+          console.log('📐 Navigation: Main content updated with sidebar class');
+        }
+      } catch (error) {
+        console.error('❌ Navigation: Error inserting sidebar:', error);
+        // Final fallback: just append to app container
+        try {
+          appContainer.appendChild(sidebar);
+          console.log('📐 Navigation: Sidebar appended as fallback');
+        } catch (fallbackError) {
+          console.error('❌ Navigation: Complete failure to insert sidebar:', fallbackError);
+        }
       }
     } else {
       console.error('❌ Navigation: Could not insert sidebar - missing containers');
+      console.log('Available elements:', {
+        app: !!document.getElementById('app'),
+        wrapper: !!document.querySelector('.app-content-wrapper'),
+        body: !!document.body
+      });
     }
   }
 

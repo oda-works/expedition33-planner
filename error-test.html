@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Fix Test</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        .test-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2a2a2a;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            z-index: 9999;
+            max-width: 300px;
+        }
+        .success { border-left: 4px solid #10B981; }
+        .error { border-left: 4px solid #EF4444; }
+    </style>
+</head>
+<body class="theme-dark">
+    <div id="test-status" class="test-status">
+        🧪 Testing DOM fix...
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <h2>Testing Fix...</h2>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app-container" style="display: none;">
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">Error Fix Test</h1>
+                <div class="header-controls">
+                    <button id="theme-toggle" class="btn-icon">🌙</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="app-content-wrapper">
+            <main class="main-content">
+                <div id="characters-tab" class="tab-content active">
+                    <h2>✅ DOM Error Fix Test</h2>
+                    <p>If you can see the sidebar navigation, the fix worked!</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script type="module">
+        const testStatus = document.getElementById('test-status');
+
+        function updateStatus(message, type = 'info') {
+            testStatus.innerHTML = message;
+            testStatus.className = `test-status ${type}`;
+            console.log(message);
+        }
+
+        // Override error handling
+        window.addEventListener('error', (e) => {
+            updateStatus(`❌ ERROR: ${e.message}`, 'error');
+        });
+
+        try {
+            updateStatus('📦 Loading modules...');
+
+            // Import navigation module
+            const { navigation } = await import('./js/components/navigation.js');
+            updateStatus('✅ Navigation module loaded');
+
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.display = 'none';
+                document.getElementById('app').style.display = 'block';
+                updateStatus('👀 App shown, testing navigation...');
+
+                // Test navigation initialization with delay (like in fixed app.js)
+                setTimeout(() => {
+                    try {
+                        navigation.init();
+                        updateStatus('✅ Navigation initialized successfully!', 'success');
+
+                        // Check if sidebar exists
+                        setTimeout(() => {
+                            const sidebar = document.querySelector('.app-sidebar');
+                            if (sidebar) {
+                                updateStatus('🎉 FIX WORKED! Sidebar found in DOM', 'success');
+                            } else {
+                                updateStatus('⚠️ Navigation init succeeded but no sidebar found', 'error');
+                            }
+                        }, 500);
+
+                    } catch (error) {
+                        updateStatus(`❌ Navigation init failed: ${error.message}`, 'error');
+                    }
+                }, 200); // Same delay as in fixed app.js
+
+            }, 1000);
+
+        } catch (error) {
+            updateStatus(`❌ Module load failed: ${error.message}`, 'error');
+        }
+    </script>
+</body>
+</html>

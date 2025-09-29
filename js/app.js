@@ -58,25 +58,28 @@ class App {
       this.router.init();
       console.log('✓ Router initialized');
 
-      // Initialize navigation
-      console.log('6. Initializing navigation...');
-      this.navigation.init();
-      console.log('✓ Navigation initialized');
-
       // Set up event listeners
-      console.log('7. Setting up event listeners...');
+      console.log('6. Setting up event listeners...');
       this.setupEventListeners();
       console.log('✓ Event listeners set up');
 
       // Register service worker
-      console.log('8. Registering service worker...');
+      console.log('7. Registering service worker...');
       this.registerServiceWorker();
       console.log('✓ Service worker registered');
 
-      // Hide loading screen and show app
-      console.log('9. Hiding loading screen...');
+      // Hide loading screen and show app FIRST
+      console.log('8. Hiding loading screen...');
       this.hideLoadingScreen();
       console.log('✓ Loading screen hidden');
+
+      // THEN initialize navigation after DOM is visible and ready
+      console.log('9. Initializing navigation...');
+      // Small delay to ensure DOM is fully ready
+      setTimeout(() => {
+        this.navigation.init();
+        console.log('✓ Navigation initialized');
+      }, 200);
 
       console.log('🎉 Expedition 33 Planner initialized successfully');
     } catch (error) {
