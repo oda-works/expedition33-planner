@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expedition 33 Planner - All Features Accessible</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pictos-manager.css">
+    <link rel="stylesheet" href="css/party-composer.css">
+    <link rel="stylesheet" href="css/party-synergy.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/pictos.css">
+    <link rel="stylesheet" href="css/damage-calculator.css">
+    <link rel="stylesheet" href="css/boss-tracker.css">
+    <link rel="stylesheet" href="css/build-comparison.css">
+    <link rel="stylesheet" href="css/build-guides.css">
+    <link rel="stylesheet" href="css/team-optimizer.css">
+    <link rel="stylesheet" href="css/achievement-tracker.css">
+    <style>
+        .quick-nav {
+            background: var(--glass-surface);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .nav-btn {
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .nav-btn.active {
+            background: var(--accent-gold);
+            color: var(--darker-background);
+        }
+        .feature-status {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body class="theme-dark">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <h2>Loading All Features...</h2>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app-container" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="title-main">Expedition 33</span>
+                    <span class="title-sub">All Features</span>
+                </h1>
+                <div class="header-controls">
+                    <button id="theme-toggle" class="btn-icon">🌙</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <h3>🚀 All Features - Click to Access:</h3>
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showTab('characters')">
+                    👤 Character Builder
+                    <div class="feature-status">Build & customize characters</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('pictos')">
+                    🔮 Pictos & Lumina
+                    <div class="feature-status">Manage pictos collection</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('party')">
+                    ⚔️ Party Composer
+                    <div class="feature-status">Create & optimize teams</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('collectibles')">
+                    🗺️ Collectibles
+                    <div class="feature-status">Track collectibles & map</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('calculator')">
+                    📊 Damage Calculator
+                    <div class="feature-status">Calculate damage & stats</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('bosses')">
+                    👹 Boss Tracker
+                    <div class="feature-status">Track boss encounters</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('comparison')">
+                    📋 Build Comparison
+                    <div class="feature-status">Compare builds side-by-side</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('guides')">
+                    📖 Build Guides
+                    <div class="feature-status">Comprehensive build guides</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('optimizer')">
+                    🎯 Team Optimizer
+                    <div class="feature-status">AI-powered team optimization</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('achievements')">
+                    🏆 Achievements
+                    <div class="feature-status">Track achievement progress</div>
+                </button>
+                <button class="nav-btn" onclick="showTab('builds')">
+                    💾 Saved Builds
+                    <div class="feature-status">Manage saved builds</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Characters Tab -->
+            <section id="characters-tab" class="tab-content active">
+                <div class="content-header">
+                    <h2>Character Builder</h2>
+                    <div class="content-controls">
+                        <select id="character-select" class="character-selector">
+                            <option value="">Select a Character</option>
+                            <option value="gustave">Gustave</option>
+                            <option value="lune">Lune</option>
+                            <option value="maelle">Maelle</option>
+                            <option value="sciel">Sciel</option>
+                            <option value="verso">Verso</option>
+                            <option value="monoco">Monoco</option>
+                        </select>
+                        <button id="reset-build" class="btn-secondary">Reset Build</button>
+                        <button id="save-build" class="btn-primary">Save Build</button>
+                    </div>
+                </div>
+                <div id="character-builder" class="character-builder">
+                    <div class="builder-placeholder">
+                        <p>Select a character to begin building</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pictos & Lumina Tab -->
+            <section id="pictos-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Pictos & Lumina Manager</h2>
+                    <div class="content-controls">
+                        <input type="search" id="pictos-search" placeholder="Search pictos..." class="search-input">
+                        <select id="pictos-filter" class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="offensive">Offensive</option>
+                            <option value="defensive">Defensive</option>
+                            <option value="support">Support</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="pictos-manager" class="pictos-manager">
+                    <div class="pictos-main-content">
+                        <div class="pictos-collection">
+                            <h3>Pictos Collection</h3>
+                            <div class="pictos-grid" id="pictos-grid">
+                                <!-- Pictos will be dynamically loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Party Composer Tab -->
+            <section id="party-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Party Composer</h2>
+                    <div class="content-controls">
+                        <button id="optimize-party" class="btn-primary">Auto-Optimize</button>
+                        <button id="clear-party" class="btn-secondary">Clear Party</button>
+                    </div>
+                </div>
+                <div id="party-composer" class="party-composer">
+                    <!-- Party composer content -->
+                </div>
+            </section>
+
+            <!-- Collectibles Tab -->
+            <section id="collectibles-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Collectibles Tracker</h2>
+                    <div class="content-controls">
+                        <div class="progress-summary">
+                            <span id="overall-progress">0% Complete</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="collectibles-tracker" class="collectibles-tracker">
+                    <!-- Collectibles content -->
+                </div>
+            </section>
+
+            <!-- Calculator Tab -->
+            <section id="calculator-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Damage Calculator</h2>
+                </div>
+                <div id="damage-calculator">
+                    <!-- Calculator content -->
+                </div>
+            </section>
+
+            <!-- Boss Tracker Tab -->
+            <section id="bosses-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Boss Tracker</h2>
+                </div>
+                <div id="boss-tracker">
+                    <!-- Boss tracker content -->
+                </div>
+            </section>
+
+            <!-- Build Comparison Tab -->
+            <section id="comparison-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Build Comparison</h2>
+                </div>
+                <div id="build-comparison">
+                    <!-- Build comparison content -->
+                </div>
+            </section>
+
+            <!-- Build Guides Tab -->
+            <section id="guides-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Build Guides</h2>
+                </div>
+                <div id="build-guides">
+                    <!-- Build guides content -->
+                </div>
+            </section>
+
+            <!-- Team Optimizer Tab -->
+            <section id="optimizer-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Team Optimizer</h2>
+                </div>
+                <div id="team-optimizer">
+                    <!-- Team optimizer content -->
+                </div>
+            </section>
+
+            <!-- Achievements Tab -->
+            <section id="achievements-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Achievement Tracker</h2>
+                </div>
+                <div id="achievement-tracker">
+                    <!-- Achievement tracker content -->
+                </div>
+            </section>
+
+            <!-- Saved Builds Tab -->
+            <section id="builds-tab" class="tab-content">
+                <div class="content-header">
+                    <h2>Saved Builds</h2>
+                </div>
+                <div id="saved-builds" class="saved-builds">
+                    <!-- Saved builds content -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+    <script>
+        // Simple tab switching function
+        function showTab(tabName) {
+            console.log('Switching to:', tabName);
+
+            // Update button states
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            const targetTab = document.getElementById(tabName + '-tab');
+            if (targetTab) {
+                targetTab.classList.add('active');
+                // Update URL hash for routing
+                window.location.hash = '#/' + tabName;
+            }
+        }
+
+        // Make function globally available
+        window.showTab = showTab;
+
+        // Handle URL hash changes
+        function handleHashChange() {
+            const hash = window.location.hash.slice(2); // Remove #/
+            if (hash) {
+                const tabExists = document.getElementById(hash + '-tab');
+                if (tabExists) {
+                    // Find and click the corresponding button
+                    const buttons = document.querySelectorAll('.nav-btn');
+                    buttons.forEach(btn => {
+                        if (btn.onclick.toString().includes(hash)) {
+                            btn.click();
+                        }
+                    });
+                }
+            }
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+        window.addEventListener('load', handleHashChange);
+    </script>
+</body>
+</html>

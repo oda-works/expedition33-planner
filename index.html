@@ -69,6 +69,26 @@
             </div>
         </header>
 
+        <!-- Fallback Navigation (visible if sidebar fails) -->
+        <nav id="fallback-nav" class="fallback-navigation" style="display: none;">
+            <div style="background: var(--glass-surface); padding: 10px; margin: 10px; border-radius: 8px; text-align: center;">
+                <p style="margin: 5px 0; color: var(--text-secondary); font-size: 12px;">Quick Access to All Features:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+                    <button onclick="switchTab('characters')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">👤 Characters</button>
+                    <button onclick="switchTab('pictos')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">🔮 Pictos</button>
+                    <button onclick="switchTab('party')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">⚔️ Party</button>
+                    <button onclick="switchTab('collectibles')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">🗺️ Collectibles</button>
+                    <button onclick="switchTab('calculator')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">📊 Calculator</button>
+                    <button onclick="switchTab('bosses')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">👹 Bosses</button>
+                    <button onclick="switchTab('comparison')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">📋 Compare</button>
+                    <button onclick="switchTab('guides')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">📖 Guides</button>
+                    <button onclick="switchTab('optimizer')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">🎯 Optimizer</button>
+                    <button onclick="switchTab('achievements')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">🏆 Achievements</button>
+                    <button onclick="switchTab('builds')" class="btn-secondary" style="padding: 5px 10px; font-size: 12px;">💾 Builds</button>
+                </div>
+            </div>
+        </nav>
+
         <!-- App Content Wrapper -->
         <div class="app-content-wrapper">
 
@@ -408,5 +428,47 @@
 
     <!-- Scripts -->
     <script type="module" src="js/app.js"></script>
+    <script>
+        // Global tab switching function for fallback navigation
+        function switchTab(tabName) {
+            console.log('Fallback: Switching to', tabName);
+
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            const targetTab = document.getElementById(tabName + '-tab');
+            if (targetTab) {
+                targetTab.classList.add('active');
+                // Update URL hash
+                window.location.hash = '#/' + tabName;
+                console.log('Fallback: Activated', tabName);
+            }
+        }
+
+        // Show fallback navigation if sidebar doesn't appear within 3 seconds
+        setTimeout(() => {
+            const sidebar = document.querySelector('.app-sidebar');
+            const fallbackNav = document.getElementById('fallback-nav');
+
+            if (!sidebar && fallbackNav) {
+                fallbackNav.style.display = 'block';
+                console.log('Sidebar not found - showing fallback navigation');
+            }
+        }, 3000);
+
+        // Also show fallback on any navigation errors
+        window.addEventListener('error', (e) => {
+            if (e.message.includes('navigation') || e.message.includes('sidebar')) {
+                const fallbackNav = document.getElementById('fallback-nav');
+                if (fallbackNav) {
+                    fallbackNav.style.display = 'block';
+                    console.log('Navigation error detected - showing fallback');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
